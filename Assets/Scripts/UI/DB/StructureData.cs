@@ -12,7 +12,7 @@ public class StructureData
     public string nameEng;
     public string description;
     public string Category;
-    [NonReorderable]
+    [NonSerialized]
     public structuresType structurestype;
     public int level;
 

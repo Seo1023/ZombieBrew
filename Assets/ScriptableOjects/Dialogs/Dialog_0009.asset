@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcce155b1c732f3439a9943d63e41865, type: 3}
+  m_Name: Dialog_0009
+  m_EditorClassIdentifier: 
+  id: 9
+  text: "\uC0C1\uCF8C\u2026\uD558\uAD70\u2026.."
+  characterName: "\uC880\uBE44 \uC190\uB2D8"
+  nextId: -1
+  portrait: {fileID: 0}
+  portraitPath: Characters/ZombieCustomer
