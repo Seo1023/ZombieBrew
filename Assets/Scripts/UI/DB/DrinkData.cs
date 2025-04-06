@@ -17,6 +17,7 @@ public class DrinkData
     public int curedlevel;
     public int price;
     public string iconPath;
+    public string iconResourcesPath;
 
     public void InitalizEnums()
     {

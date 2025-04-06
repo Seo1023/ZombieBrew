@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c7a85b7d95cec41b22854fa825eac4, type: 3}
+  m_Name: structure_0002_Ice Maker
+  m_EditorClassIdentifier: 
+  id: 2
+  name: "\uC81C\uBE59\uAE30"
+  nameEng: Ice Maker
+  description: "\uC5BC\uC74C\uC744 \uC81C\uC791\uD558\uB294 \uAE30\uACC4"
+  Category: 
+  structurestype: 0
+  level: 1

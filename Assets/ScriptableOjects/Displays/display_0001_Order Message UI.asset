@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8dae1f9aae9bb4f936c3cdfc982336, type: 3}
+  m_Name: display_0001_Order Message UI
+  m_EditorClassIdentifier: 
+  id: 1
+  name: "\uC8FC\uBB38 \uBA54\uC2DC\uC9C0 UI"
+  nameEng: Order Message UI
+  description: "\uC8FC\uBB38 \uB0B4\uC6A9\uC744 \uD45C\uC2DC\uD558\uB294 UI"
+  type: 
+  displaysType: 0
+  interaction: N/A

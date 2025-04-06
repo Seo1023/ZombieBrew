@@ -25,7 +25,7 @@ public class IngredientDatabaseSO : ScriptableObject
         }
     }
 
-    public IngredientSO GetItemByld(int id)
+    public IngredientSO GetIngredientByld(int id)
     {
         if (ingredientById == null)
         {
@@ -36,7 +36,7 @@ public class IngredientDatabaseSO : ScriptableObject
 
         return null;
     }
-    public IngredientSO GetItemByName(string name)
+    public IngredientSO GetIngredientByName(string name)
     {
         if (ingredientByName == null)
         {
@@ -47,7 +47,7 @@ public class IngredientDatabaseSO : ScriptableObject
         return null;
     }
 
-    public List<IngredientSO> GetItemByType(ingredientsType type)
+    public List<IngredientSO> GetIngredientByType(ingredientsType type)
     {
         return ingredients.FindAll(item => item.ingredientsType == type);
     }

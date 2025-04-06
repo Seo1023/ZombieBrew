@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8dae1f9aae9bb4f936c3cdfc982336, type: 3}
+  m_Name: display_0006_Extraction Button
+  m_EditorClassIdentifier: 
+  id: 6
+  name: "\uCD94\uCD9C \uBC84\uD2BC"
+  nameEng: Extraction Button
+  description: "\uCEE4\uD53C \uC81C\uC791 \uD654\uBA74\uC5D0\uC11C \uCEE4\uD53C\uB97C
+    \uCD94\uCD9C\uD558\uB294 \uBC84\uD2BC"
+  type: 
+  displaysType: 1
+  interaction: Click

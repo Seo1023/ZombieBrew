@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c7a85b7d95cec41b22854fa825eac4, type: 3}
+  m_Name: structure_0001_Coffee Machine
+  m_EditorClassIdentifier: 
+  id: 1
+  name: "\uCEE4\uD53C\uBA38\uC2E0"
+  nameEng: Coffee Machine
+  description: "\uCEE4\uD53C\uB97C \uC81C\uC791\uD558\uB294 \uAE30\uACC4"
+  Category: 
+  structurestype: 0
+  level: 1

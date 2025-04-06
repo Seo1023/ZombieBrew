@@ -10,11 +10,19 @@ using Unity.VisualScripting;
 //using UnityEngine.Windows;
 using static IngredientsType;
 using static UnityEditor.Progress;
+using static StructuresType;
+using static DrinksType;
+using static CharactersType;
+using static DisplaysType;
 
 public enum ConversionType
 {
     Ingredients,
+    Structures,
     Dialogs,
+    Drinks,
+    Characters,
+    Displays,
 }
 
 [SerializeField]
@@ -64,6 +72,22 @@ public class JsonToScriptableConverter : EditorWindow
         {
             outputFolder = "Assets/ScriptableOjects/Dialogs";
         }
+        else if(conversionType == ConversionType.Structures)
+        {
+            outputFolder = "Assets/ScriptableOjects/Structures";
+        }
+        else if(conversionType == ConversionType.Drinks)
+        {
+            outputFolder = "Assets/ScriptableOjects/Drinks";
+        }
+        else if(conversionType == ConversionType.Characters)
+        {
+            outputFolder = "Assets/ScriptableOjects/Characters";
+        }
+        else if(conversionType == ConversionType.Displays)
+        {
+            outputFolder = "Assets/ScriptableOjects/Displays";
+        }
 
         outputFolder = EditorGUILayout.TextField("Output Folder : ", outputFolder);
         createDatabase = EditorGUILayout.Toggle("Create Database Asset", createDatabase);
@@ -82,18 +106,30 @@ public class JsonToScriptableConverter : EditorWindow
                 case ConversionType.Ingredients:
                     ConvertJsonToIngredientScriptableObjects();
                     break;
+                case ConversionType.Structures:
+                    ConvertJsonToStructureScriptableObjects();
+                    break;
                 case ConversionType.Dialogs:
                     ConvertJsonToDialogScriptableObject();
                     break;
-
+                case ConversionType.Drinks:
+                    ConvertJsonToDrinkScriptableObjects();
+                    break;
+                case ConversionType.Characters:
+                    ConvertJsonToCharacterScriptableObjects();
+                    break;
+                case ConversionType.Displays:
+                    ConvertJsonToDisplayScriptableObjects();
+                    break;
             }
             //ConvertJsonToItemScriptableObjects();
         }
     }
 
+    //재료
     private void ConvertJsonToIngredientScriptableObjects()
     {
-        if(!Directory.Exists(outputFolder))
+        if (!Directory.Exists(outputFolder))
         {
             Directory.CreateDirectory(outputFolder);
         }
@@ -159,6 +195,269 @@ public class JsonToScriptableConverter : EditorWindow
             Debug.LogError($"JSON 변환 오류: {e}");
         }
     }
+
+    //구조물
+    private void ConvertJsonToStructureScriptableObjects()
+    {
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
+        string jsonText = File.ReadAllText(jsonFilePath);
+        try
+        {
+            List<StructureData> StructuerDatasList = JsonConvert.DeserializeObject<List<StructureData>>(jsonText);
+            List<StructureSO> createdstructure = new List<StructureSO>();
+
+            foreach (var structureData in StructuerDatasList)
+            {
+                StructureSO structureSO = ScriptableObject.CreateInstance<StructureSO>();
+
+                structureSO.id = structureData.id;
+                structureSO.name = structureData.name;
+                structureSO.nameEng = structureData.nameEng;
+                structureSO.description = structureData.description;
+
+                if (System.Enum.TryParse(structureData.Category, out structuresType parsetType))
+                {
+                    structureSO.structurestype = parsetType;
+                }
+                else
+                {
+                    Debug.LogWarning($"아이템'{structureData.name}'의 유허하지 않은 타입 : {structureData.Category}");
+                }
+
+                structureSO.level = structureData.level;
+                //structureSO.Quantity = structureData.Quantity;
+
+                /*if (!string.IsNullOrEmpty(structureData.iconPath))
+                {
+                    structureSO.icon = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Resources/{structureData.iconPath}.png");
+                    if (structureSO.icon == null)
+                    {
+                        Debug.LogWarning($"아이템 '{structureData.nameEng}'의 아이콘을 찾을 수 없습니다 : {structureData.iconPath}");
+                    }
+                }*/
+
+                string assetPath = $"{outputFolder}/structure_{structureData.id.ToString("D4")}_{structureData.nameEng}.asset";
+                AssetDatabase.CreateAsset(structureSO, assetPath);
+
+                structureData.name = $"structure_{structureData.id.ToString("D4")} + {structureData.nameEng}";
+                createdstructure.Add(structureSO);
+
+                EditorUtility.SetDirty(structureSO);
+            }
+
+            if (createDatabase && createdstructure.Count > 0)
+            {
+                StructureDatabaseSO database = ScriptableObject.CreateInstance<StructureDatabaseSO>();
+                database.structures = createdstructure;
+
+                AssetDatabase.CreateAsset(database, $"(outputFolder)/structureDatabase.asset");
+                EditorUtility.SetDirty(database);
+            }
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        catch (System.Exception e)
+        {
+            EditorUtility.DisplayDialog("Error", $"Failed to Convert JSON : {e.Message}", "OK");
+            Debug.LogError($"JSON 변환 오류: {e}");
+        }
+    }
+
+    //음료
+    private void ConvertJsonToDrinkScriptableObjects()
+    {
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
+        string jsonText = File.ReadAllText(jsonFilePath);
+        try
+        {
+            List<DrinkData> DrinkDatasList = JsonConvert.DeserializeObject<List<DrinkData>>(jsonText);
+            List<DrinkSO> createdrink = new List<DrinkSO>();
+
+            foreach (var drinkData in DrinkDatasList)
+            {
+                DrinkSO drinkSO = ScriptableObject.CreateInstance<DrinkSO>();
+
+                drinkSO.id = drinkData.id;
+                drinkSO.name = drinkData.name;
+                drinkSO.nameEng = drinkData.nameEng;
+                drinkSO.description = drinkData.description;
+
+                if (System.Enum.TryParse(drinkData.type, out drinksType parsetType))
+                {
+                    drinkSO.drinksType = parsetType;
+                }
+                else
+                {
+                    Debug.LogWarning($"아이템'{drinkData.name}'의 유허하지 않은 타입 : {drinkData.type}");
+                }
+
+                drinkSO.curedlevel = drinkData.curedlevel;
+                drinkSO.price = drinkData.price;
+
+                if (!string.IsNullOrEmpty(drinkData.iconPath))
+                {
+                    drinkSO.iconPath = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Resources/{drinkData.iconResourcesPath}.png");
+                    if (drinkSO.iconPath == null)
+                    {
+                        Debug.LogWarning($"아이템 '{drinkData.nameEng}'의 아이콘을 찾을 수 없습니다 : {drinkData.iconResourcesPath}");
+                    }
+                }
+
+                string assetPath = $"{outputFolder}/drink_{drinkData.id.ToString("D4")}_{drinkData.nameEng}.asset";
+                AssetDatabase.CreateAsset(drinkSO, assetPath);
+
+                drinkData.name = $"drink_{drinkData.id.ToString("D4")} + {drinkData.nameEng}";
+                createdrink.Add(drinkSO);
+
+                EditorUtility.SetDirty(drinkSO);
+            }
+
+            if (createDatabase && createdrink.Count > 0)
+            {
+                DrinkDatabaseSO database = ScriptableObject.CreateInstance<DrinkDatabaseSO>();
+                database.drinks = createdrink;
+
+                AssetDatabase.CreateAsset(database, $"(outputFolder)/drinkDatabase.asset");
+                EditorUtility.SetDirty(database);
+            }
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        catch (System.Exception e)
+        {
+            EditorUtility.DisplayDialog("Error", $"Failed to Convert JSON : {e.Message}", "OK");
+            Debug.LogError($"JSON 변환 오류: {e}");
+        }
+    }
+
+    //캐릭터
+    private void ConvertJsonToCharacterScriptableObjects()
+    {
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
+        string jsonText = File.ReadAllText(jsonFilePath);
+        try
+        {
+            List<CharactersData> CharacterDatasList = JsonConvert.DeserializeObject<List<CharactersData>>(jsonText);
+            List<CharacterSO> createdcharacter = new List<CharacterSO>();
+
+            foreach (var characterData in CharacterDatasList)
+            {
+                CharacterSO characterSO = ScriptableObject.CreateInstance<CharacterSO>();
+
+                characterSO.id = characterData.id;
+                characterSO.name = characterData.name;
+                characterSO.nameEng = characterData.nameEng;
+                characterSO.description = characterData.description;
+
+                if (System.Enum.TryParse(characterData.type, out charactersType parsetType))
+                {
+                    characterSO.charactersType = parsetType;
+                }
+                else
+                {
+                    Debug.LogWarning($"아이템'{characterData.name}'의 유허하지 않은 타입 : {characterData.type}");
+                }
+
+                characterSO.level = characterData.level;
+                characterSO.speed = characterData.speed;
+                characterSO.hp = characterData.hp;
+
+                string assetPath = $"{outputFolder}/character_{characterData.id.ToString("D4")}_{characterData.nameEng}.asset";
+                AssetDatabase.CreateAsset(characterSO, assetPath);
+
+                characterData.name = $"character_{characterData.id.ToString("D4")} + {characterData.nameEng}";
+                createdcharacter.Add(characterSO);
+
+                EditorUtility.SetDirty(characterSO);
+            }
+
+            if (createDatabase && createdcharacter.Count > 0)
+            {
+                CharacterDatabaseSO database = ScriptableObject.CreateInstance<CharacterDatabaseSO>();
+                database.structures = createdcharacter;
+
+                AssetDatabase.CreateAsset(database, $"(outputFolder)/characterDatabase.asset");
+                EditorUtility.SetDirty(database);
+            }
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        catch (System.Exception e)
+        {
+            EditorUtility.DisplayDialog("Error", $"Failed to Convert JSON : {e.Message}", "OK");
+            Debug.LogError($"JSON 변환 오류: {e}");
+        }
+    }
+
+    //UI
+    private void ConvertJsonToDisplayScriptableObjects()
+    {
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
+        string jsonText = File.ReadAllText(jsonFilePath);
+        try
+        {
+            List<DisplayData> DisplayDatasList = JsonConvert.DeserializeObject<List<DisplayData>>(jsonText);
+            List<DisplaySO> createddisplay = new List<DisplaySO>();
+
+            foreach (var displayData in DisplayDatasList)
+            {
+                DisplaySO displaySO = ScriptableObject.CreateInstance<DisplaySO>();
+
+                displaySO.id = displayData.id;
+                displaySO.name = displayData.name;
+                displaySO.nameEng = displayData.nameEng;
+                displaySO.description = displayData.description;
+
+                if (System.Enum.TryParse(displayData.type, out displaysType parsetType))
+                {
+                    displaySO.displaysType = parsetType;
+                }
+                else
+                {
+                    Debug.LogWarning($"아이템'{displayData.name}'의 유허하지 않은 타입 : {displayData.type}");
+                }
+
+                displaySO.interaction = displayData.interaction;
+
+                string assetPath = $"{outputFolder}/display_{displayData.id.ToString("D4")}_{displayData.nameEng}.asset";
+                AssetDatabase.CreateAsset(displaySO, assetPath);
+
+                displayData.name = $"display_{displayData.id.ToString("D4")} + {displayData.nameEng}";
+                createddisplay.Add(displaySO);
+
+                EditorUtility.SetDirty(displaySO);
+            }
+
+            if (createDatabase && createddisplay.Count > 0)
+            {
+                DisplayDatabaseSO database = ScriptableObject.CreateInstance<DisplayDatabaseSO>();
+                database.displays = createddisplay;
+
+                AssetDatabase.CreateAsset(database, $"(outputFolder)/displayDatabase.asset");
+                EditorUtility.SetDirty(database);
+            }
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        catch (System.Exception e)
+        {
+            EditorUtility.DisplayDialog("Error", $"Failed to Convert JSON : {e.Message}", "OK");
+            Debug.LogError($"JSON 변환 오류: {e}");
+        }
+    }
+
     //대화
     private void ConvertJsonToDialogScriptableObject()
     {

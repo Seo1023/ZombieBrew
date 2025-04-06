@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c7a85b7d95cec41b22854fa825eac4, type: 3}
+  m_Name: structure_0003_Grinder
+  m_EditorClassIdentifier: 
+  id: 3
+  name: "\uC6D0\uB450 \uADF8\uB77C\uC778\uB354"
+  nameEng: Grinder
+  description: "\uCEE4\uD53C \uC6D0\uB450\uB97C \uBD84\uC1C4\uD558\uB294 \uAE30\uACC4"
+  Category: 
+  structurestype: 0
+  level: 1

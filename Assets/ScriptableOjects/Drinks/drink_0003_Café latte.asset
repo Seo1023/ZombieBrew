@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a04f9e27a8bc94a89d5f76d1951537, type: 3}
+  m_Name: "drink_0003_Caf\xE9 latte"
+  m_EditorClassIdentifier: 
+  id: 3
+  name: "\uC5D0\uC2A4\uD504\uB808\uC18C"
+  nameEng: "Caf\xE9 latte"
+  description: "\uC6B0\uC720\uC5D0 \uC5D0\uC2A4\uD504\uB808\uC18C\uB97C \uB123\uC740
+    \uCEE4\uD53C\uC774\uB2E4. \uBD80\uB4DC\uB7EC\uC6B4 \uB9DB\uC774 \uD2B9\uC9D5."
+  type: 
+  drinksType: 0
+  curedlevel: 0
+  price: 75
+  iconPath: {fileID: 0}
+  iconResourcesPath: 
