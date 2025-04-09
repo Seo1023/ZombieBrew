@@ -1,37 +1,71 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameTimeDisplay : MonoBehaviour
+public class ClockHand : MonoBehaviour
 {
-    public TMP_Text timeText;  // 게임 화면에 표시할 TextMeshPro UI
-    public float gameTime = 480f; // 08:00 AM (480분)
-    public float gameHourIncrease = 60f; // 게임에서 1시간 (60분)
-    public float realTimeInterval = 2.4f; // 현실 2.4초마다 1시간 증가
-    public int maxHours = 12; // 12시간(08:00 → 20:00) 표시 후 종료
+    public RectTransform handTransform;         // 초침
+    public GameObject yellowBackground;         // 배경 1
+    public GameObject orangeBackground;         // 배경 2
+    public GameObject redBackground;            // 배경 3
+
+    public float gameTimeStep = 2f;             // 게임 시간 증가 단위 (2분)
+    public float realTimeTotal = 300f;          // 현실 시간 5분
+    public int maxGameHours = 10;               // 10시간
+    public string nextSceneName = "NextScene";
+
+    [Range(0f, 1f)] public float orangeThreshold = 0.33f; // 1/3 지점
+    [Range(0f, 1f)] public float redThreshold = 0.66f;    // 2/3 지점
+
+    private float gameTime = 0f;
+    private bool orangeSet = false;
+    private bool redSet = false;
 
     void Start()
     {
-        UpdateTimeText();
-        StartCoroutine(UpdateGameTime());
+        // 초기 상태: 노란 배경만 켜기
+        yellowBackground.SetActive(true);
+        orangeBackground.SetActive(false);
+        redBackground.SetActive(false);
+
+        StartCoroutine(RotateClockHand());
     }
 
-    IEnumerator UpdateGameTime()
+    IEnumerator RotateClockHand()
     {
-        for (int i = 0; i < maxHours; i++)
+        float totalGameMinutes = maxGameHours * 60f;
+        int steps = (int)(totalGameMinutes / gameTimeStep);
+        float realInterval = realTimeTotal / steps;
+
+        while (gameTime < totalGameMinutes)
         {
-            yield return new WaitForSeconds(realTimeInterval); // 2.4초 대기
-            gameTime += gameHourIncrease; // 게임 시간 1시간 증가
-            UpdateTimeText();
+            yield return new WaitForSeconds(realInterval);
+
+            gameTime += gameTimeStep;
+
+            // 초침 회전
+            float rotation = (gameTime / totalGameMinutes) * 360f;
+            handTransform.rotation = Quaternion.Euler(0, 0, -rotation);
+
+            // 배경 교체
+            float progress = gameTime / totalGameMinutes;
+
+            if (!orangeSet && progress >= orangeThreshold)
+            {
+                yellowBackground.SetActive(false);
+                orangeBackground.SetActive(true);
+                orangeSet = true;
+            }
+            else if (!redSet && progress >= redThreshold)
+            {
+                orangeBackground.SetActive(false);
+                redBackground.SetActive(true);
+                redSet = true;
+            }
         }
 
-        Debug.Log("시간 흐름 종료.");
-    }
-
-    void UpdateTimeText()
-    {
-        int hours = (int)(gameTime / 60);
-        int minutes = (int)(gameTime % 60);
-        timeText.text = $"{hours:D2}:{minutes:D2}";
+        Debug.Log("시간 종료, 씬 이동");
+        SceneManager.LoadScene(nextSceneName);
     }
 }
