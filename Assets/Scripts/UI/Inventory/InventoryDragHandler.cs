@@ -61,7 +61,11 @@ public class InventoryDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandl
     /// <param name="eventData">이벤트 데이터</param>
     public void OnEndDrag(PointerEventData eventData)
     {
-        Destroy(draggedIcon?.gameObject);// 드래그 아이콘 제거
+        if (draggedIcon != null)
+        {
+            Destroy(draggedIcon.gameObject);
+            draggedIcon = null; 
+        }
 
         // 슬롯 위에 드롭했는지 검사
         var results = new List<RaycastResult>();
