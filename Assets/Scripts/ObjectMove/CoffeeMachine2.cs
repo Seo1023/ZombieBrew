@@ -27,14 +27,23 @@ public class CoffeeMachine2 : MonoBehaviour
         
     }
 
+    public void Combine()
+    {
+
+    }
+
     // F로 상호작용 시 UI 키고 끔
     void Update()
     {
         float distance = Vector3.Distance(transform.position , player.position);
-        if(distance < 2 && Input.GetKeyDown(KeyCode.F))
+        if(distance < 1.3 && Input.GetKeyDown(KeyCode.F))
         {
             inventory.SetActive(!inventory.activeSelf);
             combineUI.SetActive(!combineUI.activeSelf);
+        } else if (distance > 1.3)
+        {
+            inventory.SetActive(false);
+            combineUI.SetActive(false);
         }
     }
 
