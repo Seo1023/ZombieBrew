@@ -27,7 +27,7 @@ public class FarmingObject : MonoBehaviour
     public GameObject errorUI;
     public TextMeshProUGUI text;
 
-    void Start()
+    public void Start()
     {
         errorUI.SetActive(false);
     }
@@ -35,28 +35,29 @@ public class FarmingObject : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-        if(distance < 1.3 && Input.GetKeyDown(KeyCode.F))
+        if(isTake == false && distance < 1.3 && Input.GetKeyDown(KeyCode.F))
         {
             isTake = true;
+            Debug.Log("파밍 했음");
             float value = Random.value;
             if(value < 0.25f)
             {
                 inventoryManager.AddIngredient(slotIndex, chocolate);
-            } 
-            //else if(value < 0.5f)
+            }
+            //else if (value < 0.5f)
             //{
             //    inventoryManager.AddIngredient(slotIndex2.mint);
-            //} 
-            //else if(value < 0.75f)
+            //}
+            //else if (value < 0.75f)
             //{
             //    inventoryManager.AddIngredient(slotIndex3.uniqueflower);
-            //} 
-            //else if(value < 1f)
+            //}
+            //else if (value < 1f)
             //{
             //    inventoryManager.AddIngredient(slotIndex4.butter);
             //}
         }
-        if (isTake)
+        else if (isTake && Input.GetKeyDown(KeyCode.F) && distance < 1.3)
         {
             errorUI.SetActive(true);
             text.text = "이 요소는 이미 파밍된 요소입니다.";
