@@ -2683,7 +2683,7 @@ RectTransform:
   m_GameObject: {fileID: 801405098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.50928193, y: 0.50928193, z: 0.50928193}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 475403063}
@@ -2709,7 +2709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: -74.9399}
+  m_AnchoredPosition: {x: -181, y: -3}
   m_SizeDelta: {x: 757.0044, y: 849.3995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &852533555
@@ -4868,8 +4868,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456842560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -6}
+  m_LocalScale: {x: 0.48117757, y: 0.54035, z: 0.54035}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1203940044}
@@ -4877,7 +4877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 422, y: 0}
+  m_AnchoredPosition: {x: 194, y: 0}
   m_SizeDelta: {x: 760, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1464412813
@@ -6331,7 +6331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBrewing: 0
-  inventory: {fileID: 866668465}
+  inventoryPanel: {fileID: 801405098}
   combineUI: {fileID: 1456842560}
   player: {fileID: 474848241}
 --- !u!65 &1711281096
