@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBrewing: 0
-  inventoryPanel: {fileID: 1703489102}
+  inventoryPanel: {fileID: 1046036403}
   craftingPanel: {fileID: 351848713}
   player: {fileID: 1617845003}
   logic: {fileID: 59432326}
@@ -14608,7 +14608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1001318459}
-  icon: {fileID: 1001318459}
+  icon: {fileID: 258369355}
   currentIngredient: {fileID: 0}
 --- !u!1 &1495288914
 GameObject:
@@ -16835,7 +16835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1703489103
 RectTransform:
   m_ObjectHideFlags: 0

@@ -47,16 +47,24 @@ public class CoffeeMachine2 : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance < 1.3f && Input.GetKeyDown(KeyCode.F))
+        // F 키로 열고 닫기
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            bool showUI = !inventoryPanel.activeSelf;
-            ToggleCraftingUI(showUI);
+            // 플레이어가 가까울 때만 열 수 있음
+            if (distance < 1.3f)
+            {
+                bool showUI = !inventoryPanel.activeSelf;
+                ToggleCraftingUI(showUI);
+            }
         }
-        else if (distance > 1.3f && inventoryPanel.activeSelf)
+
+        // UI가 켜져 있고, 거리가 멀어졌을 때만 자동으로 닫기
+        if (inventoryPanel.activeSelf && distance > 1.8f)
         {
             ToggleCraftingUI(false);
         }
     }
+
 
 
     void ToggleCraftingUI(bool isActive)
