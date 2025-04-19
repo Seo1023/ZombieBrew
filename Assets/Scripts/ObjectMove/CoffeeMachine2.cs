@@ -5,15 +5,17 @@ using UnityEngine;
 public class CoffeeMachine2 : MonoBehaviour
 {
     public bool isBrewing = false; //커피머신 작동 상태
-    public GameObject inventory; //인벤토리 UI
-    public GameObject combineUI; //조합 UI
+    public GameObject inventoryPanel; //인벤토리 UI
+    public GameObject craftingPanel; //조합 UI
     public Transform player;  //플레이어 위치
+
+    public CoffeeMachineLogic logic;
 
     //시작 시 UI 비활성화
     void Start()
     {
-        inventory.SetActive(false);
-        combineUI.SetActive(false);
+        inventoryPanel.SetActive(false);
+        craftingPanel.SetActive(false);
     }
 
     public void Inventory()
@@ -24,7 +26,15 @@ public class CoffeeMachine2 : MonoBehaviour
     //추출 버튼 눌렀을 때 추출 되면서 인벤토리 안에 있는 아이템 제거 및 커피 제작
     public void Brewing()
     {
-        
+        if (logic.TryExtract())
+        {
+            Debug.Log("커피 제작 완료");
+            ToggleCraftingUI(false);
+        }
+        else
+        {
+            Debug.Log("올바른 재료가 아닙니다.");
+        }
     }
 
     public void Combine()
@@ -35,17 +45,24 @@ public class CoffeeMachine2 : MonoBehaviour
     // F로 상호작용 시 UI 키고 끔
     void Update()
     {
-        float distance = Vector3.Distance(transform.position , player.position);
-        if(distance < 1.3 && Input.GetKeyDown(KeyCode.F))
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        if (distance < 1.3f && Input.GetKeyDown(KeyCode.F))
         {
-            inventory.SetActive(!inventory.activeSelf);
-            combineUI.SetActive(!combineUI.activeSelf);
-        } else if (distance > 1.3)
+            bool showUI = !inventoryPanel.activeSelf;
+            ToggleCraftingUI(showUI);
+        }
+        else if (distance > 1.3f && inventoryPanel.activeSelf)
         {
-            inventory.SetActive(false);
-            combineUI.SetActive(false);
+            ToggleCraftingUI(false);
         }
     }
 
+
+    void ToggleCraftingUI(bool isActive)
+    {
+        inventoryPanel.SetActive(isActive);
+        craftingPanel.SetActive(isActive);
+    }
 
 }

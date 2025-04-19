@@ -17,6 +17,7 @@ MonoBehaviour:
   nameEng: Money
   description: "\uAC8C\uC784\uC5D0\uC11C \uC0AC\uC6A9\uD558\uB294 \uC7AC\uD654"
   type: 
+  ingredientsType: 1
   level: 1
   iconPath: 
   icon: {fileID: 0}

@@ -133,4 +133,6 @@ public class InventoryManager : MonoBehaviour
         // 슬롯에 아이템 설정
         savedItems[slotIndex] = ingredient;
     }
+
+
 }
