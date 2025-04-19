@@ -28,5 +28,6 @@ public class DrinkPlate : MonoBehaviour
     {
         // «√∑π¿ÃæÓ ¿Á»≠ ¡ı∞°
         Debug.Log($"{amount} ∞ÒµÂ »πµÊ!");
+        FindObjectOfType<PlayerMoney>().AddGold(amount);
     }
 }
