@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: drink_0001_Espresso
   m_EditorClassIdentifier: 
   id: 1
-  name: "\uC544\uC774\uC2A4 \uC544\uBA54\uB9AC\uCE74\uB178"
+  name: "\uC5D0\uC2A4\uD504\uB808\uC18C"
   nameEng: Espresso
   description: "\uC6D0\uB450\uAC00\uB8E8\uB97C \uCD94\uCD9C\uD558\uBA74 \uB098\uC624\uB294
     \uCEE4\uD53C. \uAC00\uC7A5 \uAE30\uBCF8\uC801\uC778 \uCEE4\uD53C\uC774\uB2E4."

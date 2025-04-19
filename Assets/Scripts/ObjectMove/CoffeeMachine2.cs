@@ -5,18 +5,18 @@ using UnityEngine;
 public class CoffeeMachine2 : MonoBehaviour
 {
     public bool isBrewing = false; //커피머신 작동 상태
-    public GameObject inventoryPanel; //인벤토리 UI
+    public GameObject inventory; //인벤토리 UI
     public GameObject combineUI; //조합 UI
     public Transform player;  //플레이어 위치
 
     //시작 시 UI 비활성화
     void Start()
     {
-        inventoryPanel.SetActive(false);
+        inventory.SetActive(false);
         combineUI.SetActive(false);
     }
 
-    public void InventoryPanel()
+    public void Inventory()
     {
         
     }
@@ -38,12 +38,14 @@ public class CoffeeMachine2 : MonoBehaviour
         float distance = Vector3.Distance(transform.position , player.position);
         if(distance < 1.3 && Input.GetKeyDown(KeyCode.F))
         {
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+            inventory.SetActive(!inventory.activeSelf);
             combineUI.SetActive(!combineUI.activeSelf);
         } else if (distance > 1.3)
         {
-            inventoryPanel.SetActive(false);
+            inventory.SetActive(false);
             combineUI.SetActive(false);
         }
     }
+
+
 }

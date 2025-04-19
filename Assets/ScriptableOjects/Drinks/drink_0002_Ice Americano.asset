@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: drink_0002_Ice Americano
   m_EditorClassIdentifier: 
   id: 2
-  name: "\uCE74\uD398\uB77C\uB5BC"
+  name: "\uC544\uC774\uC2A4 \uC544\uBA54\uB9AC\uCE74\uB178"
   nameEng: Ice Americano
   description: "\uBB3C\uC5D0 \uC5BC\uC74C\uACFC \uC5D0\uC2A4\uD504\uB808\uC18C\uB97C
     \uB123\uC740 \uAE30\uBCF8\uC801\uC778 \uCEE4\uD53C\uC774\uB2E4."
