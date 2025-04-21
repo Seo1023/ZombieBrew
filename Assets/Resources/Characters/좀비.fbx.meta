@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: c8e6fb53143b95f4dac61967c64011ff
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: "\uC880\uBE44(Clone)"
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\uBAB8"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: -0, y: -0.8841313, z: -0.08165402}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 73.3406, y: 73.3406, z: 73.3406}
+    - name: "\uC67C\uD314"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: 1.7415811, y: -0.30035457, z: -0.19181582}
+      rotation: {x: 0.87492895, y: -0.40890586, z: -0.24548882, w: 0.083848506}
+      scale: {x: 68.946045, y: 68.94605, z: 68.94605}
+    - name: "\uC67C\uBC1C"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: 0.69040436, y: -1.9462844, z: -0.13219008}
+      rotation: {x: -0.47674316, y: 0.5186149, z: 0.57071424, w: 0.42194763}
+      scale: {x: 43.016502, y: 43.016506, z: 43.0165}
+    - name: "\uC624\uB978\uBC1C"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: -0.6720726, y: -1.939354, z: -0.13219008}
+      rotation: {x: -0.41332778, y: 0.57045996, z: 0.5178676, w: 0.48533362}
+      scale: {x: 43.016506, y: 43.01651, z: 43.0165}
+    - name: "\uC624\uB978\uD314"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: -1.88294, y: -0.45912752, z: -0.12040334}
+      rotation: {x: 0.40665084, y: 0.87377787, z: 0.08037177, w: 0.25433782}
+      scale: {x: 68.946045, y: 68.94605, z: 68.946045}
+    - name: "\uBA38\uB9AC"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: 0.013609058, y: 1.6199348, z: -0.08165369}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 106.190575, y: 106.190575, z: 106.190575}
+    - name: "\uC774\uBE681"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: 0.39569718, y: 0.8466973, z: 0.7941241}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 20.589828, y: 20.589828, z: 20.589828}
+    - name: "\uC774\uBE682"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: 0.10856557, y: 0.9332925, z: 0.7941241}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 20.589828, y: 20.589828, z: 20.589828}
+    - name: "\uC774\uBE683"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: -0.45759514, y: 0.8617628, z: 0.7941241}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 20.589828, y: 20.589828, z: 20.589828}
+    - name: "\uC774\uBE684"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: -0.6100284, y: 0.37425184, z: 0.34143955}
+      rotation: {x: 0.119534045, y: 0.6969303, z: -0.69693005, w: -0.11953406}
+      scale: {x: 18.23072, y: 18.23072, z: 18.23072}
+    - name: "\uD600"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: 0.16036731, y: 1.2528566, z: 1.0851144}
+      rotation: {x: -0.48718455, y: -0.22110823, z: 0.19625764, w: 0.8217331}
+      scale: {x: 100, y: 100.00001, z: 99.99999}
+    - name: "\uB208"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: 0.6937776, y: 1.7422379, z: 0.62859386}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 71.37966, y: 71.37966, z: 71.37966}
+    - name: "\uB1CC"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: -0.95722944, y: 2.493838, z: 0.057836216}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: "\uB208\uB3D9\uC790"
+      parentName: "\uC880\uBE44(Clone)"
+      position: {x: 0.9127858, y: 1.6850746, z: 1.1994138}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 16.201523, y: 16.201523, z: 16.201523}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
