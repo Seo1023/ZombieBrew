@@ -1,0 +1,55 @@
+[33m075ae89[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m [Feat] 새로운 시작
+[33mc98d826[m [Feat] 커피머신 CS 수정
+[33mcff3c99[m [Feat] 인벤토리 관련 Cs 수정
+[33m9aa22ba[m [Feat] 음료 주는 쟁반 코드 수정, 재화 CS 추가
+[33m8cc75e7[m [Feat] 중요 부분 추가
+[33m010151d[m [feat] f누르면 UI나오는 것 수정
+[33m894c672[m [feat] 카페밤 test용 소품추가
+[33m74fcd08[m [fix] 코드 수정
+[33m13e3b20[m [feat] 카페 오전 배치도 제작 2차
+[33mf8cc6de[m [Feat]밤 플레이어 무브 추가 및 카메라 무브, 오브젝트 파밍 테스트
+[33m7417392[m [Feat] 커피머신 CS 수정 및 재료 인터렉션 추가
+[33mc8161a2[m [Feat] 아르바이트 추가
+[33m0fbbfe0[m [Feat] 커피머신 CS 초안 제작 및 커피머신 UI 제작
+[33m2f5c477[m [Feat] 플레이어 무브2 CS추가 및 예비 씬 콜라이더 추가
+[33mc768ba6[m [feat] 배경 카페 낮 구성씬
+[33m9e3ac93[m [Feat] 로비 씬 추가
+[33md21ce49[m [Fix] Destroy() Image 코드 수정
+[33m66c5232[m [Feat] Inventory 여닫는 동작, item drag and drop, Inventory에 item 저장
+[33me1ad0f2[m [docs]시스템 기획서 추가
+[33ma9fdb14[m [Feat]낮 예시 배경 씬 추가
+[33m6b48b7c[m [Feat] 왕 좀비 추가
+[33mda1bf92[m [Feat] 배경그래픽 fbx, texture
+[33m0444e58[m [Feat] GameTime동작 후 Scene 전환, 가게 관리 화면 Scrollview Button Switch 제작
+[33m7228915[m [docs] 파일 위치 수정
+[33m2c32847[m [Feat] 예상 화면 흐름도 추가
+[33m54969cf[m [Feat] 네이밍파일 및 플레이 기능 정리.
+[33m2622862[m [Feat] 기획서 및 게임 예시화면 제작
+[33m9b0705b[m 인간 추가_2
+[33m0407aa8[m [Feat] 인간 추가
+[33m85ec894[m [Feat] CharacterSO, DisplaySO, DrinkSO, StructureSO 제작
+[33m7ef4bc6[m [Feat] IngredientSO, DialogSO 제작
+[33mcf7c62e[m [feat] 낮 UI 수정
+[33mef0e1da[m [feat] 낮 주문화면 UI_2
+[33m1107748[m [Feat] Characters, Displays, Drinks, Structures, Ingredients Json파일 추가
+[33m11911fb[m [Feat] recipe button 추가, recipe menu 숨김 처리
+[33m1df329d[m Merge branch 'main' of https://github.com/Seo1023/ZombieBrew
+[33m3172ef6[m [Feat] 플레이어 움직임
+[33m878fce5[m [feat test 1
+[33mfc44c99[m Revert "Merge branch 'main' of https://github.com/Seo1023/ZombieBrew"
+[33m970211f[m Merge branch 'main' of https://github.com/Seo1023/ZombieBrew
+[33m8ae8019[m [feat] 상세 레시피 UI
+[33m6ff4c52[m [wonjun]미완성 커피 머신 프로그래밍
+[33mb2afd0f[m [Feat] Excel파일 json화, Scene 로드
+[33m09cb69b[m [feat] 레시피 화면 UI
+[33mc286c67[m [Feat] 힙합 좀비 추가
+[33m19bed70[m [feat]낮 주문화면 UI
+[33m71ac44a[m [Feat] 직장인 좀비 추가
+[33me9fd55a[m [feat]로고_투명
+[33mff62f7a[m [Feat] 3DScrollView, 2DScrollView 테스트 제작
+[33m25b3eb9[m [Feat] 좀비 추가
+[33m895ae1b[m [Feat] Percentage, GameTime 추가
+[33m09e048f[m [Feat] 플레이어 추가
+[33me2e5601[m [feat] 로고
+[33m4820511[m [feat] Test1
+[33md8f7d11[m Initial commit
