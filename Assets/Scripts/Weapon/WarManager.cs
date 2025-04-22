@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WarManager : MonoBehaviour
 {
-
+    public ChracterStats healthBar;
+    public ChracterStats healthText;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,4 +17,5 @@ public class WarManager : MonoBehaviour
     {
         
     }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WeaponDisplay : MonoBehaviour
 {
-    public WeaponData weapondata;
+    public WeaponSO weapondata;
 
     public MeshRenderer weaponRenderer;
     public TextMeshProUGUI nameText;
@@ -25,7 +25,7 @@ public class WeaponDisplay : MonoBehaviour
         
     }
 
-    public void SetupWeapon(WeaponData data)
+    public void SetupWeapon(WeaponSO data)
     {
         weapondata = data;
         if (nameText != null) nameText.text = data.weaponName;
