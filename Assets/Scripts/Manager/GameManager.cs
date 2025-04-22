@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,14 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
     public Transform player;
 
+    [Header("EXP&GOLD")]
+    public int gold = 0;
+    public int exp = 0;
+    public int level = 1;
+    public TextMeshProUGUI goldText;
+    public TextMeshProUGUI expText;
+    public Slider expBar;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -25,6 +34,13 @@ public class GameManager : MonoBehaviour
 
         if (gameOverUI != null)
             gameOverUI.SetActive(false);
+    }
+
+    void Start()
+    {
+        UpdateExpUI();
+        goldText.text = $"GOLD: {gold}";
+        killText.text = $"잡은 좀비 수: {killCount} 마리";
     }
 
     void Update()
@@ -63,5 +79,48 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0f; // 정지
         Debug.Log("게임 종료됨");
+    }
+
+    public void AddGold(int amount)
+    {
+        gold += amount;
+        if (goldText != null)
+            goldText.text = $"GOLD: {gold}";
+    }
+
+    public void AddExp(int amount)
+    {
+        exp += amount;
+
+        UpdateExpUI();
+
+        CheckLevelUp();
+    }
+
+    void UpdateExpUI()
+    {
+        int requiredExp = level * 100;
+
+        if (expBar != null)
+        {
+            expBar.maxValue = requiredExp;
+            expBar.value = exp;
+        }
+
+        if (expText != null)
+            expText.text = $"{exp} / {requiredExp}";
+    }
+
+    void CheckLevelUp()
+    {
+        int requiredExp = level * 100; // 예: 레벨당 100exp 필요
+        while (exp >= requiredExp)
+        {
+            exp -= requiredExp;
+            level++;
+            Debug.Log($"레벨 업! 현재 레벨: {level}");
+            requiredExp = level * 100;
+        }
+        UpdateExpUI();
     }
 }

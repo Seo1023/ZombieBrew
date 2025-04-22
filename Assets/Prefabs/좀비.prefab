@@ -1008,6 +1008,7 @@ GameObject:
   - component: {fileID: 1761568785195066315}
   - component: {fileID: 4440432411233909742}
   - component: {fileID: 8521967114167585663}
+  - component: {fileID: 4581394611963609318}
   m_Layer: 0
   m_Name: "\uC880\uBE44"
   m_TagString: Untagged
@@ -1106,7 +1107,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBar: {fileID: 0}
-  warDisplay: {fileID: 0}
+--- !u!114 &4581394611963609318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779670873213031081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c4967b7ff5b2a40b49d30e5c5c7992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expPrefab: {fileID: 3953397659359399260, guid: 1fe69a84b54bfe7489d98e1546be44e0,
+    type: 3}
+  coinPrefab: {fileID: 4933891284337754398, guid: fca20d7d9453ed04ea3e044f86f947bb,
+    type: 3}
+  expValue: 10
+  goldValue: 5
 --- !u!1 &7376518195104827567
 GameObject:
   m_ObjectHideFlags: 0
