@@ -38,8 +38,17 @@ public class ZombieStats : MonoBehaviour
 
     void Die()
     {
-        GameManager.Instance.AddKill();
-        Destroy(gameObject, 2f);
+        Monster monster = GetComponent<Monster>();
+        if(monster != null)
+        {
+            monster.Die();
+            GameManager.Instance.AddKill();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     public void SetMaxHealth(int max)
