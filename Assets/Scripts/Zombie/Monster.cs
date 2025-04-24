@@ -15,6 +15,17 @@ public class Monster : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             Die();
+            DropItems();
+            DropItems();
+            DropItems();
+            DropItems();
+            DropItems();
+            DropItems();
+            DropItems();
+            DropItems();
+            DropItems();
+            DropItems();
+            DropItems();
         }
     }
 

@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public GameObject gameOverUI;
     public Transform player;
+    public TextMeshProUGUI ammoText;
+    public GameObject reloadTextObject;
 
     [Header("EXP&GOLD")]
     public int gold = 0;
@@ -26,6 +28,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI expText;
     public Slider expBar;
+    public TextMeshProUGUI levelText;
+
+    public List<WeaponSO> ownedWeapons = new List<WeaponSO>();
 
     void Awake()
     {
@@ -53,6 +58,11 @@ public class GameManager : MonoBehaviour
 
         if (timeRemaining <= 0)
             EndGame();
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            CheckLevelUp();
+        }
     }
 
     public void AddKill()
@@ -119,8 +129,29 @@ public class GameManager : MonoBehaviour
             exp -= requiredExp;
             level++;
             Debug.Log($"레벨 업! 현재 레벨: {level}");
+            WeaponSelectorUI.Instance.OpenRandomChoices();
             requiredExp = level * 100;
+            if (levelText != null)
+                levelText.text = $"{level}";
         }
         UpdateExpUI();
+    }
+
+    public void UpdateAmmoUI(WeaponSO weapon)
+    {
+        if (ammoText != null && weapon != null)
+            ammoText.text = $"{weapon.currentAmmo} / {weapon.maxAmmo}";
+    }
+
+    public void SetReloadingUI(bool isReloading)
+    {
+        if (reloadTextObject != null)
+            reloadTextObject.SetActive(isReloading);
+    }
+
+    public WeaponSO CloneWeapon(WeaponSO original)
+    {
+        WeaponSO clone = ScriptableObject.Instantiate(original);
+        return clone;
     }
 }

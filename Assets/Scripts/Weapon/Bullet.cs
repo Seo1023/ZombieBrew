@@ -6,19 +6,18 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
     public int damage = 10;
-    public float lifetime = 2f;
-
-    void Start()
-    {
-        Destroy(gameObject, lifetime);
-    }
 
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        // Bullet lifetime
+        if (transform.position.magnitude > 100f)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         ZombieStats zombie = other.GetComponent<ZombieStats>();
         if (zombie != null)

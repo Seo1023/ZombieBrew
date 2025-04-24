@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aaa2046839026a439b1502c1a2e2c13, type: 3}
-  m_Name: Pistol_001
+  m_Name: ShotGun_001
   m_EditorClassIdentifier: 
-  weaponName: Glock17
-  description: "\uC804\uC138\uACC4\uC5D0\uC11C \uAC00\uC7A5 \uB9CE\uC774 \uC4F0\uC774\uB294
-    \uAD8C\uCD1D\uC774\uB2E4."
+  weaponName: BenellyM4
+  description: "\uC874\uC705\uC5D0\uB3C4 \uB098\uC628 \uC5F0\uBC1C \uC0F7\uAC74\uC774\uB2E4."
   icon: {fileID: 0}
   level: 1
-  damage: 5
-  maxAmmo: 18
-  currentAmmo: 14
-  fireRate: 10
+  damage: 35
+  maxAmmo: 7
+  currentAmmo: 3
+  fireRate: 4
   reloadTime: 1.5
-  weaponPrefab: {fileID: 6094801228896505279, guid: 77d92f78c5a34f444b7176a22ab30c09,
+  weaponPrefab: {fileID: 5299385215867419929, guid: 06875a5d2f1ef104fa24443ce7ae7a51,
     type: 3}
-  weaponType: 0
+  weaponType: 3

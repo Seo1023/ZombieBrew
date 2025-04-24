@@ -12,7 +12,7 @@ public class WeaponSO : ScriptableObject
         SubmachineGun,
         Shotgun,
         Grenade,
-        Knife
+        SniperRifle
     }
 
     public string weaponName;
@@ -23,5 +23,20 @@ public class WeaponSO : ScriptableObject
     public int maxAmmo;
     public int currentAmmo;
     public float fireRate;
+    public float reloadTime = 1.5f;
+    public GameObject weaponPrefab;
     public WeaponType weaponType;
+
+    public void Upgrade()
+    {
+        level++;
+
+        // 예시: 스탯 증가
+        damage += 5;
+        fireRate += 0.5f;
+        maxAmmo += 10;
+        currentAmmo = maxAmmo;
+
+        Debug.Log($"{weaponName} 업그레이드! Lv.{level}");
+    }
 }
