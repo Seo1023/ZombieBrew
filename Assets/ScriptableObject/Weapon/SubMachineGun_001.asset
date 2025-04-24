@@ -16,10 +16,10 @@ MonoBehaviour:
   description: ".45\uD0C4\uC744 \uC0AC\uC6A9\uD558\uB294 \uAE30\uAD00\uB2E8\uCD1D."
   icon: {fileID: 0}
   level: 1
-  damage: 10
+  damage: 15
   maxAmmo: 25
-  currentAmmo: 0
-  fireRate: 5
+  currentAmmo: 25
+  fireRate: 7
   reloadTime: 1.5
   weaponPrefab: {fileID: 1084097304203713816, guid: 1268d329de19052498fa490581e4c382,
     type: 3}

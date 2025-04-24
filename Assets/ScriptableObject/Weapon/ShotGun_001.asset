@@ -18,9 +18,9 @@ MonoBehaviour:
   level: 1
   damage: 35
   maxAmmo: 7
-  currentAmmo: 3
-  fireRate: 4
-  reloadTime: 1.5
+  currentAmmo: 7
+  fireRate: 3
+  reloadTime: 4
   weaponPrefab: {fileID: 5299385215867419929, guid: 06875a5d2f1ef104fa24443ce7ae7a51,
     type: 3}
   weaponType: 3

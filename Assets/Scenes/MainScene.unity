@@ -3042,7 +3042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHolder: {fileID: 2058170872}
-  currentWeaponSO: {fileID: 11400000, guid: 2e1bd306c51a8e642a71415b61cbe1ae, type: 2}
+  currentWeaponSO: {fileID: 0}
 --- !u!1001 &1843898203
 PrefabInstance:
   m_ObjectHideFlags: 0
