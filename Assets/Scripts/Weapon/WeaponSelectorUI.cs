@@ -64,6 +64,7 @@ public class WeaponSelectorUI : MonoBehaviour
 
                 GameManager.Instance.UpdateAmmoUI(clone ?? weapon);
                 panel.SetActive(false);
+                GameManager.Instance.ResumeGame();
             });
         }
     }

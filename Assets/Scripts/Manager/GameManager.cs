@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI levelText;
 
     public List<WeaponSO> ownedWeapons = new List<WeaponSO>();
+    public void PauseGame() => Time.timeScale = 0f;
+    public void ResumeGame() => Time.timeScale = 1f;
 
     void Awake()
     {
@@ -130,6 +132,7 @@ public class GameManager : MonoBehaviour
             level++;
             Debug.Log($"레벨 업! 현재 레벨: {level}");
             WeaponSelectorUI.Instance.OpenRandomChoices();
+            PauseGame();
             requiredExp = level * 100;
             if (levelText != null)
                 levelText.text = $"{level}";
