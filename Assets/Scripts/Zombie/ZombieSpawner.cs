@@ -11,7 +11,7 @@ public class ZombieSpawner : MonoBehaviour
     public GameObject hpBarPrefab;
     public Transform player;
     public GameObject groundObject;
-    public float spawnInterval = 2f;
+    public float spawnInterval = .5f;
 
     private float timer;
 
@@ -33,7 +33,7 @@ public class ZombieSpawner : MonoBehaviour
         // NavMesh 위 위치로 보정
         if (NavMesh.SamplePosition(spawnPos, out NavMeshHit hit, 2f, NavMesh.AllAreas))
         {
-            // 바닥보다 1f 위로 띄워서 박힘 방지!
+            // 바닥보다 1f 위로 띄워서 박힘 방지
             spawnPos = hit.position + Vector3.up * 2.0f;
 
             GameObject zombie = Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
