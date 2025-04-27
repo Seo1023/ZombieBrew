@@ -15,6 +15,7 @@ public class WeaponSO : ScriptableObject
         SniperRifle
     }
 
+    public int id;
     public string weaponName;
     public string description;
     public Sprite icon;
