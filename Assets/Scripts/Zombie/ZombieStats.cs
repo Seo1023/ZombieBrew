@@ -1,51 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class ZombieStats : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth;
-    public Slider healthBar;
+    private int currentHealth;
+
+    private HealthBarController healthBar;
+
+    public bool isBoss;
     public ZombieSpawner spawner;
-    public bool isBoss = false;
 
-    void OnEnable()
+    public void Init(HealthBarController hpUI)
     {
-        ResetZombie();
-    }
+        healthBar = hpUI;
 
-    public void ResetZombie()
-    {
         currentHealth = maxHealth;
+
         if (healthBar != null)
         {
-            healthBar.maxValue = maxHealth;
-            healthBar.value = currentHealth;
+            healthBar.SetMaxHealth(maxHealth);
         }
     }
 
-    public void SetMaxHealth(int value)
-    {
-        maxHealth = value;
-        currentHealth = value;
-        if (healthBar != null)
-        {
-            healthBar.maxValue = maxHealth;
-            healthBar.value = currentHealth;
-        }
-    }
 
     public void TakeDamage(int damage)
     {
+        Debug.Log($"[TakeDamage] 호출됨! 현재 체력: {currentHealth}, 입은 데미지: {damage}");
+
         currentHealth -= damage;
+
         if (healthBar != null)
-            healthBar.value = currentHealth;
+        {
+            healthBar.SetHealth(currentHealth);
+            Debug.Log($"[TakeDamage] 체력바 업데이트: {currentHealth}");
+        }
+        else
+        {
+            Debug.LogWarning("[TakeDamage] healthBar가 null입니다!");
+        }
 
         if (currentHealth <= 0)
         {
-            spawner.ZombieKilled(this.gameObject);
+            Debug.Log("[TakeDamage] 체력이 0 이하! Die 호출 예정");
+            Die();
+        }
+    }
+
+
+    void Die()
+    {
+        if (spawner != null)
+        {
+            spawner.ZombieKilled(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 }

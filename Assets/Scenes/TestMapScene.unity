@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: b726db9efbc40bf4e90ef34157e7889a, type: 2}
 --- !u!1 &767893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,13 +3139,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764574040}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.69267184, y: -0.18038738, z: 0.18560085, w: 0.67321503}
   m_LocalPosition: {x: 9.64, y: 3, z: 5.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 91.63202, y: -30, z: 0}
 --- !u!1 &826158881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5718,6 +5718,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39ec815e1bbc99b4199b3b3f76c94220,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6257,6 +6262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: floor1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39ec815e1bbc99b4199b3b3f76c94220,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

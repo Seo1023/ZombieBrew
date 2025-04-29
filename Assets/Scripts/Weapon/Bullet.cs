@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 20f;
+    public Vector3 moveDirection;
+    public float speed = 50f;
     public int damage = 10;
+
+    private void Start()
+    {
+        // 5초 후 자동 제거 (실수로 땅에 떨어진 총알 방지)
+        Destroy(gameObject, 5f);
+    }
 
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        // Bullet lifetime
-        if (transform.position.magnitude > 100f)
-        {
-            Destroy(gameObject);
-        }
+        transform.position += moveDirection * speed * Time.deltaTime;
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        ZombieStats stats = other.GetComponent<ZombieStats>();
+        Debug.Log($"[총알 충돌] 오브젝트 이름: {other.name}, 태그: {other.tag}");
+
+        if (!other.CompareTag("Zombie")) return;
+
+        ZombieStats stats = other.GetComponentInParent<ZombieStats>();
         if (stats != null)
         {
-            stats.TakeDamage(10); // 예시 데미지
-            Destroy(gameObject); // or ReturnToPool
+            Debug.Log("[총알] 데미지 적용!");
+            stats.TakeDamage(damage);
         }
+
+        Destroy(gameObject);
     }
 }
-

@@ -43,10 +43,15 @@ public class PlayerShooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
+        {
             bulletScript.damage = weapon.damage;
+            bulletScript.moveDirection = firePoint.forward;
+        }
 
         Debug.Log($"{weapon.weaponName} 발사! 남은 탄약: {weapon.currentAmmo}");
     }
+
+
 
     System.Collections.IEnumerator Reload(WeaponSO weapon)
     {

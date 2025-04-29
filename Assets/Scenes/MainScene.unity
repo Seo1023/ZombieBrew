@@ -3720,6 +3720,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2859069481959168319, guid: 2e98068106cf43c41a935f59068282bc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.431
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859069481959168319, guid: 2e98068106cf43c41a935f59068282bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.882
+      objectReference: {fileID: 0}
     - target: {fileID: 4702884997828238920, guid: 2e98068106cf43c41a935f59068282bc,
         type: 3}
       propertyPath: healthBar
@@ -3784,7 +3794,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentWeaponSO
       value: 
-      objectReference: {fileID: 11400000, guid: 2e1bd306c51a8e642a71415b61cbe1ae,
+      objectReference: {fileID: 11400000, guid: 96da880fb4c97df4d82f26a697ccf43f,
         type: 2}
     - target: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
         type: 3}

@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aaa2046839026a439b1502c1a2e2c13, type: 3}
   m_Name: SniperRifle_001
   m_EditorClassIdentifier: 
-  weaponName: M24
+  id: 0
+  weaponName: SniferRifle
   description: "\uD604\uB300\uC2DD \uC800\uACA9\uCD1D\uC774\uB2E4."
   icon: {fileID: 0}
   level: 1
   damage: 60
   maxAmmo: 5
   currentAmmo: 5
-  fireRate: 1
+  fireRate: 3
   reloadTime: 7
-  weaponPrefab: {fileID: 223850590056562894, guid: 7868a7de12c8c1b43a3dd310cd3e39e0,
+  weaponPrefab: {fileID: 5618796622664432717, guid: 1fd06302325b3d245b333fe06aec341f,
     type: 3}
   weaponType: 5

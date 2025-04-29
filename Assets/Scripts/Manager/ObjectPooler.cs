@@ -6,9 +6,10 @@ public class ObjectPooler : MonoBehaviour
 {
     public GameObject prefab;
     public int initialSize = 10;
+
     private Queue<GameObject> pool = new Queue<GameObject>();
 
-    void Awake()
+    private void Awake()
     {
         for (int i = 0; i < initialSize; i++)
         {
@@ -23,8 +24,8 @@ public class ObjectPooler : MonoBehaviour
         if (pool.Count == 0)
         {
             GameObject obj = Instantiate(prefab);
-            obj.SetActive(false);
-            pool.Enqueue(obj);
+            obj.SetActive(true);
+            return obj;
         }
 
         GameObject pooled = pool.Dequeue();
@@ -38,4 +39,3 @@ public class ObjectPooler : MonoBehaviour
         pool.Enqueue(obj);
     }
 }
-

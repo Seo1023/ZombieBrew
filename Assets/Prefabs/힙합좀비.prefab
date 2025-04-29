@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4001806114114096805}
   - component: {fileID: 4207639400090795093}
   - component: {fileID: 8870342318277663827}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uC774\uBE681"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2280018007255398684}
   - component: {fileID: 8962520364865429447}
   - component: {fileID: 3425370573949382436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uC624\uB978\uBC1C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,14 +176,13 @@ GameObject:
   m_Component:
   - component: {fileID: 462709310174247724}
   - component: {fileID: 638178379169897583}
-  - component: {fileID: 3414783212007703429}
   - component: {fileID: 7113598172309440773}
   - component: {fileID: 1546846305132399172}
   - component: {fileID: 9046232704047170914}
   - component: {fileID: 655856824172356035}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uD799\uD569\uC880\uBE44"
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,36 +237,9 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 2.5
+  m_BaseOffset: 2.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!54 &3414783212007703429
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945772440620097942}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &7113598172309440773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -302,9 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 300
-  healthBar: {fileID: 0}
+  isBoss: 1
   spawner: {fileID: 0}
-  isBoss: 0
 --- !u!114 &9046232704047170914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +321,7 @@ GameObject:
   - component: {fileID: 7112650598805003917}
   - component: {fileID: 3362123292662542223}
   - component: {fileID: 6898598751290392873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uB208\uB3D9\uC790"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +404,7 @@ GameObject:
   - component: {fileID: 1248864309119293496}
   - component: {fileID: 8339099651741455686}
   - component: {fileID: 5754159613196522661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uC624\uB978\uD314"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +487,7 @@ GameObject:
   - component: {fileID: 5190379742914694096}
   - component: {fileID: 6518751856603465735}
   - component: {fileID: 4325402350352104541}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uBA38\uB9AC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +570,7 @@ GameObject:
   - component: {fileID: 438765217951095493}
   - component: {fileID: 2251101217829693979}
   - component: {fileID: 6384695837956504100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uC774\uBE684"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +653,7 @@ GameObject:
   - component: {fileID: 6429173196035132839}
   - component: {fileID: 5835419671165587620}
   - component: {fileID: 6277672143304327947}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uD600"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +736,7 @@ GameObject:
   - component: {fileID: 3164379708970229569}
   - component: {fileID: 6062144243572857308}
   - component: {fileID: 5411854734179623832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uC774\uBE683"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +819,7 @@ GameObject:
   - component: {fileID: 3538484822582607350}
   - component: {fileID: 6830776338615686374}
   - component: {fileID: 2128153750776850720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uC67C\uD314"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +902,7 @@ GameObject:
   - component: {fileID: 2288447575438799000}
   - component: {fileID: 3354808097077585155}
   - component: {fileID: 4984135676730958640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uB208"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,7 +985,7 @@ GameObject:
   - component: {fileID: 4903663539151789104}
   - component: {fileID: 2770058905731754269}
   - component: {fileID: 8265404155946989956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uC120\uAE00\uB77C\uC2A4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,7 +1068,7 @@ GameObject:
   - component: {fileID: 6292002018828816088}
   - component: {fileID: 4411812127536167023}
   - component: {fileID: 3382383895706892356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uBAB8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1180,7 +1151,7 @@ GameObject:
   - component: {fileID: 444924214942705608}
   - component: {fileID: 5907976950176604560}
   - component: {fileID: 7478896096522965610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uB1CC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1261,7 +1232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8350106122497956044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1294,7 +1265,7 @@ GameObject:
   - component: {fileID: 6420372021225787126}
   - component: {fileID: 6732191068144697003}
   - component: {fileID: 6233250506266501547}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uC774\uBE682"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1377,7 +1348,7 @@ GameObject:
   - component: {fileID: 1196040006435235207}
   - component: {fileID: 4389199719554148184}
   - component: {fileID: 5244829711536494208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uC67C\uBC1C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
