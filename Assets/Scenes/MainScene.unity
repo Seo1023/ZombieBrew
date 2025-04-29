@@ -1370,52 +1370,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 945772440620097942, guid: a64bdf82c8ae6f04699b0e8e6a284365, type: 3}
   initialSize: 3
---- !u!1 &1028146835
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1028146836}
-  - component: {fileID: 1028146837}
-  m_Layer: 0
-  m_Name: BulletPooler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1028146836
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028146835}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1956210899}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1028146837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028146835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7cabcac8f83aa4468096b07b9aee39a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1660468255063718219, guid: d3f84aefbbaaad240b00129707df498e, type: 3}
-  initialSize: 200
 --- !u!1 &1057585770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,7 +3086,6 @@ Transform:
   - {fileID: 570685216}
   - {fileID: 1747357353}
   - {fileID: 976136870}
-  - {fileID: 1028146836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1971552999
@@ -3181,13 +3134,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombiePool: {fileID: 1747357354}
   bossPool: {fileID: 976136871}
-  player: {fileID: 1835672593}
-  groundObject: {fileID: 2056892241}
   hpBarPrefab: {fileID: 8128874550258574283, guid: 40a91bfe931fb9642a830542d52335fc,
     type: 3}
-  spawnInterval: 0.5
-  zombiesPerWave: 5
+  player: {fileID: 1835672593}
+  spawnAreaMin: {x: -75, y: -75}
+  spawnAreaMax: {x: 75, y: 75}
   waveDelay: 5
+  currentWave: 1
+  zombiesPerWave: 5
 --- !u!1 &2056892241
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,6 +3674,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 653804683377461643, guid: 2e98068106cf43c41a935f59068282bc,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7860328355379467232, guid: 67903e4d6af21234ba37219ebba29a2a,
+        type: 3}
     - target: {fileID: 2859069481959168319, guid: 2e98068106cf43c41a935f59068282bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3794,12 +3754,17 @@ PrefabInstance:
         type: 3}
       propertyPath: currentWeaponSO
       value: 
-      objectReference: {fileID: 11400000, guid: 96da880fb4c97df4d82f26a697ccf43f,
+      objectReference: {fileID: 11400000, guid: a894ede811060ef4bb96ab8ba2599559,
         type: 2}
     - target: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
         type: 3}
       propertyPath: m_Name
       value: "\uC778\uAC04"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500413370643405272, guid: 2e98068106cf43c41a935f59068282bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.63
       objectReference: {fileID: 0}
     - target: {fileID: 8503236989604357916, guid: 2e98068106cf43c41a935f59068282bc,
         type: 3}
