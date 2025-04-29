@@ -13,17 +13,13 @@ public class ZombieAI : MonoBehaviour
     private Transform target;
     private NavMeshAgent agent;
     private float lastAttackTime;
+    private Monster monster;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        if (agent == null)
-        {
-            Debug.LogError("NavMeshAgent가 좀비에 없음!");
-            enabled = false;
-            return;
-        }
-        target = GameManager.Instance.player;
+        target = GameManager.Instance.player; // 플레이어 가져오기
+        monster = GetComponent<Monster>();
     }
 
     void Update()
@@ -36,14 +32,13 @@ public class ZombieAI : MonoBehaviour
             TryAttack();
     }
 
-
     void TryAttack()
     {
-        if(Time.time - lastAttackTime >= attackCooldown)
+        if (Time.time - lastAttackTime >= attackCooldown)
         {
             lastAttackTime = Time.time;
             target.GetComponent<ChracterStats>().TakeDamage(damage);
-            Debug.Log("좀비가 공격했다.");
         }
     }
 }
+

@@ -5,17 +5,20 @@ using UnityEngine.UI;
 
 public class ZombieStats : MonoBehaviour
 {
-    [Header("Health Settings")]
     public int maxHealth = 100;
-    private int currentHealth;
-
-    [Header("HealthBar UI")]
+    public int currentHealth;
     public Slider healthBar;
+    public ZombieSpawner spawner;
+    public bool isBoss = false;
 
-    void Start()
+    void OnEnable()
+    {
+        ResetZombie();
+    }
+
+    public void ResetZombie()
     {
         currentHealth = maxHealth;
-
         if (healthBar != null)
         {
             healthBar.maxValue = maxHealth;
@@ -23,43 +26,27 @@ public class ZombieStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int dmg)
+    public void SetMaxHealth(int value)
     {
-        if (currentHealth <= 0) return;
-
-        currentHealth = Mathf.Max(currentHealth - dmg, 0);
-
-        if (healthBar != null)
-            healthBar.value = currentHealth;
-
-        if (currentHealth == 0)
-            Die();
-    }
-
-    void Die()
-    {
-        Monster monster = GetComponent<Monster>();
-        if(monster != null)
-        {
-            monster.Die();
-            GameManager.Instance.AddKill();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-    }
-
-    public void SetMaxHealth(int max)
-    {
-        maxHealth = max;
-        currentHealth = max;
-
+        maxHealth = value;
+        currentHealth = value;
         if (healthBar != null)
         {
             healthBar.maxValue = maxHealth;
             healthBar.value = currentHealth;
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (healthBar != null)
+            healthBar.value = currentHealth;
+
+        if (currentHealth <= 0)
+        {
+            spawner.ZombieKilled(this.gameObject);
         }
     }
 }
+

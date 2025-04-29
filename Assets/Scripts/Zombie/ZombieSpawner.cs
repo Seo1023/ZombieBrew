@@ -1,80 +1,148 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    [Header("Spawn Settings")]
-    public GameObject zombiePrefab;
-    public GameObject hpBarPrefab;
+    public ObjectPooler zombiePool;
+    public ObjectPooler bossPool;
     public Transform player;
     public GameObject groundObject;
-    public float spawnInterval = .5f;
+    public GameObject hpBarPrefab;
+    public float spawnInterval = 1f;
+    public int zombiesPerWave = 5;
+    public float waveDelay = 5f; // 웨이브 간 대기 시간
 
-    private float timer;
+    private int currentWave = 1;
+    private int spawnedCount = 0;
+    private int deadCount = 0;
+    private bool isSpawning = false;
 
-    void Update()
+    void Start()
     {
-        timer += Time.deltaTime;
+        StartCoroutine(StartWave());
+    }
 
-        if (timer >= spawnInterval)
+    IEnumerator StartWave()
+    {
+        isSpawning = true;
+        spawnedCount = 0;
+        deadCount = 0;
+
+        for (int i = 0; i < zombiesPerWave; i++)
         {
-            timer = 0f;
-            SpawnZombie();
+            SpawnZombie(false); // 일반 좀비 스폰
+            spawnedCount++;
+            yield return new WaitForSeconds(spawnInterval);
+        }
+
+        yield return new WaitForSeconds(spawnInterval);
+
+        SpawnZombie(true); // 보스 좀비 스폰
+        spawnedCount++;
+
+        isSpawning = false;
+    }
+
+    void SpawnZombie(bool isBoss)
+    {
+        Vector3 spawnPos = GetRandomPositionOnGround();
+        Debug.Log($"[스폰] Random SpawnPos: {spawnPos}"); //추가
+
+        GameObject zombie = isBoss ? bossPool.Get() : zombiePool.Get();
+        ZombieStats stats = zombie.GetComponent<ZombieStats>();
+        stats.spawner = this;
+        stats.isBoss = isBoss;
+
+        NavMeshAgent agent = zombie.GetComponent<NavMeshAgent>();
+        if (agent != null)
+        {
+            agent.enabled = false;
+            zombie.transform.position = spawnPos;
+            zombie.transform.rotation = Quaternion.identity;
+            agent.enabled = true;
+
+            agent.Warp(spawnPos); // 추가해야 함!
+            agent.SetDestination(player.position);
+        }
+        else
+        {
+            zombie.transform.position = spawnPos;
+            zombie.transform.rotation = Quaternion.identity;
+        }
+
+
+        StartCoroutine(DebugPosition(zombie)); //디버깅 추가
+
+        if (stats.healthBar == null && hpBarPrefab != null)
+        {
+            GameObject hpBar = Instantiate(hpBarPrefab, zombie.transform);
+            hpBar.transform.localPosition = new Vector3(0, 4f, 0);
+            stats.healthBar = hpBar.GetComponentInChildren<Slider>();
+        }
+        else if (stats.healthBar != null)
+        {
+            stats.healthBar.value = 1f;
+            stats.healthBar.maxValue = stats.maxHealth;
+        }
+
+        stats.SetMaxHealth(stats.maxHealth);
+    }
+
+
+    public void ZombieKilled(GameObject zombie)
+    {
+        Monster monster = zombie.GetComponent<Monster>();
+        if (monster != null)
+        {
+            monster.DropItems();
+        }
+
+        if (zombie.GetComponent<ZombieStats>().isBoss)
+            bossPool.Return(zombie);
+        else
+            zombiePool.Return(zombie);
+
+        deadCount++;
+
+        if (deadCount >= spawnedCount)
+        {
+            StartCoroutine(NextWave());
         }
     }
 
-    void SpawnZombie()
+    IEnumerator NextWave()
     {
-        Vector3 spawnPos = GetRandomPositionOnGround();
+        yield return new WaitForSeconds(waveDelay);
 
-        // NavMesh 위 위치로 보정
-        if (NavMesh.SamplePosition(spawnPos, out NavMeshHit hit, 2f, NavMesh.AllAreas))
-        {
-            // 바닥보다 1f 위로 띄워서 박힘 방지
-            spawnPos = hit.position + Vector3.up * 2.0f;
-
-            GameObject zombie = Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
-
-            GameObject hpBar = Instantiate(hpBarPrefab);
-            hpBar.transform.SetParent(zombie.transform, false);
-            hpBar.transform.localPosition = new Vector3(0, 4f, 0);
-
-            ZombieStats stats = zombie.GetComponent<ZombieStats>();
-            Slider slider = hpBar.GetComponentInChildren<Slider>();
-            stats.healthBar = slider;
-            stats.SetMaxHealth(stats.maxHealth);
-        }
+        currentWave++;
+        zombiesPerWave += 3; // 웨이브마다 3마리씩 증가
+        StartCoroutine(StartWave());
     }
 
     Vector3 GetRandomPositionOnGround()
     {
-        Renderer groundRenderer = groundObject.GetComponent<Renderer>();
-        if (groundRenderer == null)
+        Renderer renderer = groundObject.GetComponent<Renderer>();
+        Bounds bounds = renderer.bounds;
+
+        float x = Random.Range(bounds.min.x, bounds.max.x);
+        float z = Random.Range(bounds.min.z, bounds.max.z);
+        Vector3 spawnPos = new Vector3(x, bounds.center.y + 1f, z);
+
+        return spawnPos;
+    }
+
+    IEnumerator DebugPosition(GameObject zombie)
+    {
+        yield return new WaitForSeconds(0.1f); // 딱 0.1초 기다렸다가
+
+        if (zombie != null)
         {
-            Debug.LogWarning("Ground object에 Renderer가 없음!");
-            return transform.position;
+            Debug.Log($"[스폰] Real Position After Spawn: {zombie.transform.position}");
         }
-
-        Bounds bounds = groundRenderer.bounds;
-
-        for (int i = 0; i < 10; i++)
-        {
-            float x = Random.Range(bounds.min.x, bounds.max.x);
-            float z = Random.Range(bounds.min.z, bounds.max.z);
-            Vector3 samplePoint = new Vector3(x, bounds.max.y + 5f, z); // 샘플 지점: 바닥보다 확실히 높게
-
-            if (NavMesh.SamplePosition(samplePoint, out NavMeshHit hit, 10f, NavMesh.AllAreas))
-            {
-                // 바닥에서 살짝 위로 띄우기 (안 박히게)
-                return hit.position + Vector3.up * .5f;
-            }
-        }
-
-        Debug.LogWarning("NavMesh 위치를 찾지 못했습니다.");
-        return transform.position;
     }
 
 }
+

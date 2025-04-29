@@ -19,11 +19,12 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        ZombieStats zombie = other.GetComponent<ZombieStats>();
-        if (zombie != null)
+        ZombieStats stats = other.GetComponent<ZombieStats>();
+        if (stats != null)
         {
-            zombie.TakeDamage(damage);
-            Destroy(gameObject);
+            stats.TakeDamage(10); // 예시 데미지
+            Destroy(gameObject); // or ReturnToPool
         }
     }
 }
+

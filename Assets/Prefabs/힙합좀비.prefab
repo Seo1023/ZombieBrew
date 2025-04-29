@@ -238,7 +238,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 2.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &3414783212007703429
@@ -263,8 +263,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -301,8 +301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbdcc83e355e89408da873bf93acf1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 300
   healthBar: {fileID: 0}
+  spawner: {fileID: 0}
+  isBoss: 0
 --- !u!114 &9046232704047170914
 MonoBehaviour:
   m_ObjectHideFlags: 0
