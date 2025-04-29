@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class PauseManager : MonoBehaviour
+{
+    public static bool isPaused = false;
+    public GameObject pauseMenuUI;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+                Resume();
+            else
+                Pause();
+        }
+    }
+
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    public void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void GoToSelectScene()
+    {
+        Time.timeScale = 1f; // 씬 이동 전 반드시 재개
+        SceneManager.LoadScene("SelectScene"); // 씬 이름에 맞게 수정
+    }
+
+    public void OpenSettings()
+    {
+        Debug.Log("설정창 열기 (미구현)");
+    }
+
+}

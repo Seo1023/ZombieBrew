@@ -55,6 +55,7 @@ public class ZombieStats : MonoBehaviour
         if (spawner != null)
         {
             spawner.ZombieKilled(gameObject);
+            GameManager.Instance.AddKill();
         }
         else
         {
