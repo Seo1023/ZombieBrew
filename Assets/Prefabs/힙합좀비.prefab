@@ -291,7 +291,7 @@ MonoBehaviour:
   detectRange: 100
   attackRange: 3
   attackCooldown: 1.5
-  damage: 10
+  damage: 30
 --- !u!114 &655856824172356035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
     type: 3}
   coinPrefab: {fileID: 4933891284337754398, guid: fca20d7d9453ed04ea3e044f86f947bb,
     type: 3}
-  expValue: 10
+  expValue: 100
   goldValue: 5
 --- !u!1 &1227887093305602338
 GameObject:

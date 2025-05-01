@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int killCount = 0;
     public float timeRemaining = 600f;
     public bool isGameOver = false;
+    public bool isGameClear = false;
+    public TextMeshProUGUI gameText;
 
     [Header("References")]
     public TextMeshProUGUI killText;
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour
         UpdateTimerUI();
 
         if (timeRemaining <= 0)
-            EndGame();
+            ClearGame();
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -85,12 +87,26 @@ public class GameManager : MonoBehaviour
         timerText.text = $"{minutes:00}:{seconds:00}";
     }
 
+    public void ClearGame()
+    {
+        isGameClear = true;
+        if(gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+            gameText.text = "Game Clear!";
+        }
+        Time.timeScale = 0f;
+        Debug.Log("게임 종료됨");
+    }
+
     public void EndGame()
     {
         isGameOver = true;
         if (gameOverUI != null)
+        {
             gameOverUI.SetActive(true);
-
+            gameText.text = "Game Over...";
+        }
         Time.timeScale = 0f; // 정지
         Debug.Log("게임 종료됨");
     }

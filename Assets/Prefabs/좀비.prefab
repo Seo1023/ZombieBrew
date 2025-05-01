@@ -1098,7 +1098,7 @@ MonoBehaviour:
     type: 3}
   coinPrefab: {fileID: 4933891284337754398, guid: fca20d7d9453ed04ea3e044f86f947bb,
     type: 3}
-  expValue: 10
+  expValue: 40
   goldValue: 5
 --- !u!114 &3534582747318537261
 MonoBehaviour:

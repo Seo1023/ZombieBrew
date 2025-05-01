@@ -22,4 +22,9 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("SelectScene");
     }
+
+    public void LobbySceneChange()
+    {
+        SceneManager.LoadScene("LobbyScene");
+    }
 }

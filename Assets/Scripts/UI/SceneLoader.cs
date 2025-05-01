@@ -10,6 +10,7 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(MainScene);
     }
+
     public void QuitGame()
     {
         Application.Quit();
