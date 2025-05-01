@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public Slider expBar;
     public TextMeshProUGUI levelText;
 
+    public CharacterSO selectedCharacter;
+
     public List<WeaponSO> ownedWeapons = new List<WeaponSO>();
     public void PauseGame() => Time.timeScale = 0f;
     public void ResumeGame() => Time.timeScale = 1f;

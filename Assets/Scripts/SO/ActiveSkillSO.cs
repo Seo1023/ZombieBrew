@@ -17,9 +17,10 @@ public class ActiveSkillSO : ScriptableObject
 
     public enum SkillType
     {
-        Attack,
-        Heal,
+        Area,
+        MouseClick,
+        Taget,
         Buff,
-        Debuff
+        Spawn
     }
 }
