@@ -1,8 +1,8 @@
+using TMPro;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,45 +13,38 @@ public class GameManager : MonoBehaviour
     public float timeRemaining = 600f;
     public bool isGameOver = false;
     public bool isGameClear = false;
-    public TextMeshProUGUI gameText;
 
-    [Header("References")]
-    public TextMeshProUGUI killText;
-    public TextMeshProUGUI timerText;
-    public GameObject gameOverUI;
+    [Header("Player")]
     public Transform player;
-    public TextMeshProUGUI ammoText;
-    public GameObject reloadTextObject;
+    public CharacterSO selectedCharacter;
+    public List<WeaponSO> ownedWeapons = new List<WeaponSO>();
 
-    [Header("EXP&GOLD")]
+    [Header("EXP & Gold")]
     public int gold = 0;
     public int exp = 0;
     public int level = 1;
-    public TextMeshProUGUI goldText;
-    public TextMeshProUGUI expText;
-    public Slider expBar;
-    public TextMeshProUGUI levelText;
 
-    public CharacterSO selectedCharacter;
-
-    public List<WeaponSO> ownedWeapons = new List<WeaponSO>();
     public void PauseGame() => Time.timeScale = 0f;
     public void ResumeGame() => Time.timeScale = 1f;
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-
-        if (gameOverUI != null)
-            gameOverUI.SetActive(false);
+       if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
     {
+        UIManager.Instance.SetGold(gold);
+        UIManager.Instance.SetKillCount(killCount);
         UpdateExpUI();
-        goldText.text = $"GOLD: {gold}";
-        killText.text = $"잡은 좀비 수: {killCount} 마리";
     }
 
     void Update()
@@ -60,7 +53,7 @@ public class GameManager : MonoBehaviour
 
         timeRemaining -= Time.deltaTime;
         timeRemaining = Mathf.Max(0, timeRemaining);
-        UpdateTimerUI();
+        UIManager.Instance.SetTime(timeRemaining);
 
         if (timeRemaining <= 0)
             ClearGame();
@@ -74,39 +67,19 @@ public class GameManager : MonoBehaviour
     public void AddKill()
     {
         killCount++;
-        if (killText != null)
-            killText.text = $"잡은 좀비 수: {killCount} 마리";
-    }
-
-    void UpdateTimerUI()
-    {
-        if (timerText == null) return;
-
-        int minutes = Mathf.FloorToInt(timeRemaining / 60);
-        int seconds = Mathf.FloorToInt(timeRemaining % 60);
-        timerText.text = $"{minutes:00}:{seconds:00}";
+        UIManager.Instance.SetKillCount(killCount);
     }
 
     public void ClearGame()
     {
         isGameClear = true;
-        if(gameOverUI != null)
-        {
-            gameOverUI.SetActive(true);
-            gameText.text = "Game Clear!";
-        }
-        Time.timeScale = 0f;
-        Debug.Log("게임 종료됨");
+        UIManager.Instance.ShowGameOverUI();
     }
 
     public void EndGame()
     {
         isGameOver = true;
-        if (gameOverUI != null)
-        {
-            gameOverUI.SetActive(true);
-            gameText.text = "Game Over...";
-        }
+        UIManager.Instance.ShowGameOverUI();
         Time.timeScale = 0f; // 정지
         Debug.Log("게임 종료됨");
     }
@@ -129,16 +102,8 @@ public class GameManager : MonoBehaviour
 
     void UpdateExpUI()
     {
-        int requiredExp = level * 100;
-
-        if (expBar != null)
-        {
-            expBar.maxValue = requiredExp;
-            expBar.value = exp;
-        }
-
-        if (expText != null)
-            expText.text = $"{exp} / {requiredExp}";
+        UIManager.Instance.SetExp(exp, GetMaxExpForLevel(level));
+        UIManager.Instance.SetLevel(level);
     }
 
     void CheckLevelUp()
