@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aaa2046839026a439b1502c1a2e2c13, type: 3}
   m_Name: AssaultRifle_001
   m_EditorClassIdentifier: 
+  id: 0
   weaponName: HK416
   description: "\uC804\uC138\uACC4 \uD2B9\uC218\uBD80\uB300\uAC00 \uC560\uC6A9\uD558\uB294
     AR\uC758 \uC815\uC11D"

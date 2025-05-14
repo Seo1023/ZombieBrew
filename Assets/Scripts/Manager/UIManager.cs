@@ -1,106 +1,102 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [Header("Game State UI")]
-    public TextMeshProUGUI gameText;
-    public GameObject gameOverUI;
-
-    [Header("PlayerUI")]
+    [Header("UI Components")]
     public TextMeshProUGUI killText;
-    public TextMeshProUGUI timerText;
-    public TextMeshProUGUI ammoText;
-    public GameObject reloadTextObject;
-
-    [Header("EXP & Gold UI")]
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI expText;
-    public Slider expBar;
     public TextMeshProUGUI levelText;
+    public Slider expBar;
+    public TextMeshProUGUI ammoText;
+    public GameObject reloadingUI;
+    public TextMeshProUGUI timeText;
+
+    [Header("Game Over UI")]
+    public GameObject gameOverUI;
+    public TextMeshProUGUI gameOverMessage;
 
     void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        if(gameOverUI != null)
-        {
-            gameOverUI.SetActive(false);
-        }
+        Instance = this;
     }
 
-    public void SetKillCount(int count)
+    void Start()
     {
-        if(killText != null)
+        if(GameManager.Instance != null)
         {
-            killText.text = $"잡은 좀비 수 : {count} 마리";
+            GameManager.Instance.IsTimerActive = true;
         }
+        killText.text = "잡은 좀비 수: 0";
+        goldText.text = "GOLD : 0";
     }
 
-    public void SetTime(float time)
+    public void SetKillCount(int value)
     {
-        if(timerText != null)
-        {
-            int minutes = Mathf.FloorToInt(time / 60);
-            int seconds = Mathf.FloorToInt(time % 60);
-            timerText.text = $"{minutes:D2} : {seconds:D2}";
-        }
+        if (killText != null)
+            killText.text = $"잡은 좀비 수: {value}";
     }
 
-    public void SetGold(int gold)
+    public void SetGold(int value)
     {
         if (goldText != null)
-            goldText.text = $"Gold : {gold}";
+            goldText.text = $"GOLD : {value}";
     }
-    
-    public void SetExp(int exp, int maxExp)
+
+    public void SetExp(int current, int max)
     {
-        if (expText != null)
-            expText.text = $"EXP : {exp} / {maxExp}";
         if (expBar != null)
-            expBar.value = (float)exp / maxExp;
+        {
+            expBar.maxValue = max;
+            expBar.value = current;
+        }
+        if (expText != null)
+            expText.text = $"{current} / {max}";
     }
 
     public void SetLevel(int level)
     {
-        if(levelText != null)
-        {
-            if(levelText != null)
-            {
-                levelText.text = $"{level}";
-            }
-        }
+        if (levelText != null)
+            levelText.text = $"{level}";
     }
 
-    public void ShowGameOverUI()
-    {
-        if (gameOverUI != null)
-            gameOverUI.SetActive(true);
-    }
-
-    public void SetAmmo(int ammo)
+    public void SetAmmo(int current, int max)
     {
         if (ammoText != null)
+            ammoText.text = $"{current} / {max}";
+    }
+
+    public void SetReloading(bool isReloading)
+    {
+        if (reloadingUI != null)
+            reloadingUI.SetActive(isReloading);
+    }
+
+    public void SetTime(float time)
+    {
+        if (timeText != null)
         {
-            ammoText.text = $"탄약 : {ammo}";
+            int min = Mathf.FloorToInt(time / 60);
+            int sec = Mathf.FloorToInt(time % 60);
+            timeText.text = $"{min:D2}:{sec:D2}";
         }
     }
 
-    public void SetReloadingVisible(bool isVisible)
+    public void ShowGameOverUI(bool isClear)
     {
-        if(reloadTextObject != null)
-            reloadTextObject.SetActive(isVisible);
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+            if (gameOverMessage != null)
+                gameOverMessage.text = isClear ? "Game Clear!" : "Game Over!";
+        }
     }
 }
+

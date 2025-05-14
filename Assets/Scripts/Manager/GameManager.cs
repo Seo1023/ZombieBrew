@@ -13,19 +13,16 @@ public class GameManager : MonoBehaviour
     public float timeRemaining = 600f;
     public bool isGameOver = false;
     public bool isGameClear = false;
+    public bool IsTimerActive = false;
 
-    [Header("Player")]
-    public Transform player;
     public CharacterSO selectedCharacter;
+    public string selectedMap;
     public List<WeaponSO> ownedWeapons = new List<WeaponSO>();
 
     [Header("EXP & Gold")]
     public int gold = 0;
     public int exp = 0;
     public int level = 1;
-
-    public void PauseGame() => Time.timeScale = 0f;
-    public void ResumeGame() => Time.timeScale = 1f;
 
     void Awake()
     {
@@ -42,14 +39,19 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        UIManager.Instance.SetGold(gold);
-        UIManager.Instance.SetKillCount(killCount);
-        UpdateExpUI();
+        if(selectedCharacter == null)
+        {
+            Debug.LogError("선택된 캐릭터가 없습니다.");
+        }
+        else
+        {
+            Debug.Log($"선택된 캐릭터 : {selectedCharacter.name}");
+        }
     }
 
     void Update()
     {
-        if (isGameOver) return;
+        if (isGameOver || !IsTimerActive) return;
 
         timeRemaining -= Time.deltaTime;
         timeRemaining = Mathf.Max(0, timeRemaining);
@@ -57,38 +59,20 @@ public class GameManager : MonoBehaviour
 
         if (timeRemaining <= 0)
             ClearGame();
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            CheckLevelUp();
-        }
     }
+
+    public void PauseGame() => Time.timeScale = 0f;
+    public void ResumeGame() => Time.timeScale = 1f;
 
     public void AddKill()
     {
         killCount++;
         UIManager.Instance.SetKillCount(killCount);
     }
-
-    public void ClearGame()
-    {
-        isGameClear = true;
-        UIManager.Instance.ShowGameOverUI();
-    }
-
-    public void EndGame()
-    {
-        isGameOver = true;
-        UIManager.Instance.ShowGameOverUI();
-        Time.timeScale = 0f; // 정지
-        Debug.Log("게임 종료됨");
-    }
-
     public void AddGold(int amount)
     {
         gold += amount;
-        if (goldText != null)
-            goldText.text = $"GOLD: {gold}";
+        UIManager.Instance?.SetGold(gold);
     }
 
     public void AddExp(int amount)
@@ -102,8 +86,8 @@ public class GameManager : MonoBehaviour
 
     void UpdateExpUI()
     {
-        UIManager.Instance.SetExp(exp, GetMaxExpForLevel(level));
-        UIManager.Instance.SetLevel(level);
+        UIManager.Instance?.SetExp(exp, GetMaxExpForLevel(level));
+        UIManager.Instance?.SetLevel(level);
     }
 
     void CheckLevelUp()
@@ -116,28 +100,39 @@ public class GameManager : MonoBehaviour
             Debug.Log($"레벨 업! 현재 레벨: {level}");
             WeaponSelectorUI.Instance.OpenRandomChoices();
             PauseGame();
-            requiredExp = level * 100;
-            if (levelText != null)
-                levelText.text = $"{level}";
+            requiredExp = GetMaxExpForLevel(level);
         }
         UpdateExpUI();
     }
 
+    int GetMaxExpForLevel(int level) => level * 100;
+
+    public void ClearGame()
+    {
+        isGameClear = true;
+        UIManager.Instance.ShowGameOverUI(true);
+        Time.timeScale = 0f;
+    }
+    
+    public void EndGame()
+    {
+        isGameOver = true;
+        UIManager.Instance.ShowGameOverUI(false);
+        Time.timeScale = 0f;
+    }
     public void UpdateAmmoUI(WeaponSO weapon)
     {
-        if (ammoText != null && weapon != null)
-            ammoText.text = $"{weapon.currentAmmo} / {weapon.maxAmmo}";
+        if (weapon != null)
+            UIManager.Instance?.SetAmmo(weapon.currentAmmo, weapon.maxAmmo);
     }
 
     public void SetReloadingUI(bool isReloading)
     {
-        if (reloadTextObject != null)
-            reloadTextObject.SetActive(isReloading);
+        UIManager.Instance?.SetReloading(isReloading);
     }
 
     public WeaponSO CloneWeapon(WeaponSO original)
     {
-        WeaponSO clone = ScriptableObject.Instantiate(original);
-        return clone;
+        return ScriptableObject.Instantiate(original);
     }
 }

@@ -518,6 +518,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &79936904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79936905}
+  - component: {fileID: 79936906}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &79936905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79936904}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1956210899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &79936906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79936904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82151a9dcf07c124da4b4d43d9ad606b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killText: {fileID: 2119782757}
+  goldText: {fileID: 1750196224}
+  expText: {fileID: 1057585773}
+  levelText: {fileID: 1299193828}
+  expBar: {fileID: 384579078}
+  ammoText: {fileID: 893571131}
+  reloadingUI: {fileID: 2112712084}
+  timeText: {fileID: 477043046}
+  gameOverUI: {fileID: 1757436972}
+  gameOverMessage: {fileID: 1287407441}
 --- !u!1 &80615188
 GameObject:
   m_ObjectHideFlags: 0
@@ -3587,70 +3641,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541053532}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &570685215
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 570685216}
-  - component: {fileID: 570685217}
-  m_Layer: 0
-  m_Name: Game Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &570685216
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570685215}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1956210899}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &570685217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570685215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13aa4e2b04ad234e991393814744482, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  killCount: 0
-  timeRemaining: 60
-  isGameOver: 0
-  isGameClear: 0
-  gameText: {fileID: 1287407441}
-  killText: {fileID: 2119782757}
-  timerText: {fileID: 477043046}
-  gameOverUI: {fileID: 1757436972}
-  player: {fileID: 1835672593}
-  ammoText: {fileID: 893571131}
-  reloadTextObject: {fileID: 2112712084}
-  gold: 0
-  exp: 0
-  level: 1
-  goldText: {fileID: 1750196224}
-  expText: {fileID: 1057585773}
-  expBar: {fileID: 384579078}
-  levelText: {fileID: 1299193828}
-  selectedCharacter: {fileID: 0}
-  ownedWeapons: []
 --- !u!1 &591229562
 GameObject:
   m_ObjectHideFlags: 0
@@ -11271,10 +11261,10 @@ Transform:
   m_Children:
   - {fileID: 1971553001}
   - {fileID: 20630523}
-  - {fileID: 570685216}
   - {fileID: 1747357353}
   - {fileID: 976136870}
   - {fileID: 191748521}
+  - {fileID: 79936905}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1971552999

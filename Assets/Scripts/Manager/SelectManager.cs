@@ -48,8 +48,13 @@ public class SelectManager : MonoBehaviour
 
     public void StartGame()
     {
-        SelectData.selectedCharacter = selectedCharacter;
-        SelectData.selectedMapSceneName = selectedMapName;
+        if(selectedCharacter == null || string.IsNullOrEmpty(selectedMapName))
+        {
+            Debug.LogWarning("캐릭터 또는 맵이 선택되지 않았습니다.");
+        }
+
+        GameManager.Instance.selectedCharacter = selectedCharacter;
+        GameManager.Instance.selectedMap = selectedMapName;
 
         Debug.Log($"게임 시작! 캐릭터 : {selectedCharacter.characterName}, 맵 : {selectedMapName}");
         SceneManager.LoadScene(selectedMapName);

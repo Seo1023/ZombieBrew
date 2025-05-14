@@ -65,6 +65,12 @@ public class ZombieSpawner : MonoBehaviour
             agent.SetDestination(player.position);
         }
 
+        ZombieAI ai = zombie.GetComponent<ZombieAI>();
+        if(ai != null)
+        {
+            ai.Init(player);
+        }
+
         // 체력바 생성 및 연결
         GameObject hpBar = Instantiate(hpBarPrefab, zombie.transform);
         hpBar.transform.localPosition = new Vector3(0, 4f, 0);

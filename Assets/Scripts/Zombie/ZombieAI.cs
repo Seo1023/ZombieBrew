@@ -18,8 +18,12 @@ public class ZombieAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        target = GameManager.Instance.player; // 플레이어 가져오기
         monster = GetComponent<Monster>();
+    }
+
+    public void Init(Transform player)
+    {
+        target = player;
     }
 
     void Update()
@@ -37,7 +41,12 @@ public class ZombieAI : MonoBehaviour
         if (Time.time - lastAttackTime >= attackCooldown)
         {
             lastAttackTime = Time.time;
-            target.GetComponent<ChracterStats>().TakeDamage(damage);
+
+            var stats = target.GetComponent<ChracterStats>();
+            if (stats != null)
+            {
+                stats.TakeDamage(damage);
+            }
         }
     }
 }

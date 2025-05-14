@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Character_001
   m_EditorClassIdentifier: 
   id: 1
-  characterName: "\uAD8C\uCD1D\uAD70\uC778"
-  description: "\uAD8C\uCD1D\uC744 \uB4E4\uACE0 \uC788\uB294 \uAD70\uC778\uC774\uB2E4."
+  characterName: "\uB3CC\uACA9\uBCD1"
+  description: "\uC5B4\uC370\uD2B8 \uB77C\uC774\uD50C\uC744 \uB4E4\uACE0 \uC788\uB294
+    \uAD70\uC778\uC774\uB2E4."
   icon: {fileID: 0}
   characterPrefab: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
     type: 3}
