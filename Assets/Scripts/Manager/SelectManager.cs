@@ -58,6 +58,9 @@ public class SelectManager : MonoBehaviour
 
         Debug.Log($"게임 시작! 캐릭터 : {selectedCharacter.characterName}, 맵 : {selectedMapName}");
         SceneManager.LoadScene(selectedMapName);
+
+        WeaponSO clonedWeapon = selectedCharacter.defaultWeapon;
+        clonedWeapon.currentAmmo = clonedWeapon.maxAmmo;
     }
 
     void GenerateMapButtons()

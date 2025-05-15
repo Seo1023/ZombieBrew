@@ -5,41 +5,43 @@ using UnityEngine;
 public class PlayerWeaponManager : MonoBehaviour
 {
     public static PlayerWeaponManager Instance;
-
     public Transform weaponHolder;
-    public WeaponSO currentWeaponSO; // 무기 정보 저장
+    public WeaponSO currentWeaponSO;
     private GameObject currentWeaponGO;
 
-    void Awake()
-    {
-        Instance = this;
-        Debug.Log("PlayerWeaponManager 인스턴스 등록 완료");
-    }
+    void Awake() => Instance = this;
 
-    public void EquipWeapon(WeaponSO weapon)
+    public void SetWeapon(WeaponSO weapon)
     {
         if (weapon == null || weapon.weaponPrefab == null)
         {
-            Debug.LogError("무기나 프리팹이 비어 있음!");
+            Debug.LogError("무기 정보 누락!");
             return;
         }
 
         currentWeaponSO = weapon;
 
         if (currentWeaponGO != null)
-        {
             Destroy(currentWeaponGO);
-            Debug.Log($"기존 무기 제거됨: {currentWeaponGO.name}");
-        }
 
-        currentWeaponGO = Instantiate(
-            weapon.weaponPrefab,
-            weaponHolder.position,
-            weaponHolder.rotation,
-            weaponHolder
-        );
-
-        Debug.Log($"새 무기 장착됨: {currentWeaponGO.name}");
+        currentWeaponGO = Instantiate(weapon.weaponPrefab, weaponHolder);
+        GameManager.Instance?.UpdateAmmoUI(currentWeaponSO);
     }
 
+    public bool TryUseAmmo()
+    {
+        if (currentWeaponSO == null || currentWeaponSO.currentAmmo <= 0)
+            return false;
+
+        currentWeaponSO.currentAmmo--;
+        GameManager.Instance?.UpdateAmmoUI(currentWeaponSO);
+        return true;
+    }
+
+    public void Reload()
+    {
+        currentWeaponSO.currentAmmo = currentWeaponSO.maxAmmo;
+        GameManager.Instance?.UpdateAmmoUI(currentWeaponSO);
+    }
 }
+

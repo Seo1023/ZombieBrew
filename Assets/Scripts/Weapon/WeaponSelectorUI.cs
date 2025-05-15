@@ -59,7 +59,7 @@ public class WeaponSelectorUI : MonoBehaviour
                 {
                     var newClone = GameManager.Instance.CloneWeapon(weapon);
                     GameManager.Instance.ownedWeapons.Add(newClone);
-                    PlayerWeaponManager.Instance.EquipWeapon(newClone);
+                    PlayerWeaponManager.Instance.SetWeapon(newClone);
                 }
 
                 GameManager.Instance.UpdateAmmoUI(clone ?? weapon);

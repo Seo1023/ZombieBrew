@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public CharacterSO selectedCharacter;
     public string selectedMap;
     public List<WeaponSO> ownedWeapons = new List<WeaponSO>();
+    public Transform player { get; private set; }
+    public Transform spawnPoint;
 
     [Header("EXP & Gold")]
     public int gold = 0;
@@ -37,15 +39,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
+    public void InitPlayerAndWeapon()
     {
-        if(selectedCharacter == null)
+        if (selectedCharacter == null)
         {
-            Debug.LogError("선택된 캐릭터가 없습니다.");
+            Debug.LogError("[GameManager] 선택된 캐릭터가 없습니다.");
+            return;
         }
-        else
+
+        GameObject playerObj = Instantiate(selectedCharacter.characterPrefab, spawnPoint.position, Quaternion.identity);
+        player = playerObj.transform;
+
+        if (selectedCharacter.defaultWeapon != null)
         {
-            Debug.Log($"선택된 캐릭터 : {selectedCharacter.name}");
+            WeaponSO clonedWeapon = CloneWeapon(selectedCharacter.defaultWeapon);
+            clonedWeapon.currentAmmo = clonedWeapon.maxAmmo;
+
+            ownedWeapons.Clear();
+            ownedWeapons.Add(clonedWeapon);
+
+            var weaponManager = playerObj.GetComponent<PlayerWeaponManager>();
+            if (weaponManager != null)
+            {
+                weaponManager.SetWeapon(clonedWeapon);
+            }
+
+            UpdateAmmoUI(clonedWeapon);
         }
     }
 
