@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SwitchImage : MonoBehaviour
 {
     public GameObject SelectChracterButton; 
-    public GameObject[] scrolleViews; 
+    public GameObject[] scrolleViews;
 
     public void OnButtonClicked(GameObject clickedButton)
     {
