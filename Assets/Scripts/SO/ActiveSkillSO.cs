@@ -19,8 +19,13 @@ public class ActiveSkillSO : ScriptableObject
     {
         Area,
         MouseClick,
-        Taget,
+        Target,
         Buff,
         Spawn
+    }
+
+    public virtual void Activate(GameObject caster, Vector3 targetPosition)
+    {
+        Debug.Log($"스킬 발동 : {skillName} - 타겟위치 : {targetPosition}");
     }
 }
