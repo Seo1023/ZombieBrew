@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0379ab77d04eba46922fa847beb3bbe
+guid: 2cdf4449cc8d2b343b0fa69b951a4d03
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -24,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -82,112 +82,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton:
-    - name: "\uAD70\uC778(Clone)"
-      parentName: 
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\uBAB8"
-      parentName: "\uAD70\uC778(Clone)"
-      position: {x: -0, y: -0.8841313, z: -0.08165402}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 73.3406, y: 73.3406, z: 73.3406}
-    - name: "\uBA38\uB9AC.001"
-      parentName: "\uAD70\uC778(Clone)"
-      position: {x: -0.9425113, y: 1.1620809, z: 0.8789177}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 19.42402, y: 19.42402, z: 19.42402}
-    - name: "\uC870\uB07C"
-      parentName: "\uAD70\uC778(Clone)"
-      position: {x: -0, y: -0.3453661, z: 0.71375644}
-      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-      scale: {x: 100, y: 100, z: 100}
-    - name: "\uC67C\uD314"
-      parentName: "\uAD70\uC778(Clone)"
-      position: {x: -2.0740175, y: -0.18812622, z: -0.35651505}
-      rotation: {x: 0.6976153, y: -0.073317476, z: 0.7101388, w: -0.060500346}
-      scale: {x: 54.189674, y: 54.189674, z: 54.18968}
-    - name: "\uC624\uB978\uD314"
-      parentName: "\uAD70\uC778(Clone)"
-      position: {x: 2.0268304, y: -0.22721408, z: -0.25494847}
-      rotation: {x: -0.029834015, y: -0.7147275, z: 0.015030784, w: 0.69860476}
-      scale: {x: 54.189674, y: 54.189674, z: 54.189674}
-    - name: "\uC624\uB978\uBC1C"
-      parentName: "\uAD70\uC778(Clone)"
-      position: {x: 0.9757583, y: -2.3405647, z: -0.23409514}
-      rotation: {x: -0.4960474, y: -0.51823324, z: -0.3617081, w: 0.59543145}
-      scale: {x: 38.265022, y: 38.26501, z: 38.26502}
-    - name: "\uC67C\uBC1C"
-      parentName: "\uAD70\uC778(Clone)"
-      position: {x: -1.0065287, y: -2.331324, z: -0.20137708}
-      rotation: {x: 0.62745094, y: 0.36904052, z: 0.5484577, w: -0.4114714}
-      scale: {x: 38.26502, y: 38.265015, z: 38.26502}
-    - name: Armature
-      parentName: "\uAD70\uC778(Clone)"
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 100, y: 100, z: 100}
-    - name: Bone
-      parentName: Armature
-      position: {x: -0, y: 0.0025511996, z: -0.013980572}
-      rotation: {x: 0.7071068, y: -0.0000001816311, z: 0.00000020317913, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bone.001
-      parentName: Bone
-      position: {x: -0, y: 0.00817912, z: 0}
-      rotation: {x: -0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bone.002
-      parentName: Bone.001
-      position: {x: -0, y: 0.0058957124, z: 0}
-      rotation: {x: -0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bone.002_end
-      parentName: Bone.002
-      position: {x: -0, y: 0.036952265, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bone.002_L
-      parentName: Bone.001
-      position: {x: -0.013731935, y: 0.004084425, z: 0}
-      rotation: {x: 0.0000004172325, y: -0.00000035842675, z: 0.7238858, w: 0.6899199}
-      scale: {x: 1, y: 0.9999997, z: 1}
-    - name: Bone.002_L_end
-      parentName: Bone.002_L
-      position: {x: -0, y: 0.011048195, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bone.002_R
-      parentName: Bone.001
-      position: {x: 0.013731935, y: 0.004084425, z: 0}
-      rotation: {x: 0.00000038743025, y: 0.00000044623607, z: -0.72388595, w: 0.68991965}
-      scale: {x: 1.0000002, y: 1, z: 1}
-    - name: Bone.002_R_end
-      parentName: Bone.002_R
-      position: {x: -0, y: 0.011048195, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bone.002_L.001
-      parentName: Armature
-      position: {x: -0.008512075, y: 0.0025512078, z: -0.018877855}
-      rotation: {x: 0.10395309, y: -0.69942415, z: 0.6994238, w: 0.10395187}
-      scale: {x: 1.0000004, y: 1.0000001, z: 0.9999999}
-    - name: Bone.002_L.001_end
-      parentName: Bone.002_L.001
-      position: {x: -0, y: 0.007369085, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bone.002_R.001
-      parentName: Armature
-      position: {x: 0.008512075, y: 0.0025512078, z: -0.018877855}
-      rotation: {x: -0.103953175, y: -0.6994241, z: 0.69942385, w: -0.10395199}
-      scale: {x: 1, y: 1.0000002, z: 1}
-    - name: Bone.002_R.001_end
-      parentName: Bone.002_R.001
-      position: {x: -0, y: 0.007369085, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -198,13 +93,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
