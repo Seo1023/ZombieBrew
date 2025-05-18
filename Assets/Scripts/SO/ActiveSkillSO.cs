@@ -8,14 +8,15 @@ public class ActiveSkillSO : ScriptableObject
     public int id;
     public string skillName;
     public string description;
-    public float cooldownTime;
-    public float damage;
-    public float range;
+    public int cooldownTime;
+    public int damage;
+    public int range;
+    public int effectValue;
     public Sprite icon;
     public string iconpath;
-    public SkillType skillType;
+    public ActiveSkillType activeSkillType;
 
-    public enum SkillType
+    public enum ActiveSkillType
     {
         Area,
         MouseClick,

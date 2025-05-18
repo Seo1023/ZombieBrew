@@ -21,19 +21,19 @@ public class SkillController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            switch (activeSkill.skillType)
+            switch (activeSkill.activeSkillType)
             {
-                case ActiveSkillSO.SkillType.Area:
-                case ActiveSkillSO.SkillType.Buff:
-                case ActiveSkillSO.SkillType.Spawn:
+                case ActiveSkillSO.ActiveSkillType.Area:
+                case ActiveSkillSO.ActiveSkillType.Buff:
+                case ActiveSkillSO.ActiveSkillType.Spawn:
                     ExecuteSkill(transform.position);
                 break;
 
-                case ActiveSkillSO.SkillType.MouseClick:
+                case ActiveSkillSO.ActiveSkillType.MouseClick:
                     StartCoroutine(WaitForMouseClick());
                 break;
 
-                case ActiveSkillSO.SkillType.Target:
+                case ActiveSkillSO.ActiveSkillType.Target:
                     Debug.Log("타겟팅 미구현");
                 break;
             }

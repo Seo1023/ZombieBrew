@@ -4,7 +4,7 @@ using UnityEngine;
 using static CharacterSO;
 using static WeaponSO;
 
-[CreateAssetMenu(fileName = "CharacterDatabase", menuName = "Inventory/Database")]
+[CreateAssetMenu(fileName = "CharacterDatabase", menuName = "Inventory/CharacterDatabase")]
 public class CharacterDatabaseSO : ScriptableObject
 {
     public List<CharacterSO> characters = new List<CharacterSO>();

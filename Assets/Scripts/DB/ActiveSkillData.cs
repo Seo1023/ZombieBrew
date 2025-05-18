@@ -10,17 +10,18 @@ public class ActiveSkillData : MonoBehaviour
     public string skillName;
     public string description;
     public string type;
-    public float cooldownTime;
-    public float damage;
-    public float range;
+    public int cooldownTime;
+    public int damage;
+    public int range;
+    public int effectValue;
     public string iconpath;
-    public SkillType skillType;
+    public ActiveSkillType activeSkillType;
 
     public void InitalizEnums()
     {
-        if (Enum.TryParse(type, out SkillType Type))
+        if (Enum.TryParse(type, out ActiveSkillType Type))
         {
-            skillType = Type;
+            activeSkillType = Type;
         }
         else
         {
