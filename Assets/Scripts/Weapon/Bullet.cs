@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public Vector3 moveDirection;
     public float speed = 50f;
     public int damage = 10;
+    public GameObject hitEffectPrefab;
 
     private void Start()
     {
@@ -24,6 +25,21 @@ public class Bullet : MonoBehaviour
         Debug.Log($"[총알 충돌] 오브젝트 이름: {other.name}, 태그: {other.tag}");
 
         if (!other.CompareTag("Zombie")) return;
+
+        if (hitEffectPrefab != null)
+        {
+            Vector3 hitPoint = transform.position;
+            Quaternion hitRotation = Quaternion.LookRotation(-moveDirection);
+
+            GameObject effect = Instantiate(hitEffectPrefab, hitPoint, hitRotation);
+            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            if(ps != null)
+            {
+                var main = ps.main;
+                main.startSizeMultiplier *= 10f;
+            }
+            Destroy(effect, 1.5f);
+        }
 
         ZombieStats stats = other.GetComponentInParent<ZombieStats>();
         if (stats != null)

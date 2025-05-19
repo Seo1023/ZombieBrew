@@ -20,6 +20,6 @@ MonoBehaviour:
   characterPrefab: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
     type: 3}
   defaultWeapon: {fileID: 11400000, guid: a894ede811060ef4bb96ab8ba2599559, type: 2}
-  activeSkill: {fileID: 11400000, guid: 121be686833a9df4c9c27079d0481da0, type: 2}
+  activeSkill: {fileID: 11400000, guid: ffc9202071da7c343abd55424768141f, type: 2}
   iconpath: 
   characterType: 0

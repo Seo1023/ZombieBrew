@@ -8,6 +8,13 @@ public class SkillController : MonoBehaviour
     public ActiveSkillSO activeSkill;
     private float cooldownRemaining;
 
+    public List<PassiveSkillSO> passiveSkills = new List<PassiveSkillSO>(5);
+
+
+    void Start()
+    {
+        
+    }
     void Update()
     {
         if (activeSkill == null || cooldownRemaining > 0)

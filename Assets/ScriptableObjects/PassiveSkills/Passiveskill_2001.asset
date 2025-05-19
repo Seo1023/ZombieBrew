@@ -21,4 +21,4 @@ MonoBehaviour:
   effectValue: 10
   icon: {fileID: 0}
   iconpath: 
-  passiveSkillType: 0
+  passiveSkillType: 3

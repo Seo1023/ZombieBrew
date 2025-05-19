@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Activeskill_1005
   m_EditorClassIdentifier: 
   id: 1005
-  skillName: "\uCC9C\uB465"
-  description: "\uBC94\uC704 \uB0B4 \uC801\uB4E4\uC5D0\uAC8C \uCC9C\uB465 \uD53C\uD574\uB97C
-    \uC90D\uB2C8\uB2E4."
-  cooldownTime: 0
-  damage: 300
+  skillName: "\uAD70\uACAC\uBCD1"
+  description: "\uAD70\uACAC\uC744 \uC18C\uD658\uD558\uC5EC \uC77C\uC815\uC2DC\uAC04
+    \uC804\uD22C\uB97C \uB3D5\uC2B5\uB2C8\uB2E4."
+  cooldownTime: 60
+  damage: 100
   range: 30
   effectValue: 0
   icon: {fileID: 0}
   iconpath: 
-  activeSkillType: 0
+  activeSkillType: 4

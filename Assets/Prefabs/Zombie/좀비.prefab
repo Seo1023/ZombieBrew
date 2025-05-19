@@ -1082,6 +1082,8 @@ MonoBehaviour:
   maxHealth: 100
   isBoss: 0
   spawner: {fileID: 0}
+  hitEffectPrefab: {fileID: 1968586304485042, guid: 6c86c599d7bf3464eb4506d2584fbe57,
+    type: 3}
 --- !u!114 &4581394611963609318
 MonoBehaviour:
   m_ObjectHideFlags: 0

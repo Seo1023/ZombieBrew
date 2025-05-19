@@ -122,6 +122,8 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   speed: 50
   damage: 10
+  hitEffectPrefab: {fileID: 1968586304485042, guid: 6c86c599d7bf3464eb4506d2584fbe57,
+    type: 3}
 --- !u!54 &-3431412576810048192
 Rigidbody:
   m_ObjectHideFlags: 0

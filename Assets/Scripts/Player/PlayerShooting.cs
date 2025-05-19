@@ -5,10 +5,25 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public GameObject fireEffectPrefab;
     public Transform firePoint;
+    public Transform effectPoint;
+
+    public AudioClip fireSound;
+    public AudioClip relodingSound;
+    private AudioSource audioSource;
 
     private float fireCooldown = 0f;
     private bool isReloading = false;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if(audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     void Update()
     {
@@ -32,6 +47,7 @@ public class PlayerShooting : MonoBehaviour
         // 장전 키 입력 (R)
         if (Input.GetKeyDown(KeyCode.R) && weapon.currentAmmo < weapon.maxAmmo)
         {
+            audioSource.PlayOneShot(relodingSound, 0.5f);
             StartCoroutine(Reload(weapon));
         }
     }
@@ -41,6 +57,8 @@ public class PlayerShooting : MonoBehaviour
         weapon.currentAmmo--;
 
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject fireEffect = Instantiate(fireEffectPrefab, firePoint.position, effectPoint.rotation);
+        audioSource.PlayOneShot(fireSound, 0.2f);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
         {
