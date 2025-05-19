@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static ActiveSkillSO;
 
-[CreateAssetMenu(fileName = "ActiveSkillDatabase", menuName = "Inventory/Database")]
+[CreateAssetMenu(fileName = "ActiveSkillDatabase", menuName = "Inventory/ActiveSkillDatabase")]
 public class ActiveSkillDatabaseSO : ScriptableObject
 {
     public List<ActiveSkillSO> activeskills = new List<ActiveSkillSO>();
@@ -49,8 +49,8 @@ public class ActiveSkillDatabaseSO : ScriptableObject
         return null;
     }
 
-    public List<ActiveSkillSO> GetWEaponByType(SkillType type)
+    public List<ActiveSkillSO> GetWEaponByType(ActiveSkillType type)
     {
-        return activeskills.FindAll(activeskill => activeskill.skillType == type);
+        return activeskills.FindAll(activeskill => activeskill.activeSkillType == type);
     }
 }

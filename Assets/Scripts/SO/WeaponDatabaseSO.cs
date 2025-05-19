@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static WeaponSO;
 
-[CreateAssetMenu(fileName = "WeaponDatabase", menuName = "Inventory/Database")]
+[CreateAssetMenu(fileName = "WeaponDatabase", menuName = "Inventory/WeaponDatabase")]
 public class WeaponDatabaseSO : ScriptableObject
 {
     public List<WeaponSO> weapons = new List<WeaponSO>();

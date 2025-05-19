@@ -5,6 +5,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 using static ActiveSkillSO;
+using static PassiveSkillSO;
 using static CharacterSO;
 using static WeaponSO;
 
@@ -37,7 +38,7 @@ public class JsonToScriptableConverter : EditorWindow
 
         if (GUILayout.Button("Sellect JSON File"))
         {
-            jsonFilePath = EditorUtility.OpenFilePanel("Select JSON File", "", "json");
+            jsonFilePath = EditorUtility.OpenFilePanel("Sellect JSON File", "", "json");
         }
 
         EditorGUILayout.LabelField("Select File : ", jsonFilePath);
@@ -46,19 +47,19 @@ public class JsonToScriptableConverter : EditorWindow
         conversionType = (ConversionType)EditorGUILayout.EnumPopup("Conversion Type :", conversionType);
         if (conversionType == ConversionType.Weapons)
         {
-            outputFolder = "Assets/ScriptableOjects/Weapons";
+            outputFolder = "Assets/ScriptableObjects/Weapons";
         }
         else if (conversionType == ConversionType.Characters)
         {
-            outputFolder = "Assets/ScriptableOjects/Character";
+            outputFolder = "Assets/ScriptableObjects/Character";
         }
         else if(conversionType == ConversionType.ActiveSkills)
         {
-            outputFolder = "Assets/ScriptableOjects/ActiveSkills";
+            outputFolder = "Assets/ScriptableObjects/ActiveSkills";
         }
         else if(conversionType == ConversionType.PassiveSkills)
         {
-            outputFolder = "Assets/ScriptableOjects/PassiveSkills";
+            outputFolder = "Assets/ScriptableObjects/PassiveSkills";
         }
 
         outputFolder = EditorGUILayout.TextField("Output Folder : ", outputFolder);
@@ -119,14 +120,13 @@ public class JsonToScriptableConverter : EditorWindow
                 }
                 else
                 {
-                    Debug.LogWarning($"아이템'{weaponData.weaponName}'의 유허하지 않은 타입 : {weaponData.type}");
+                    Debug.LogWarning($"무기'{weaponData.weaponName}'의 유허하지 않은 타입 : {weaponData.type}");
                 }
 
                 weaponSO.level = weaponData.level;
                 weaponSO.damage = weaponData.damage;
                 weaponSO.maxAmmo = weaponData.maxAmmo;
                 weaponSO.currentAmmo = weaponData.currentAmmo;
-                weaponSO.fireRate = weaponData.fireRate;
                 weaponSO.fireRate = weaponData.fireRate;
 
                 //아이콘 로드(경로가 있는경우)
@@ -135,14 +135,14 @@ public class JsonToScriptableConverter : EditorWindow
                     weaponSO.icon = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Resources/{weaponData.iconpath}.png");
                     if (weaponSO.icon == null)
                     {
-                        Debug.LogWarning($"아이템 '{weaponData.weaponName}'의 아이콘을 찾을 수 없습니다 : {weaponData.iconpath}");
+                        Debug.LogWarning($"무기 '{weaponData.weaponName}'의 아이콘을 찾을 수 없습니다 : {weaponData.iconpath}");
                     }
                 }
 
-                string assetPath = $"{outputFolder}/item_{weaponData.id.ToString("D4")}_{weaponData.weaponName}.asset";
+                string assetPath = $"{outputFolder}/weapon_{weaponData.id.ToString("D4")}_{weaponData.weaponName}.asset";
                 AssetDatabase.CreateAsset(weaponSO, assetPath);
 
-                weaponSO.name = $"item_{weaponData.id.ToString("D4")}+{weaponData.weaponName}";
+                weaponSO.name = $"weapon_{weaponData.id.ToString("D4")}+{weaponData.weaponName}";
                 createdWeapons.Add(weaponSO);
 
                 EditorUtility.SetDirty(weaponSO);
@@ -153,7 +153,7 @@ public class JsonToScriptableConverter : EditorWindow
                 WeaponDatabaseSO database = ScriptableObject.CreateInstance<WeaponDatabaseSO>();
                 database.weapons = createdWeapons;
 
-                AssetDatabase.CreateAsset(database, $" (outputFolder)/WeaponDatabase.asset");
+                AssetDatabase.CreateAsset(database, $"{outputFolder}/WeaponDatabase.asset");
                 EditorUtility.SetDirty(database);
             }
 
@@ -195,7 +195,7 @@ public class JsonToScriptableConverter : EditorWindow
                 }
                 else
                 {
-                    Debug.LogWarning($"아이템'{characterData.characterName}'의 유허하지 않은 타입 : {characterData.type}");
+                    Debug.LogWarning($"캐릭터'{characterData.characterName}'의 유허하지 않은 타입 : {characterData.type}");
                 }
 
                 
@@ -206,14 +206,14 @@ public class JsonToScriptableConverter : EditorWindow
                     characterSO.icon = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Resources/{characterData.iconpath}.png");
                     if (characterSO.icon == null)
                     {
-                        Debug.LogWarning($"아이템 '{characterData.characterName}'의 아이콘을 찾을 수 없습니다 : {characterData.iconpath}");
+                        Debug.LogWarning($"캐릭터 '{characterData.characterName}'의 아이콘을 찾을 수 없습니다 : {characterData.iconpath}");
                     }
                 }
 
-                string assetPath = $"{outputFolder}/item_{characterData.id.ToString("D4")}_{characterData.characterName}.asset";
+                string assetPath = $"{outputFolder}/character_{characterData.id.ToString("D4")}_{characterData.characterName}.asset";
                 AssetDatabase.CreateAsset(characterSO, assetPath);
 
-                characterSO.name = $"item_{characterData.id.ToString("D4")}+{characterData.characterName}";
+                characterSO.name = $"character_{characterData.id.ToString("D4")}+{characterData.characterName}";
                 createdcharacters.Add(characterSO);
 
                 EditorUtility.SetDirty(characterSO);
@@ -224,7 +224,7 @@ public class JsonToScriptableConverter : EditorWindow
                 CharacterDatabaseSO database = ScriptableObject.CreateInstance<CharacterDatabaseSO>();
                 database.characters = createdcharacters;
 
-                AssetDatabase.CreateAsset(database, $" (outputFolder)/CharacterDatabase.asset");
+                AssetDatabase.CreateAsset(database, $"{outputFolder}/CharacterDatabase.asset");
                 EditorUtility.SetDirty(database);
             }
 
@@ -259,14 +259,18 @@ public class JsonToScriptableConverter : EditorWindow
                 activeskillSO.id = activeskillData.id;
                 activeskillSO.skillName = activeskillData.skillName;
                 activeskillSO.description = activeskillData.description;
+                activeskillSO.cooldownTime = activeskillData.cooldownTime;
+                activeskillSO.damage = activeskillData.damage;
+                activeskillSO.range = activeskillData.range;
+                activeskillSO.effectValue = activeskillData.effectValue;
 
-                if (System.Enum.TryParse(activeskillData.type, out SkillType parsedType))
+                if (System.Enum.TryParse(activeskillData.type, out ActiveSkillType parsedType))
                 {
-                    activeskillSO.skillType = parsedType;
+                    activeskillSO.activeSkillType = parsedType;
                 }
                 else
                 {
-                    Debug.LogWarning($"아이템'{activeskillData.skillName}'의 유허하지 않은 타입 : {activeskillData.type}");
+                    Debug.LogWarning($"액티브 스킬'{activeskillData.skillName}'의 유허하지 않은 타입 : {activeskillData.type}");
                 }
 
 
@@ -277,15 +281,19 @@ public class JsonToScriptableConverter : EditorWindow
                     activeskillSO.icon = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Resources/{activeskillData.iconpath}.png");
                     if (activeskillSO.icon == null)
                     {
-                        Debug.LogWarning($"아이템 '{activeskillData.skillName}'의 아이콘을 찾을 수 없습니다 : {activeskillData.iconpath}");
+                        Debug.LogWarning($"액티브 스킬 '{activeskillData.skillName}'의 아이콘을 찾을 수 없습니다 : {activeskillData.iconpath}");
                     }
                 }
 
-                string assetPath = $"{outputFolder}/item_{activeskillData.id.ToString("D4")}_{activeskillData.skillName}.asset";
+                createdactiveskill.Add(activeskillSO);
+
+                string assetPath = $"{outputFolder}/Activeskill_{activeskillData.id.ToString("D4")}.asset";
                 AssetDatabase.CreateAsset(activeskillSO, assetPath);
 
-                activeskillSO.name = $"item_{activeskillData.id.ToString("D4")}+{activeskillData.skillName}";
-                createdactiveskill.Add(activeskillSO);
+                // ScriptableObject 이름도 깔끔하게 ID만 붙이기
+                activeskillSO.name = $"Activeskill_{activeskillData.id.ToString("D4")}";
+
+                EditorUtility.SetDirty(activeskillSO);
 
                 EditorUtility.SetDirty(activeskillSO);
             }
@@ -295,7 +303,7 @@ public class JsonToScriptableConverter : EditorWindow
                 ActiveSkillDatabaseSO database = ScriptableObject.CreateInstance<ActiveSkillDatabaseSO>();
                 database.activeskills = createdactiveskill;
 
-                AssetDatabase.CreateAsset(database, $" (outputFolder)/CharacterDatabase.asset");
+                AssetDatabase.CreateAsset(database, $"{outputFolder}/ActiveDatabase.asset");
                 EditorUtility.SetDirty(database);
             }
 
@@ -311,7 +319,80 @@ public class JsonToScriptableConverter : EditorWindow
 
     private void ConvertJsonToPassiveSkillsScriptableObject()
     {
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
 
+        string jsonText = File.ReadAllText(jsonFilePath);
+
+        try
+        {
+            List<PassiveSkillData> passiveskillDataList = JsonConvert.DeserializeObject<List<PassiveSkillData>>(jsonText);
+            List<PassiveSkillSO> createdpassiveskill = new List<PassiveSkillSO>();
+
+            foreach (var passiveskillData in passiveskillDataList)
+            {
+                PassiveSkillSO passiveskillSO = ScriptableObject.CreateInstance<PassiveSkillSO>();
+
+                passiveskillSO.id = passiveskillData.id;
+                passiveskillSO.skillName = passiveskillData.skillName;
+                passiveskillSO.description = passiveskillData.description;
+                passiveskillSO.cooldownTime = passiveskillData.cooldownTime;
+                passiveskillSO.damage = passiveskillData.damage;
+                passiveskillSO.range = passiveskillData.range;
+                passiveskillSO.effectValue = passiveskillData.effectValue;
+
+                if (System.Enum.TryParse(passiveskillData.type, out PassiveSkillType parsedType))
+                {
+                    passiveskillSO.passiveSkillType = parsedType;
+                }
+                else
+                {
+                    Debug.LogWarning($"패시브 스킬'{passiveskillData.skillName}'의 유허하지 않은 타입 : {passiveskillData.type}");
+                }
+
+
+
+                //아이콘 로드(경로가 있는경우)
+                if (!string.IsNullOrEmpty(passiveskillData.iconpath))
+                {
+                    passiveskillSO.icon = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Resources/{passiveskillData.iconpath}.png");
+                    if (passiveskillSO.icon == null)
+                    {
+                        Debug.LogWarning($"패시브 스킬 '{passiveskillData.skillName}'의 아이콘을 찾을 수 없습니다 : {passiveskillData.iconpath}");
+                    }
+                }
+
+                //passiveskillSO.name = $"passiveskill_{passiveskillData.id.ToString("D4")}+{passiveskillData.skillName}";
+                createdpassiveskill.Add(passiveskillSO);
+
+                string assetPath = $"{outputFolder}/Passiveskill_{passiveskillData.id.ToString("D4")}.asset";
+                AssetDatabase.CreateAsset(passiveskillSO, assetPath);
+
+                // ScriptableObject 이름도 깔끔하게 ID만 붙이기
+                passiveskillSO.name = $"Passiveskill_{passiveskillData.id.ToString("D4")}";
+
+                EditorUtility.SetDirty(passiveskillSO);
+            }
+
+            if (createDatabase && createdpassiveskill.Count > 0)
+            {
+                PassiveSkillDatabaseSO database = ScriptableObject.CreateInstance<PassiveSkillDatabaseSO>();
+                database.passiveskills = createdpassiveskill;
+
+                AssetDatabase.CreateAsset(database, $"{outputFolder}/PassiveDatabase.asset");
+                EditorUtility.SetDirty(database);
+            }
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        catch (System.Exception e)
+        {
+            EditorUtility.DisplayDialog("Error", $"Failed to Convert Json : {e.Message}", "OK");
+            Debug.LogError($"JSON 변환 오류 : {e}");
+        }
     }
 }
 #endif
