@@ -13,7 +13,9 @@ public class ActiveSkillSO : ScriptableObject
     public int range;
     public int effectValue;
     public Sprite icon;
-    public string iconpath;
+    public GameObject effectPrefab;
+    public AudioClip audioClip;
+    private AudioSource audioSource;
     public ActiveSkillType activeSkillType;
 
     public enum ActiveSkillType

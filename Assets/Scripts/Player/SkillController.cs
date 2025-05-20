@@ -48,25 +48,26 @@ public class SkillController : MonoBehaviour
 
         }
 
-        IEnumerator WaitForMouseClick()
+        
+    }
+    IEnumerator WaitForMouseClick()
+    {
+        Debug.Log("마우스 클릭 대기중...");
+        while (!Input.GetMouseButtonDown(0))
         {
-            Debug.Log("마우스 클릭 대기중...");
-            while (!Input.GetMouseButtonDown(0))
-            {
-                yield return null;
-            }
+            yield return null;
+        }
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray, out RaycastHit hit))
-            {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(ray, out RaycastHit hit))
+        {
                 ExecuteSkill(hit.point);
-            }
         }
+    }
 
-        void ExecuteSkill(Vector3 targetPosition)
-        {
-            activeSkill.Activate(gameObject, targetPosition);
-            cooldownRemaining = activeSkill.cooldownTime;
-        }
+    void ExecuteSkill(Vector3 targetPosition)
+    {
+        SkillExecutionHandler.Execute(activeSkill, gameObject, targetPosition);
+        cooldownRemaining = activeSkill.cooldownTime;
     }
 }
