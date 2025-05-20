@@ -22,6 +22,7 @@ public class ZombieSpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartWave());
+        StartCoroutine(StartLoop());
     }
 
     IEnumerator StartWave()
@@ -36,6 +37,15 @@ public class ZombieSpawner : MonoBehaviour
         }
 
         SpawnZombie(true); // 보스 한 마리
+    }
+
+    IEnumerator StartLoop()
+    {
+        while (true)
+        {
+            SpawnZombie(false);
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     void SpawnZombie(bool isBoss)

@@ -13008,7 +13008,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fireSound
       value: 
-      objectReference: {fileID: 8300000, guid: 0e5ec5d798406aa4699be8c44dd7599f, type: 3}
+      objectReference: {fileID: 8300000, guid: 6dd7024f00606b44eb5884197a66a893, type: 3}
     - target: {fileID: 653804683377461643, guid: 2e98068106cf43c41a935f59068282bc,
         type: 3}
       propertyPath: effectPoint
@@ -13040,6 +13040,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859069481959168319, guid: 2e98068106cf43c41a935f59068282bc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859069481959168319, guid: 2e98068106cf43c41a935f59068282bc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859069481959168319, guid: 2e98068106cf43c41a935f59068282bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4702884997828238920, guid: 2e98068106cf43c41a935f59068282bc,
         type: 3}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aaa2046839026a439b1502c1a2e2c13, type: 3}
   m_Name: SubMachineGun_001
   m_EditorClassIdentifier: 
+  id: 0
   weaponName: UMP-45
   description: ".45\uD0C4\uC744 \uC0AC\uC6A9\uD558\uB294 \uAE30\uAD00\uB2E8\uCD1D."
   icon: {fileID: 0}
@@ -21,6 +22,6 @@ MonoBehaviour:
   currentAmmo: 25
   fireRate: 7
   reloadTime: 1.5
-  weaponPrefab: {fileID: 1084097304203713816, guid: 1268d329de19052498fa490581e4c382,
+  weaponPrefab: {fileID: 7068489760897891094, guid: 1c260f71cd27b3146aed9c8d61fb4495,
     type: 3}
   weaponType: 2

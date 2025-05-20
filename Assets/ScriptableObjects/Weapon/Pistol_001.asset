@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aaa2046839026a439b1502c1a2e2c13, type: 3}
   m_Name: Pistol_001
   m_EditorClassIdentifier: 
+  id: 0
   weaponName: Glock17
   description: "\uC804\uC138\uACC4\uC5D0\uC11C \uAC00\uC7A5 \uB9CE\uC774 \uC4F0\uC774\uB294
     \uAD8C\uCD1D\uC774\uB2E4."
@@ -22,6 +23,6 @@ MonoBehaviour:
   currentAmmo: 18
   fireRate: 4
   reloadTime: 1
-  weaponPrefab: {fileID: 6094801228896505279, guid: 77d92f78c5a34f444b7176a22ab30c09,
+  weaponPrefab: {fileID: 8938524520916487987, guid: 3dacaa2b0990afd4b848e35350522c88,
     type: 3}
   weaponType: 0
