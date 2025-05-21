@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class LoabbySceneManager : MonoBehaviour
 {
-    public void StartGame()
+    public void GameSelect()
+    {
+        Debug.Log("GameSelect Button Clicked");
+        Debug.Log("SceneTransitionManager.Instance: " + SceneTransitionManager.Instance);
+        SceneTransitionManager.Instance.DoLoadSceneWithLoadingScene("LoadingScene", "SelectScene");
+    }
+
+    public void GameLobby()
+    {
+        SceneTransitionManager.Instance.DoLoadSceneWithLoadingScene("LoadingScene", "LobbyScene");
+    }
+
+    public void GameStart()
     {
         SceneTransitionManager.Instance.DoLoadSceneWithLoadingScene("LoadingScene", "MainScene");
     }
