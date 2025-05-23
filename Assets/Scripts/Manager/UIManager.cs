@@ -21,7 +21,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Game Over UI")]
     public GameObject gameOverUI;
-    public TextMeshProUGUI gameOverMessage;
+    public GameObject clearUI;
+    public GameObject overUI;
 
     void Awake()
     {
@@ -94,8 +95,17 @@ public class UIManager : MonoBehaviour
         if (gameOverUI != null)
         {
             gameOverUI.SetActive(true);
-            if (gameOverMessage != null)
-                gameOverMessage.text = isClear ? "Game Clear!" : "Game Over!";
+            if (clearUI != null && overUI != null)
+                if (isClear)
+                {
+                    clearUI.SetActive(true);
+                    overUI.SetActive(false);
+                }
+                else
+                {
+                    overUI.SetActive(true);
+                    clearUI.SetActive(false);
+                }
         }
     }
 }

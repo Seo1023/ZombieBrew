@@ -7,9 +7,9 @@ public class SkillController : MonoBehaviour
 {
     public ActiveSkillSO activeSkill;
     private float cooldownRemaining;
-    public bool isAwatingClick = false;
+    public bool isSkillActivate = false;
 
-    public List<PassiveSkillSO> passiveSkills = new List<PassiveSkillSO>(5);
+    public List<PassiveSkillSO> passiveSkills = new List<PassiveSkillSO>(2);
 
     void Update()
     {
@@ -58,7 +58,7 @@ public class SkillController : MonoBehaviour
     IEnumerator WaitForMouseClick()
     {
         Debug.Log("마우스 클릭 대기중");
-        isAwatingClick = true;
+        isSkillActivate = true;
         while (!Input.GetMouseButtonDown(0))
         {
             yield return null;
@@ -69,6 +69,8 @@ public class SkillController : MonoBehaviour
         {
             ExecuteSkill(hit.point);
         }
+
+        isSkillActivate = false;
     }
 
     void ExecuteSkill(Vector3 targetPosition)

@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: AssaultRifle_001
   m_EditorClassIdentifier: 
   id: 0
-  weaponName: HK416
-  description: "\uC804\uC138\uACC4 \uD2B9\uC218\uBD80\uB300\uAC00 \uC560\uC6A9\uD558\uB294
-    AR\uC758 \uC815\uC11D"
+  weaponName: M16A1
+  description: AR
   icon: {fileID: 0}
   level: 1
   damage: 20
   maxAmmo: 30
-  currentAmmo: 15
-  fireRate: 12
+  currentAmmo: 29
+  fireRate: 9
   reloadTime: 2
   weaponPrefab: {fileID: 1386435292756997905, guid: d388066eda58a5d42826e06d8a50a87a,
     type: 3}
