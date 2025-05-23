@@ -16,10 +16,12 @@ MonoBehaviour:
   skillName: "\uACF5\uC911\uD3ED\uACA9"
   description: "\uACF5\uC911\uC5D0\uC11C \uD3ED\uACA9\uC744 \uD558\uC5EC \uC8FC\uBCC0\uC758
     \uC801\uC5D0\uAC8C \uB370\uBBF8\uC9C0\uB97C \uC90D\uB2C8\uB2E4."
-  cooldownTime: 150
+  cooldownTime: 0
   damage: 500
-  range: 50
+  range: 30
   effectValue: 0
   icon: {fileID: 0}
-  iconpath: 
+  effectPrefab: {fileID: 1685874166552172, guid: 2dc5347a44240ea4597cafb2d1d7c160,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: 1fd31868d68903d4f9e2c4a3b7ef98f3, type: 3}
   activeSkillType: 1

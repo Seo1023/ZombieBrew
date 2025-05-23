@@ -16,6 +16,8 @@ public class PlayerShooting : MonoBehaviour
     private float fireCooldown = 0f;
     private bool isReloading = false;
 
+    public SkillController skillController;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -35,12 +37,12 @@ public class PlayerShooting : MonoBehaviour
         // 장전 중이면 아무 것도 못함
         if (isReloading) return;
 
-        // 발사
         if (Input.GetMouseButton(0) && fireCooldown <= 0f && weapon.currentAmmo > 0)
         {
             Shoot(weapon);
             fireCooldown = 1f / weapon.fireRate;
         }
+        
 
         GameManager.Instance?.UpdateAmmoUI(weapon);
 

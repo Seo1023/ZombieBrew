@@ -4700,6 +4700,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: edb4501d1a15fec41a056a9ff6c749d9, type: 2}
   - {fileID: 11400000, guid: d1869bbf1bc9e694885d1643d31ff258, type: 2}
   - {fileID: 11400000, guid: 96da880fb4c97df4d82f26a697ccf43f, type: 2}
+--- !u!1 &799784790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4292759148803663394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &805910446
 GameObject:
   m_ObjectHideFlags: 0
@@ -10589,6 +10595,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4292759148803663394}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1835672602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799784790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b445afcb7a19ba545807d9d651147026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeSkill: {fileID: 11400000, guid: 0f61d43508de1fd48a33beac07f136d5, type: 2}
+  passiveSkills: []
 --- !u!1 &1852229350
 GameObject:
   m_ObjectHideFlags: 0
@@ -13206,7 +13226,11 @@ PrefabInstance:
         type: 3}
       insertIndex: 9
       addedObject: {fileID: 979694907}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1835672602}
   m_SourcePrefab: {fileID: 100100000, guid: 2e98068106cf43c41a935f59068282bc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

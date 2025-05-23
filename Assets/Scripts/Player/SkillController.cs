@@ -7,24 +7,28 @@ public class SkillController : MonoBehaviour
 {
     public ActiveSkillSO activeSkill;
     private float cooldownRemaining;
+    public bool isAwatingClick = false;
 
     public List<PassiveSkillSO> passiveSkills = new List<PassiveSkillSO>(5);
 
-
-    void Start()
-    {
-        
-    }
     void Update()
     {
-        if (activeSkill == null || cooldownRemaining > 0)
+        HandleCooldown();
+        HandleInput();
+    }
+
+    void HandleCooldown()
+    {
+        if(cooldownRemaining > 0f)
         {
-            if(cooldownRemaining > 0)
-            {
-                cooldownRemaining -= Time.deltaTime;
-                return;
-            }
+            cooldownRemaining -= Time.deltaTime;
         }
+    }
+
+    void HandleInput()
+    {
+        if (activeSkill == null || cooldownRemaining > 0f)
+            return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -34,25 +38,27 @@ public class SkillController : MonoBehaviour
                 case ActiveSkillSO.ActiveSkillType.Buff:
                 case ActiveSkillSO.ActiveSkillType.Spawn:
                     ExecuteSkill(transform.position);
-                break;
+                    break;
 
                 case ActiveSkillSO.ActiveSkillType.MouseClick:
                     StartCoroutine(WaitForMouseClick());
-                break;
+                    break;
 
                 case ActiveSkillSO.ActiveSkillType.Target:
-                    Debug.Log("타겟팅 미구현");
-                break;
+                    Debug.LogWarning("타겟팅 스킬은 구현 안됨.");
+                    break;
+
+                default:
+                    Debug.LogWarning($"[스킬] 정의되지 않은 스킬 타입 : {activeSkill.activeSkillType}");
+                    break;
             }
-                
-
         }
-
-        
     }
+
     IEnumerator WaitForMouseClick()
     {
-        Debug.Log("마우스 클릭 대기중...");
+        Debug.Log("마우스 클릭 대기중");
+        isAwatingClick = true;
         while (!Input.GetMouseButtonDown(0))
         {
             yield return null;
@@ -61,13 +67,13 @@ public class SkillController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out RaycastHit hit))
         {
-                ExecuteSkill(hit.point);
+            ExecuteSkill(hit.point);
         }
     }
 
     void ExecuteSkill(Vector3 targetPosition)
     {
-        SkillExecutionHandler.Execute(activeSkill, gameObject, targetPosition);
+        SkillExecutor.Execute(activeSkill, gameObject, targetPosition);
         cooldownRemaining = activeSkill.cooldownTime;
     }
 }

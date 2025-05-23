@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Activeskill_1005
   m_EditorClassIdentifier: 
   id: 1005
-  skillName: "\uAD70\uACAC\uBCD1"
-  description: "\uAD70\uACAC\uC744 \uC18C\uD658\uD558\uC5EC \uC77C\uC815\uC2DC\uAC04
-    \uC804\uD22C\uB97C \uB3D5\uC2B5\uB2C8\uB2E4."
+  skillName: "\uD130\uB81B"
+  description: "\uC0AC\uC6A9\uD55C \uC704\uCE58\uC5D0 \uD130\uB81B\uC744 \uC124\uCE58\uD55C\uB2E4."
   cooldownTime: 60
   damage: 100
   range: 30
   effectValue: 0
   icon: {fileID: 0}
-  iconpath: 
+  effectPrefab: {fileID: 0}
+  audioClip: {fileID: 0}
   activeSkillType: 4

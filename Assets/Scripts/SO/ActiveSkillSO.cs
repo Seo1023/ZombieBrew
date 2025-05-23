@@ -27,8 +27,8 @@ public class ActiveSkillSO : ScriptableObject
         Spawn
     }
 
-    public virtual void Activate(GameObject caster, Vector3 targetPosition)
+    public virtual void Activate(GameObject caster, Vector3 target)
     {
-        Debug.Log($"스킬 발동 : {skillName} - 타겟위치 : {targetPosition}");
+        SkillExecutor.Execute(this, caster, target);
     }
 }

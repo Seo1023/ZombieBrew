@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7074324376502046409}
   - component: {fileID: 1008242647728121817}
   - component: {fileID: 5674127837764196895}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uC67C\uD314"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5545065058952610727}
   - component: {fileID: 9059159475445225020}
   - component: {fileID: 1593431245894275087}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uB208"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 724858874641530520}
   - component: {fileID: 274058758790439835}
   - component: {fileID: 299753494039638068}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uD600"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 8708861271500450942}
   - component: {fileID: 510918490865658595}
   - component: {fileID: 1742031649310625959}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uC774\uBE683"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 733959114331930057}
   - component: {fileID: 1034624639122099604}
   - component: {fileID: 411729671217402516}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uC774\uBE682"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 4877123208137234104}
   - component: {fileID: 8061342559742186599}
   - component: {fileID: 2017425091803162047}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uC67C\uBC1C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 317393568496500199}
   - component: {fileID: 7930788891993475920}
   - component: {fileID: 9063091282157718395}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uBAB8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 6132360680668271863}
   - component: {fileID: 201373386509111983}
   - component: {fileID: 3818021025252221269}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uB1CC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 3567699393707699634}
   - component: {fileID: 9051844827554553008}
   - component: {fileID: 903687200819982870}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uB208\uB3D9\uC790"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 4783648279262341895}
   - component: {fileID: 2345349872272352889}
   - component: {fileID: 2084273915820337050}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uC624\uB978\uD314"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 5517602197629340195}
   - component: {fileID: 3411319978847972600}
   - component: {fileID: 8989019759001148443}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uC624\uB978\uBC1C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 7259645156048960922}
   - component: {fileID: 7589335060243173226}
   - component: {fileID: 2895811177430986604}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uC774\uBE681"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1010,8 @@ GameObject:
   - component: {fileID: 4581394611963609318}
   - component: {fileID: 3534582747318537261}
   - component: {fileID: -749051828891773790}
-  m_Layer: 8
+  - component: {fileID: -1132033955614528383}
+  m_Layer: 0
   m_Name: "\uC880\uBE44"
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -1082,8 +1083,6 @@ MonoBehaviour:
   maxHealth: 100
   isBoss: 0
   spawner: {fileID: 0}
-  hitEffectPrefab: {fileID: 1968586304485042, guid: 6c86c599d7bf3464eb4506d2584fbe57,
-    type: 3}
 --- !u!114 &4581394611963609318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,6 +1139,33 @@ NavMeshAgent:
   m_BaseOffset: 2.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &-1132033955614528383
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779670873213031081}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7376518195104827567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1177,7 @@ GameObject:
   - component: {fileID: 6134178803740223994}
   - component: {fileID: 5479668098067798308}
   - component: {fileID: 841270097575201051}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uC774\uBE684"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1234,7 +1260,7 @@ GameObject:
   - component: {fileID: 1959588498579093743}
   - component: {fileID: 666946151117470520}
   - component: {fileID: 8012149196504125282}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: "\uBA38\uB9AC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

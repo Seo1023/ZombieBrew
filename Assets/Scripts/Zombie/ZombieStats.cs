@@ -35,16 +35,13 @@ public class ZombieStats : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.SetHealth(currentHealth);
-            Debug.Log($"[TakeDamage] 체력바 업데이트: {currentHealth}");
         }
         else
         {
-            Debug.LogWarning("[TakeDamage] healthBar가 null입니다!");
         }
 
         if (currentHealth <= 0)
         {
-            Debug.Log("[TakeDamage] 체력이 0 이하! Die 호출 예정");
             Die();
         }
     }
