@@ -7,17 +7,25 @@ public class LoabbySceneManager : MonoBehaviour
     public void GameSelect()
     {
         Debug.Log("GameSelect Button Clicked");
+
+        if (SceneTransitionManager.Instance == null)
+        {
+            Debug.LogError("SceneTransitionManager.Instance is NULL!!");
+            return;
+        }
+
         Debug.Log("SceneTransitionManager.Instance: " + SceneTransitionManager.Instance);
-        SceneTransitionManager.Instance.DoLoadSceneWithLoadingScene("LoadingScene", "SelectScene");
+
+        SceneTransitionManager.Instance.LoadSceneWithLoading("SelectScene");
     }
 
     public void GameLobby()
     {
-        SceneTransitionManager.Instance.DoLoadSceneWithLoadingScene("LoadingScene", "LobbyScene");
+        SceneTransitionManager.Instance.LoadSceneWithLoading("LobbyScene");
     }
 
     public void GameStart()
     {
-        SceneTransitionManager.Instance.DoLoadSceneWithLoadingScene("LoadingScene", "MainScene");
+        SceneTransitionManager.Instance.LoadSceneWithLoading("MainScene");
     }
 }

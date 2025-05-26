@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 226115773}
   - component: {fileID: 226115772}
   - component: {fileID: 226115774}
+  - component: {fileID: 226115775}
   m_Layer: 5
   m_Name: f
   m_TagString: Untagged
@@ -744,6 +745,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 739a9953aba571840997e34916879ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &226115775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226115767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79b8eac97106cb4697f68e89a600f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &272673858
@@ -4217,9 +4230,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1045622206}
-        m_TargetAssemblyTypeName: SelectManager, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 2127297533}
+        m_TargetAssemblyTypeName: LoabbySceneManager, Assembly-CSharp
+        m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

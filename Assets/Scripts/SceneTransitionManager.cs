@@ -8,11 +8,14 @@ public class SceneTransitionManager : MonoBehaviour
 {
     public static SceneTransitionManager Instance;
 
-    public GameObject loadingScreen;
+    //public GameObject loadingScreen;
     public Slider loadingBar;
+
+    private string nextSceneName;
 
     private void Awake()
     {
+        Debug.Log("SceneTransitionManager Awake. Instance: " + Instance);
         if (Instance == null)
         {
             Instance = this;
@@ -20,27 +23,30 @@ public class SceneTransitionManager : MonoBehaviour
         }
         else
         {
+            Debug.LogWarning("Duplicate SceneTransitionManager detected! Destroying this one.");
             Destroy(gameObject);
         }
-        if (loadingScreen == null)
-        {
-            Debug.LogWarning("Loading Screen is not assigned in the inspector.");
-        }
     }
 
-    public void DoLoadSceneWithLoadingScene(string loadingScene, string targetScene)
+    public void LoadSceneWithLoading(string targetSceneName)
     {
-        StartCoroutine(LoadSceneWithLoadingScreen(loadingScene, targetScene));
+        nextSceneName = targetSceneName;
+        SceneManager.LoadScene("LoadingScene"); 
     }
 
-    private IEnumerator LoadSceneWithLoadingScreen(string loadingScene, string targetScene)
+    public string GetNextSceneName()
+    {
+        return nextSceneName;
+    }
+
+    /*private IEnumerator LoadSceneWithLoadingScreen(string loadingScene, string targetScene)
     {
         yield return SceneManager.LoadSceneAsync(loadingScene);
 
-        if (loadingScreen != null)
+        *//*if (loadingScreen != null)
         {
             loadingScreen.SetActive(true);
-        }
+        }*//*
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(targetScene);
         operation.allowSceneActivation = false;
@@ -64,14 +70,11 @@ public class SceneTransitionManager : MonoBehaviour
             yield return null;
         }
 
-        if (loadingScreen == null)
+        *//*if (loadingScreen == null)
         {
             loadingScreen.SetActive(false);
-        }
-    }
+        }*//*
+    }*/
 
-    public void LoadLobby()
-    {
-        SceneManager.LoadScene("LobbyScene");
-    }
+    
 }

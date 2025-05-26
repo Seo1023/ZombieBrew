@@ -36,7 +36,17 @@ public class PauseManager : MonoBehaviour
     public void GoToSelectScene()
     {
         Time.timeScale = 1f; // 씬 이동 전 반드시 재개
-        SceneManager.LoadScene("SelectScene"); // 씬 이름에 맞게 수정
+        isPaused = false;
+
+        if (SceneTransitionManager.Instance != null)
+        {
+            SceneTransitionManager.Instance.LoadSceneWithLoading("SelectScene");
+        }
+        else
+        {
+            Debug.LogError("SceneTransitionManager is null!");
+            SceneManager.LoadScene("SelectScene");
+        }
     }
 
     public void OpenSettings()

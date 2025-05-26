@@ -49,7 +49,8 @@ public class PlayerShooting : MonoBehaviour
         // 장전 키 입력 (R)
         if (Input.GetKeyDown(KeyCode.R) && weapon.currentAmmo < weapon.maxAmmo)
         {
-            audioSource.PlayOneShot(relodingSound, 0.5f);
+            //audioSource.PlayOneShot(relodingSound, 0.5f);
+            AudioManager.instance.PlaySFX("relodingSound");
             StartCoroutine(Reload(weapon));
         }
     }
@@ -60,7 +61,10 @@ public class PlayerShooting : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         GameObject fireEffect = Instantiate(fireEffectPrefab, firePoint.position, effectPoint.rotation);
-        audioSource.PlayOneShot(fireSound, 0.2f);
+        //audioSource.PlayOneShot(fireSound, 0.2f);
+        AudioManager.instance.PlaySFX("fireSound");
+
+        //audioSource.PlayOneShot(clip, 0.2f);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
         {
@@ -68,6 +72,7 @@ public class PlayerShooting : MonoBehaviour
             bulletScript.moveDirection = firePoint.forward;
         }
 
+        
         Debug.Log($"{weapon.weaponName} 발사! 남은 탄약: {weapon.currentAmmo}");
     }
 
