@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f074bef28a7896e40b0c3843716610dc, type: 3}
   m_Name: Passiveskill_2008
   m_EditorClassIdentifier: 
-  id: 2005
-  skillName: "\uACF5\uC911 \uC9C0\uC6D0 \uC0AC\uACA9"
-  description: "\uC8FC\uBCC0 \uAC00\uAE4C\uC6B4 \uC801\uC5D0\uAC8C \uC0AC\uACA9\uD558\uC5EC
-    \uB370\uBBF8\uC9C0\uB97C \uC785\uD798."
-  cooldownTime: 5
-  damage: 300
-  range: 20
+  id: 2008
+  skillName: "\uD654\uC5FC\uBCD1"
+  description: "\uBB34\uC791\uC704 \uBC29\uD5A5\uC73C\uB85C \uD654\uC5FC\uBCD1\uC744
+    \uB358\uC838 \uD654\uC5FC\uD53C\uD574\uC640 \uC774\uB3D9\uC18D\uB3C4\uB97C \uB2A6\uCDA5\uB2C8\uB2E4."
+  cooldownTime: 15
+  damage: 15
+  range: 5
   effectValue: 0
   icon: {fileID: 0}
   iconpath: 
