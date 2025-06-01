@@ -62,7 +62,7 @@ public class AudioManager : MonoBehaviour
                 PlayMusic("MainMenuBGM");
                 break;
             case "MainScene":
-                PlayMusic("BGM");
+                PlayMusic("MainGameBGM");
                 break;
             case "LoadingScene":
                 PlayMusic("MainMenuBGM");
