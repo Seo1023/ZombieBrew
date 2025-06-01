@@ -643,8 +643,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSlider: {fileID: 6177159289854723135}
   sfxSlider: {fileID: 6651671712199755540}
-  bgmHandle: {fileID: 8633264520782133450}
-  sfxHandle: {fileID: 606437454944219892}
 --- !u!1 &9165658538552709114
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8e8d2ec8af85c174084ce8594d9dd809, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -898,12 +896,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c6cf78de3014aa45b2d7ec790a0d0ee, type: 3}
---- !u!224 &606437454944219892 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3173158137361224396, guid: 7c6cf78de3014aa45b2d7ec790a0d0ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 2621989046909362232}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1227594770351354938 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3849003000212493314, guid: 7c6cf78de3014aa45b2d7ec790a0d0ee,
@@ -1118,9 +1110,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &8633264520782133450 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2185843816862328796, guid: 6741a50bd8accb14489b1d481ee6ac86,
-    type: 3}
-  m_PrefabInstance: {fileID: 7609439643249123094}
-  m_PrefabAsset: {fileID: 0}

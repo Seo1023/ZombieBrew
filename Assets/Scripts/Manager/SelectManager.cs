@@ -33,6 +33,7 @@ public class SelectManager : MonoBehaviour
             CharacterSelectButton csb = btn.GetComponent<CharacterSelectButton>();
             csb.Init(character, this);
         }
+        
     }
 
     public void OnStartButtonClicked()
@@ -40,6 +41,7 @@ public class SelectManager : MonoBehaviour
         if (selectedCharacter == null || string.IsNullOrEmpty(selectedMapName))
         {
             Debug.LogWarning("캐릭터 또는 맵이 선택되지 않았습니다.");
+            return;
         }
         confirmPanel.SetActive(true);
         characterNameText.text = $"선택한 캐릭터 : {selectedCharacter.characterName}";
@@ -53,6 +55,7 @@ public class SelectManager : MonoBehaviour
         if (selectedCharacter == null || string.IsNullOrEmpty(selectedMapName))
         {
             Debug.LogWarning("캐릭터 또는 맵이 선택되지 않았습니다.");
+            return;
         }
 
         GameManager.Instance.selectedCharacter = selectedCharacter;

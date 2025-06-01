@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
@@ -24,24 +26,71 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    /*private void Start()
     {
-        PlayMusic("BGM");
+        string sceneName = SceneManager.GetActiveScene().name;
+        Debug.Log("현재 씬 이름: " + sceneName);
+
+        switch (sceneName)
+        {
+            case "LobbyScene":
+                PlayMusic("MainMenuBGM");
+                break;
+            case "SelectScene":
+                PlayMusic("MainMenuBGM");
+                break;
+            case "MainScene":
+                PlayMusic("BGM");
+                break;
+            default:
+                PlayMusic("BGM"); 
+                break;
+        }
+    }*/
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        string sceneName = scene.name;
+        Debug.Log("현재 씬 이름: " + sceneName);
+
+        switch (sceneName)
+        {
+            case "LobbyScene":
+                PlayMusic("MainMenuBGM");
+                break;
+            case "SelectScene":
+                PlayMusic("MainMenuBGM");
+                break;
+            case "MainScene":
+                PlayMusic("BGM");
+                break;
+            case "LoadingScene":
+                PlayMusic("MainMenuBGM");
+                break;
+            default:
+                PlayMusic("BGM");
+                break;
+        }
     }
 
     public void PlayMusic(string name)
     {
         Sound s = Array.Find(musicSounds, x => x.name == name);
 
-        if(s == null)
+        if (s == null)
         {
-            Debug.Log("sound Not Found");
+            Debug.LogWarning("BGM 사운드를 찾을 수 없습니다: " + name);
+            return;
         }
-        else
+
+        // 현재 음악과 같으면 다시 재생하지 않음
+        if (musicSource.clip == s.clip && musicSource.isPlaying)
         {
-            musicSource.clip=s.clip;
-            musicSource.Play();
+            return;
         }
+
+        musicSource.clip = s.clip;
+        musicSource.Play();
     }
 
     public void PlaySFX(string name)
@@ -50,12 +99,11 @@ public class AudioManager : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("sound Not Found");
+            Debug.LogWarning("SFX 사운드를 찾을 수 없습니다: " + name);
+            return;
         }
-        else
-        {
-            sfxSource.PlayOneShot(s.clip);
-        }
+
+        sfxSource.PlayOneShot(s.clip);
     }
 
     public void MusicVolume(float volume)
