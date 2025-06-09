@@ -15,7 +15,7 @@ public class PassiveSkillData : MonoBehaviour
     public int range;
     public int effectValue;
     public string iconpath;
-    public PassiveSkillType passiveSkillType;
+    public PassiveSkillSO.PassiveSkillType passiveSkillType;
 
     public void InitalizEnums()
     {

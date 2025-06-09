@@ -338,10 +338,6 @@ public class JsonToScriptableConverter : EditorWindow
                 passiveskillSO.id = passiveskillData.id;
                 passiveskillSO.skillName = passiveskillData.skillName;
                 passiveskillSO.description = passiveskillData.description;
-                passiveskillSO.cooldownTime = passiveskillData.cooldownTime;
-                passiveskillSO.damage = passiveskillData.damage;
-                passiveskillSO.range = passiveskillData.range;
-                passiveskillSO.effectValue = passiveskillData.effectValue;
 
                 if (System.Enum.TryParse(passiveskillData.type, out PassiveSkillType parsedType))
                 {
@@ -351,6 +347,17 @@ public class JsonToScriptableConverter : EditorWindow
                 {
                     Debug.LogWarning($"패시브 스킬'{passiveskillData.skillName}'의 유허하지 않은 타입 : {passiveskillData.type}");
                 }
+
+                passiveskillSO.levelDataList = new List<SkillLevelData>
+                {
+                    new SkillLevelData
+                    { 
+                        cooldown = passiveskillData.cooldownTime,
+                        damage = passiveskillData.damage,
+                        range = passiveskillData.range,
+                        effectValue = passiveskillData.effectValue
+                    }
+                };
 
 
 

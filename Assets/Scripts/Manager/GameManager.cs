@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public Transform player { get; private set; }
     public Transform spawnPoint;
 
+    public List<PassiveSkill> ownedPassiveSkills = new();
+    private PassiveSkillManager skillManager;
+
     [Header("EXP & Gold")]
     public int gold = 0;
     public int exp = 0;
@@ -49,6 +52,9 @@ public class GameManager : MonoBehaviour
 
         GameObject playerObj = Instantiate(selectedCharacter.characterPrefab, spawnPoint.position, Quaternion.identity);
         player = playerObj.transform;
+
+        skillManager = playerObj.GetComponent<PassiveSkillManager>();
+        ownedPassiveSkills.Clear();
 
         if (selectedCharacter.defaultWeapon != null)
         {
@@ -117,7 +123,7 @@ public class GameManager : MonoBehaviour
             exp -= requiredExp;
             level++;
             Debug.Log($"레벨 업! 현재 레벨: {level}");
-            WeaponSelectorUI.Instance.OpenRandomChoices();
+            PassiveSkillSelectorUI.Instance.OpenRandomChoices();
             PauseGame();
             requiredExp = GetMaxExpForLevel(level);
         }
@@ -153,5 +159,20 @@ public class GameManager : MonoBehaviour
     public WeaponSO CloneWeapon(WeaponSO original)
     {
         return ScriptableObject.Instantiate(original);
+    }
+
+    public void AddOrUpgradePassiveSkill(PassiveSkillSO skillData)
+    {
+        var skill = ownedPassiveSkills.Find(s => s.data == skillData);
+        if(skill == null)
+        {
+            var newSkill = new PassiveSkill { data = skillData, currentLevel = 1};
+            ownedPassiveSkills.Add(newSkill);
+            skillManager?.AddSkill(newSkill);
+        }
+        else if (skill.CanLevelUp)
+        {
+            skill.LevelUp();
+        }
     }
 }
