@@ -1499,7 +1499,7 @@ MonoBehaviour:
   buttonParent: {fileID: 106980993}
   selectedCharacter: {fileID: 0}
   mapSceneNames:
-  - MainScene
+  - Cafe
   mapButtonPrefab: {fileID: 5158600112949438805, guid: 35d09c34b815f474492d58af1e0d5d26,
     type: 3}
   mapButtonParent: {fileID: 757461634}
@@ -1829,9 +1829,11 @@ MonoBehaviour:
   selectedMap: 
   ownedWeapons: []
   spawnPoint: {fileID: 0}
+  ownedPassiveSkills: []
   gold: 0
   exp: 0
   level: 1
+  expBonusPercent: 0
 --- !u!4 &1162920028
 Transform:
   m_ObjectHideFlags: 0

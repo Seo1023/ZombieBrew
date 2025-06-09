@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public int exp = 0;
     public int level = 1;
 
+    public float expBonusPercent = 0f;
+
     void Awake()
     {
        if(Instance == null)
@@ -102,7 +104,9 @@ public class GameManager : MonoBehaviour
 
     public void AddExp(int amount)
     {
-        exp += amount;
+        int bounsAmount = Mathf.FloorToInt(amount * (expBonusPercent / 100f));
+
+        exp += amount + bounsAmount;
 
         UpdateExpUI();
 

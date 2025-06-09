@@ -4842,14 +4842,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 716113539}
   buttonContainer: {fileID: 2080099149}
-  weaponButtonPrefab: {fileID: 898410681802884934, guid: bbb7c71df72a39747aec01ba07a1932c,
+  skillButtonPrefab: {fileID: 898410681802884934, guid: bbb7c71df72a39747aec01ba07a1932c,
     type: 3}
-  allWeapons:
-  - {fileID: 11400000, guid: 2e1bd306c51a8e642a71415b61cbe1ae, type: 2}
-  - {fileID: 11400000, guid: a894ede811060ef4bb96ab8ba2599559, type: 2}
-  - {fileID: 11400000, guid: edb4501d1a15fec41a056a9ff6c749d9, type: 2}
-  - {fileID: 11400000, guid: d1869bbf1bc9e694885d1643d31ff258, type: 2}
-  - {fileID: 11400000, guid: 96da880fb4c97df4d82f26a697ccf43f, type: 2}
+  allPassiveSkills:
+  - {fileID: 11400000, guid: 63553a1ef4fa7534ea419df0aab7f380, type: 2}
+  - {fileID: 11400000, guid: 63553a1ef4fa7534ea419df0aab7f380, type: 2}
+  - {fileID: 11400000, guid: 63553a1ef4fa7534ea419df0aab7f380, type: 2}
+  - {fileID: 11400000, guid: 63553a1ef4fa7534ea419df0aab7f380, type: 2}
 --- !u!1 &799784790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
@@ -6959,8 +6958,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1835672593}
-  offset: {x: 0, y: 50, z: 0}
-  smoothSpeed: 10
+  offset: {x: 0, y: 50, z: -20}
+  smoothSpeed: 50
 --- !u!1001 &1172813317
 PrefabInstance:
   m_ObjectHideFlags: 0

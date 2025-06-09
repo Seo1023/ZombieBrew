@@ -14,11 +14,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2002
   skillName: "\uC804\uD22C\uC900\uBE44\uD0DC\uC138"
-  description: "\uC774\uB3D9\uC18D\uB3C4\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-  cooldownTime: 0
-  damage: 0
-  range: 0
-  effectValue: 5
   icon: {fileID: 0}
-  iconpath: 
+  description: "\uC774\uB3D9\uC18D\uB3C4\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
   passiveSkillType: 3
+  tickInterval: 1
+  levelDataList:
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 2
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 4
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 6
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 8
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 10
+    duration: 0
+    chance: 0
