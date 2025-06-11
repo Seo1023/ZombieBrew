@@ -20,11 +20,11 @@ public class GameManager : MonoBehaviour
     public CharacterSO selectedCharacter;
     public string selectedMap;
     public List<WeaponSO> ownedWeapons = new List<WeaponSO>();
-    public Transform player { get; private set; }
+    public Transform player { get; set; }
     public Transform spawnPoint;
 
     public List<PassiveSkill> ownedPassiveSkills = new();
-    private PassiveSkillManager skillManager;
+    public PassiveSkillManager skillManager;
 
     [Header("EXP & Gold")]
     public int gold = 0;
@@ -48,19 +48,25 @@ public class GameManager : MonoBehaviour
 
     public void InitPlayerAndWeapon()
     {
-        if (selectedCharacter == null)
-        {
-            Debug.LogError("[GameManager] 선택된 캐릭터가 없습니다.");
-            return;
-        }
+        // 씬에 직접 존재하는 플레이어 찾아서 연결
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        Debug.Log(playerObj != null ? $"[GameManager] playerObj 찾음: {playerObj.name}" : "[GameManager] playerObj 못 찾음!");
 
-        GameObject playerObj = Instantiate(selectedCharacter.characterPrefab, spawnPoint.position, Quaternion.identity);
         player = playerObj.transform;
 
+        // PassiveSkillManager 연결
         skillManager = playerObj.GetComponent<PassiveSkillManager>();
-        ownedPassiveSkills.Clear();
+        if (skillManager == null)
+        {
+            Debug.LogError("Player 오브젝트에 PassiveSkillManager가 없습니다.");
+        }
+        else
+        {
+            Debug.Log("PassiveSkillManager 연결 완료");
+        }
 
-        if (selectedCharacter.defaultWeapon != null)
+        // 무기 세팅 (선택된 캐릭터가 있다면)
+        if (selectedCharacter != null && selectedCharacter.defaultWeapon != null)
         {
             WeaponSO clonedWeapon = CloneWeapon(selectedCharacter.defaultWeapon);
             clonedWeapon.currentAmmo = clonedWeapon.maxAmmo;
@@ -76,7 +82,11 @@ public class GameManager : MonoBehaviour
 
             UpdateAmmoUI(clonedWeapon);
         }
+
+        ownedPassiveSkills.Clear(); // 이전 데이터 초기화
     }
+
+
 
     void Update()
     {
@@ -170,15 +180,28 @@ public class GameManager : MonoBehaviour
     public void AddOrUpgradePassiveSkill(PassiveSkillSO skillData)
     {
         var skill = ownedPassiveSkills.Find(s => s.data == skillData);
-        if(skill == null)
+        if (skill == null)
         {
-            var newSkill = new PassiveSkill { data = skillData, currentLevel = 1};
+            var newSkill = new PassiveSkill { data = skillData, currentLevel = 1 };
             ownedPassiveSkills.Add(newSkill);
-            skillManager?.AddSkill(newSkill);
+
+            Debug.Log($"[GameManager] 스킬 {skillData.skillName} 추가됨");
+
+            if (skillManager != null)
+            {
+                skillManager.AddSkill(newSkill);
+                Debug.Log($"[GameManager] 스킬 {skillData.skillName} → PassiveSkillManager에 전달됨");
+            }
+            else
+            {
+                Debug.LogError("[GameManager] skillManager가 null입니다!");
+            }
         }
         else if (skill.CanLevelUp)
         {
             skill.LevelUp();
+            Debug.Log($"[GameManager] 스킬 {skillData.skillName} 레벨업 → Lv.{skill.currentLevel}");
         }
     }
+
 }

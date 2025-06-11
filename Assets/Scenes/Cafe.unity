@@ -765,12 +765,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109252792}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &130787028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 4292759148803663394}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &180770927
 GameObject:
   m_ObjectHideFlags: 0
@@ -11101,19 +11095,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4292759148803663394}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1835672594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130787028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0e403f8f951fef4f8bb0a4ffa7f171d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skills: []
 --- !u!1 &1852229350
 GameObject:
   m_ObjectHideFlags: 0
@@ -13795,8 +13776,26 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1835672594}
+      addedObject: {fileID: 4292759148803663396}
   m_SourcePrefab: {fileID: 100100000, guid: 2e98068106cf43c41a935f59068282bc, type: 3}
+--- !u!1 &4292759148803663395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5371178627097909525, guid: 2e98068106cf43c41a935f59068282bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4292759148803663394}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4292759148803663396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4292759148803663395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89646f96d0515e0418a09465f49d27b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
