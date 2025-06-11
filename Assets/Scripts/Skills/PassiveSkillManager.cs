@@ -35,4 +35,9 @@ public class PassiveSkillManager : MonoBehaviour
     {
         skills.Add(newSkill);
     }
+
+    public PassiveSkill GetSkill(PassiveSkillSO data)
+    {
+        return skills.Find(s => s.data == data);
+    }
 }

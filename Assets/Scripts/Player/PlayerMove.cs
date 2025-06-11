@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float moveSpeedBonusPercent = 0f;
     public Camera mainCamera;
 
     private Rigidbody rb;
@@ -49,5 +50,10 @@ public class PlayerMove : MonoBehaviour
                 rb.MoveRotation(rot);
             }
         }
+    }
+
+    public float GetCurrentMoveSpeed()
+    {
+        return moveSpeed * (1f + moveSpeedBonusPercent / 100f);
     }
 }

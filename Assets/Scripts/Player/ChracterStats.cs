@@ -29,6 +29,8 @@ public class ChracterStats : MonoBehaviour
     {
         if (currentHealth <= 0) return;
 
+        if (HasLuckyCoinEvade(damage)) return;
+
         currentHealth = Mathf.Max(currentHealth - damage, 0);
 
         if (healthBar != null)
@@ -52,5 +54,24 @@ public class ChracterStats : MonoBehaviour
 
         if (healthText != null)
             healthText.text = $"{currentHealth} / {maxHealth}";
+    }
+
+    private bool HasLuckyCoinEvade(int damage)
+    {
+        var skillManager = GetComponent<PassiveSkillManager>();
+        if (skillManager == null) return false;
+
+        foreach(var skill in skillManager.skills)
+        {
+            if(skill.data is LuckyCoinSkillSO luckyCoin)
+            {
+                float chance = luckyCoin.GetEvadChance(skill.currentLevel);
+                if(Random.value < chance / 100f)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
