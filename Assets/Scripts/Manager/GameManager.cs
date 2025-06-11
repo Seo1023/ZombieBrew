@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     public bool isGameClear = false;
     public bool IsTimerActive = false;
+    public TextMeshProUGUI[] lables = new TextMeshProUGUI[3];
+    public int total = 0;
 
     public CharacterSO selectedCharacter;
     public string selectedMap;
@@ -139,14 +141,14 @@ public class GameManager : MonoBehaviour
     public void ClearGame()
     {
         isGameClear = true;
-        UIManager.Instance.ShowGameOverUI(true);
+        UIManager.Instance.ShowGameOverUI(true, killCount, gold);
         Time.timeScale = 0f;
     }
     
     public void EndGame()
     {
         isGameOver = true;
-        UIManager.Instance.ShowGameOverUI(false);
+        UIManager.Instance.ShowGameOverUI(false, killCount, gold);
         Time.timeScale = 0f;
     }
     public void UpdateAmmoUI(WeaponSO weapon)

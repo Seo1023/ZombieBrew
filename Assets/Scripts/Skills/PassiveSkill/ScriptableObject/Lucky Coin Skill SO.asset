@@ -12,10 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8015d689b2d3ff84d9fca7c019d11069, type: 3}
   m_Name: Lucky Coin Skill SO
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
+  id: 2006
+  skillName: "\uD589\uC6B4\uC758 \uB3D9\uC804"
   icon: {fileID: 0}
-  description: 
+  description: "\uC801 \uACF5\uACA9\uC744 \uC77C\uC815 \uD655\uB960\uB85C \uBC29\uC5B4\uD569\uB2C8\uB2E4."
   passiveSkillType: 0
   tickInterval: 1
-  levelDataList: []
+  levelDataList:
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 5
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 10
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 15
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 20
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 25

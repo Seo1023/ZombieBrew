@@ -12,10 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c4396686c97b945bd7c1d504c8aa20, type: 3}
   m_Name: Exp Bonus Skill SO
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
+  id: 2001
+  skillName: "\uB178\uB828\uD568"
   icon: {fileID: 0}
-  description: 
-  passiveSkillType: 0
+  description: "\uC77C\uC815\uBE44\uC728 \uCD94\uAC00 \uACBD\uD5D8\uCE58\uB97C \uC5BB\uC74C."
+  passiveSkillType: 3
   tickInterval: 1
-  levelDataList: []
+  levelDataList:
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 2
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 5
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 10
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 15
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 0
+    effectValue: 20
+    duration: 0
+    chance: 0

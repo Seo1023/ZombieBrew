@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject clearUI;
     public GameObject overUI;
+    public TextMeshProUGUI[] lables = new TextMeshProUGUI[3];
 
     void Awake()
     {
@@ -90,22 +91,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowGameOverUI(bool isClear)
+    public void ShowGameOverUI(bool isClear, int killCount = 0, int gold = 0)
     {
         if (gameOverUI != null)
         {
             gameOverUI.SetActive(true);
             if (clearUI != null && overUI != null)
-                if (isClear)
-                {
-                    clearUI.SetActive(true);
-                    overUI.SetActive(false);
-                }
-                else
-                {
-                    overUI.SetActive(true);
-                    clearUI.SetActive(false);
-                }
+            {
+                clearUI.SetActive(isClear);
+                overUI.SetActive(!isClear);
+            }
+            if(lables.Length >= 2)
+            {
+                lables[0].text = $"ÃÑ Á¡¼ö : {killCount * 10 + gold}";
+                lables[1].text = $"È¹µæÇÑ °ñµå : {gold}";
+                lables[2].text = $"ÀâÀº Á»ºñ ¼ö : {killCount}";
+            }
         }
     }
 }

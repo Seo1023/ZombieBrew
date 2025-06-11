@@ -12,10 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d463d6f1280254cb09728cd75fa425, type: 3}
   m_Name: First Aid Skill SO
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
+  id: 2003
+  skillName: "\uC751\uAE09\uCC98\uCE58\uB3C4\uAD6C"
   icon: {fileID: 0}
-  description: 
-  passiveSkillType: 0
+  description: "\uC77C\uC815\uC2DC\uAC04\uB9C8\uB2E4 \uC77C\uC815\uB7C9\uC758 \uCCB4\uB825\uC744
+    \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+  passiveSkillType: 3
   tickInterval: 1
-  levelDataList: []
+  levelDataList:
+  - damage: 0
+    range: 0
+    cooldown: 25
+    effectValue: 10
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 20
+    effectValue: 10
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 15
+    effectValue: 10
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 15
+    effectValue: 15
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 10
+    effectValue: 20
+    duration: 0
+    chance: 0

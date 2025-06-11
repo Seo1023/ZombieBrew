@@ -12,11 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16053d39372b214cbeb68792d81d25c, type: 3}
   m_Name: Molotov Skill SO
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
+  id: 2008
+  skillName: "\uD654\uC5FC\uBCD1"
   icon: {fileID: 0}
-  description: 
+  description: "\uBB34\uC791\uC704 \uBC29\uD5A5\uC73C\uB85C \uD654\uC5FC\uBCD1\uC744
+    \uB358\uC838 \uD654\uC5FC\uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
   passiveSkillType: 0
   tickInterval: 1
-  levelDataList: []
-  fireAreaPrefab: {fileID: 0}
+  levelDataList:
+  - damage: 10
+    range: 0
+    cooldown: 20
+    effectValue: 0
+    duration: 5
+    chance: 0
+  - damage: 15
+    range: 0
+    cooldown: 18
+    effectValue: 0
+    duration: 5
+    chance: 0
+  - damage: 18
+    range: 0
+    cooldown: 25
+    effectValue: 0
+    duration: 8
+    chance: 0
+  - damage: 20
+    range: 0
+    cooldown: 20
+    effectValue: 0
+    duration: 10
+    chance: 0
+  - damage: 25
+    range: 0
+    cooldown: 10
+    effectValue: 0
+    duration: 15
+    chance: 0
+  fireAreaPrefab: {fileID: 1632659334546840, guid: bbd1860d44f6c7546aad605f3666475f,
+    type: 3}

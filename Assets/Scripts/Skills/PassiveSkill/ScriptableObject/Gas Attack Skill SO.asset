@@ -12,12 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1a144cdbb0d3a43a69afe3b8fcf990, type: 3}
   m_Name: Gas Attack Skill SO
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
+  id: 2004
+  skillName: "\uD654\uC0DD\uBC29"
   icon: {fileID: 0}
-  description: 
+  description: "\uC8FC\uBCC0\uC77C\uB300\uC5D0 \uD53C\uD574\uB97C \uC8FC\uB294 \uAC00\uC2A4\uB97C
+    \uBFCC\uB9BD\uB2C8\uB2E4."
   passiveSkillType: 0
-  tickInterval: 1
-  levelDataList: []
+  tickInterval: 3
+  levelDataList:
+  - damage: 5
+    range: 2
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 0
+  - damage: 8
+    range: 3
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 0
+  - damage: 10
+    range: 3.5
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 0
+  - damage: 15
+    range: 4
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 0
+  - damage: 20
+    range: 4
+    cooldown: 0
+    effectValue: 0
+    duration: 0
+    chance: 0
   gasEffectPrefab: {fileID: 1253122874872384, guid: f68c55851f485c240952b4b45648adda,
     type: 3}

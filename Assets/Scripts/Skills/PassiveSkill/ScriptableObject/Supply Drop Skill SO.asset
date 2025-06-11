@@ -12,11 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e1f6a1f46574a4fa64739a0e744f69, type: 3}
   m_Name: Supply Drop Skill SO
   m_EditorClassIdentifier: 
-  id: 0
-  skillName: 
+  id: 2007
+  skillName: "\uACF5\uC911 \uBCF4\uAE09"
   icon: {fileID: 0}
-  description: 
-  passiveSkillType: 0
+  description: "\uC77C\uC815 \uC8FC\uAE30\uB85C 1\uBC88\uC529 \uB808\uBCA8\uC5C5\uC774
+    \uAC00\uB2A5\uD55C \uBCF4\uAE09\uD488\uC744 \uBFCC\uB824\uC90D\uB2C8\uB2E4."
+  passiveSkillType: 4
   tickInterval: 1
-  levelDataList: []
-  supplyBoxPrefab: {fileID: 0}
+  levelDataList:
+  - damage: 0
+    range: 0
+    cooldown: 180
+    effectValue: 0
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 160
+    effectValue: 0
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 140
+    effectValue: 0
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 120
+    effectValue: 0
+    duration: 0
+    chance: 0
+  - damage: 0
+    range: 0
+    cooldown: 90
+    effectValue: 0
+    duration: 0
+    chance: 0
+  supplyBoxPrefab: {fileID: 6326774217297821602, guid: cf717c81df9dad44c85c9f8079b51ad4,
+    type: 3}
