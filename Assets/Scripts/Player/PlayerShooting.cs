@@ -30,6 +30,9 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
+        if (PauseManager.isPaused)
+            return;
+
         var weapon = PlayerWeaponManager.Instance.currentWeaponSO;
         if (weapon == null) return;
 
