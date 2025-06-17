@@ -7,6 +7,7 @@ public class AriStrikeSkillSO : PassiveSkillSO
 {
     public override void Activate(GameObject caster, Vector3 targetPosition, int level)
     {
+        Debug.Log("스킬 발동");
         SkillLevelData data = GetLevelData(level);
         var manager = caster.GetComponent<PassiveSkillManager>();
         var mySkill = manager?.GetSkill(this);
