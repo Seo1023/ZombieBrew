@@ -18,34 +18,34 @@ MonoBehaviour:
   description: "\uC8FC\uBCC0\uC77C\uB300\uC5D0 \uD53C\uD574\uB97C \uC8FC\uB294 \uAC00\uC2A4\uB97C
     \uBFCC\uB9BD\uB2C8\uB2E4."
   passiveSkillType: 0
-  tickInterval: 3
+  tickInterval: 1
   levelDataList:
   - damage: 5
-    range: 2
+    range: 15
     cooldown: 0
     effectValue: 0
     duration: 0
     chance: 0
   - damage: 8
-    range: 3
+    range: 18
     cooldown: 0
     effectValue: 0
     duration: 0
     chance: 0
   - damage: 10
-    range: 3.5
+    range: 20
     cooldown: 0
     effectValue: 0
     duration: 0
     chance: 0
   - damage: 15
-    range: 4
+    range: 20
     cooldown: 0
     effectValue: 0
     duration: 0
     chance: 0
   - damage: 20
-    range: 4
+    range: 25
     cooldown: 0
     effectValue: 0
     duration: 0

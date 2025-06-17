@@ -7,13 +7,13 @@ public class MoveSpeedBuffSkillSO : PassiveSkillSO
 {
     public override void Activate(GameObject caster, Vector3 targetPosition, int level)
     {
-        float bonusPercent = GetLevelData(level).effectValue;
-
+        float bonus = GetLevelData(level).effectValue;
         var stats = caster.GetComponent<PlayerMove>();
-
-        if(stats != null)
+        if (stats != null)
         {
-            stats.moveSpeedBonusPercent = bonusPercent;
+            stats.moveSpeedBonusPercent = bonus;
         }
+
+        Debug.Log($"[전투준비태세] 이동속도 보너스 {bonus}%");
     }
 }

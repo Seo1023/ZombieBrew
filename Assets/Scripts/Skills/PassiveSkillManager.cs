@@ -14,16 +14,17 @@ public class PassiveSkillManager : MonoBehaviour
 
     IEnumerator ActivateSkillsRoutine()
     {
+        Debug.Log("PassiveSkillManager 코루틴 시작됨");
+
         while (true)
         {
             foreach (var skill in skills)
             {
                 var data = skill.data;
-                var levelData = data.GetLevelData(skill.currentLevel);
-                float cooldown = levelData.cooldown;
 
-                if (cooldown > 0f && Time.time - skill.lastActivationTime >= cooldown)
+                if (data.tickInterval > 0f && Time.time - skill.lastActivationTime >= data.tickInterval)
                 {
+                    Debug.Log($"[발동 조건 통과] {data.skillName} -> Activate() 호출");
                     skill.lastActivationTime = Time.time;
                     data.Activate(gameObject, transform.position, skill.currentLevel);
                 }
@@ -32,6 +33,7 @@ public class PassiveSkillManager : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
     }
+
 
     public void AddSkill(PassiveSkill newSkill)
     {

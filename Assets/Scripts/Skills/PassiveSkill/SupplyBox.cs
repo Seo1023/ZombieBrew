@@ -8,6 +8,7 @@ public class SupplyBox : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameManager.Instance?.CheatLevel();
             Destroy(gameObject);
         }
     }

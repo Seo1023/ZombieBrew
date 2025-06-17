@@ -10,6 +10,6 @@ public class ExpBonusSkillSO : PassiveSkillSO
         float bonus = GetLevelData(level).effectValue;
         GameManager.Instance.expBonusPercent = bonus;
 
-        Debug.Log($"[노련함] 경험치 획득량 + {bonus}% 적용됨");
+        Debug.Log($"[노련함] 경험치 보너스 {bonus}% 적용됨");
     }
 }

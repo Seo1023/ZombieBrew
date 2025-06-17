@@ -65,7 +65,7 @@ public class ChracterStats : MonoBehaviour
         {
             if(skill.data is LuckyCoinSkillSO luckyCoin)
             {
-                float chance = luckyCoin.GetEvadChance(skill.currentLevel);
+                float chance = luckyCoin.GetEvasionChance(skill.currentLevel);
                 if(Random.value < chance / 100f)
                 {
                     return true;

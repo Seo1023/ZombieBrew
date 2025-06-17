@@ -9,19 +9,14 @@ public class SupplyDropSkillSO : PassiveSkillSO
 
     public override void Activate(GameObject caster, Vector3 targetPosition, int level)
     {
-        SkillLevelData data = GetLevelData(level);
-        var manager = caster.GetComponent<PassiveSkillManager>();
-        var mySkill = manager?.GetSkill(this);
-        if (mySkill == null) return;
+        var data = GetLevelData(level);
+        Vector3 spawnPos = caster.transform.position + new Vector3(
+            Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
 
-        if (Time.time - mySkill.lastActivationTime < data.cooldown) return;
-
-        Vector3 spawnPos = caster.transform.position + new Vector3(Random.Range(-3f, 3f), 0f, Random.Range(-3f, 3f));
-        
-        if(supplyBoxPrefab != null)
+        if (supplyBoxPrefab != null)
         {
-            GameObject box = GameObject.Instantiate(supplyBoxPrefab, spawnPos, Quaternion.identity);
+            Instantiate(supplyBoxPrefab, spawnPos, Quaternion.identity);
+            Debug.Log($"[공중보급] Lv.{level} → 보급품 생성 at {spawnPos}");
         }
-        mySkill.lastActivationTime = Time.time;
     }
 }

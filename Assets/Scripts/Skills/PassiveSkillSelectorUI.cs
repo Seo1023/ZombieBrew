@@ -36,6 +36,7 @@ public class PassiveSkillSelectorUI : MonoBehaviour
 
             btn.GetComponentInChildren<TextMeshProUGUI>().text = $"{skill.skillName} (Lv.{displayLevel})";
             btn.GetComponentInChildren<Image>().sprite = skill.icon;
+            //btn.GetComponentInChildren<TextMeshProUGUI>().text = $"{skill.description}";
 
             btn.GetComponent<Button>().onClick.AddListener(() =>
             {

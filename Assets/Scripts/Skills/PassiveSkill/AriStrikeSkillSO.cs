@@ -7,41 +7,36 @@ public class AriStrikeSkillSO : PassiveSkillSO
 {
     public override void Activate(GameObject caster, Vector3 targetPosition, int level)
     {
-        Debug.Log("스킬 발동");
-        SkillLevelData data = GetLevelData(level);
-        var manager = caster.GetComponent<PassiveSkillManager>();
-        var mySkill = manager?.GetSkill(this);
-        if (mySkill == null) return;
+        var data = GetLevelData(level);
+        ZombieStats target = FindClosestZombie(caster.transform.position, 50f);
 
-        if (Time.time - mySkill.lastActivationTime < data.cooldown) return;
-
-        ZombieStats closest = FindClosestZombie(caster.transform.position, 10f);
-        if(closest != null)
+        if (target != null)
         {
-            closest.TakeDamage(data.damage);
-            mySkill.lastActivationTime = Time.time;
+            target.TakeDamage(data.damage);
+            Debug.Log($"[공중지원사격] Lv.{level} → {data.damage} 데미지 입힘");
         }
     }
 
     private ZombieStats FindClosestZombie(Vector3 origin, float range)
     {
-        Collider[] hits = Physics.OverlapSphere(origin, range);
-        float closestDist = Mathf.Infinity;
+        var hits = Physics.OverlapSphere(origin, range);
+        float minDist = Mathf.Infinity;
         ZombieStats closest = null;
 
-        foreach(var hit in hits)
+        foreach (var hit in hits)
         {
-            ZombieStats z = hit.GetComponent<ZombieStats>();
-            if( z!= null)
+            var zombie = hit.GetComponent<ZombieStats>();
+            if (zombie == null) continue;
+
+            float dist = Vector3.Distance(origin, zombie.transform.position);
+            if (dist < minDist)
             {
-                float dist = Vector3.Distance(origin, z.transform.position);
-                if(dist < closestDist)
-                {
-                    closestDist = dist;
-                    closest = z;
-                }
+                minDist = dist;
+                closest = zombie;
             }
         }
+
         return closest;
     }
 }
+

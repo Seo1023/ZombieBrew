@@ -98,6 +98,11 @@ public class GameManager : MonoBehaviour
 
         if (timeRemaining <= 0)
             ClearGame();
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            CheatLevel();
+        }
     }
 
     public void PauseGame() => Time.timeScale = 0f;
@@ -146,6 +151,24 @@ public class GameManager : MonoBehaviour
         UpdateExpUI();
     }
 
+    public void CheatLevel()
+    {
+        int requiredExp = GetMaxExpForLevel(level);  // 현재 레벨에 필요한 총 경험치
+        int neededExp = requiredExp - exp;           // 현재 EXP에서 부족한 양만큼만 추가
+
+        if (neededExp > 0)
+        {
+            exp += neededExp;
+            Debug.Log($"[Cheat] 레벨업에 필요한 EXP {neededExp}만큼 추가됨. 현재 EXP: {exp}");
+            CheckLevelUp();
+        }
+        else
+        {
+            Debug.Log("[Cheat] 이미 레벨업 가능한 EXP입니다.");
+            CheckLevelUp(); // 혹시라도 누락됐으면 강제 확인
+        }
+    }
+
     int GetMaxExpForLevel(int level) => level * 100;
 
     public void ClearGame()
@@ -179,6 +202,8 @@ public class GameManager : MonoBehaviour
 
     public void AddOrUpgradePassiveSkill(PassiveSkillSO skillData)
     {
+        Debug.Log("[GameManager] AddOrUpgradePassiveSkill() 호출됨.");
+
         var skill = ownedPassiveSkills.Find(s => s.data == skillData);
         if (skill == null)
         {

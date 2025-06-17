@@ -7,10 +7,10 @@ public class LuckyCoinSkillSO : PassiveSkillSO
 {
     public override void Activate(GameObject caster, Vector3 targetPosition, int level)
     {
-        base.Activate(caster, targetPosition, level);
+        // 이 스킬은 발동형이 아님. 상태값 전달만.
     }
 
-    public float GetEvadChance(int level)
+    public float GetEvasionChance(int level)
     {
         return GetLevelData(level).effectValue;
     }

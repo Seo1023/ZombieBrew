@@ -12,12 +12,7 @@ public class FirstAidSkillSO : PassiveSkillSO
         var stats = caster.GetComponent<ChracterStats>();
         if (stats == null) return;
 
-        PassiveSkill mySkill = stats.GetComponent<PassiveSkillManager>()?.GetSkill(this);
-        if (mySkill == null) return;
-
-        if (Time.time - mySkill.lastActivationTime < data.cooldown) return;
-
         stats.Heal((int)data.effectValue);
-        mySkill.lastActivationTime = Time.time;
+        Debug.Log($"[응급처치] Lv.{level} > {data.effectValue} 회복");
     }
 }
