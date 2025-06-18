@@ -20,7 +20,7 @@ MonoBehaviour:
   damage: 500
   range: 15
   effectValue: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f3266889d01efd645b8ee92680880aef, type: 3}
   effectPrefab: {fileID: 1159615438314744, guid: 14cf9b5bc3f9faf4ca5ce80298f43111,
     type: 3}
   audioClip: {fileID: 8300000, guid: 1fd31868d68903d4f9e2c4a3b7ef98f3, type: 3}

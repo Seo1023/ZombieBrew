@@ -6,6 +6,8 @@ public static class AirBomb
 {
     public static void Execute(ActiveSkillSO skill, GameObject caster, Vector3 target)
     {
+        UIManager.Instance?.StartAirBombCooldown(skill.cooldownTime);
+
         if(skill.audioClip != null)
         {
             AudioSource.PlayClipAtPoint(skill.audioClip, target, 1.5f);

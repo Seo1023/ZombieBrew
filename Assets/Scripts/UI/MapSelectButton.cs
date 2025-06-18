@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class MapSelectButton : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class MapSelectButton : MonoBehaviour
 
         nameText.text = sceneName;
         highlight.SetActive(false);
+
     }
 
     public void OnClick()

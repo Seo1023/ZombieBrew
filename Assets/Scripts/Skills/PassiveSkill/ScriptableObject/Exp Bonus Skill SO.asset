@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2001
   skillName: "\uB178\uB828\uD568"
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f4adbd6fbbf5abf45b22b72b4816669d, type: 3}
   description: "\uC77C\uC815\uBE44\uC728 \uCD94\uAC00 \uACBD\uD5D8\uCE58\uB97C \uC5BB\uC74C."
   passiveSkillType: 3
   tickInterval: 1

@@ -1360,7 +1360,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -279.38892}
-  m_SizeDelta: {x: 652.67847, y: 100}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &757461635
 MonoBehaviour:
@@ -1823,11 +1823,17 @@ MonoBehaviour:
   isGameOver: 0
   isGameClear: 0
   IsTimerActive: 0
+  lables:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  total: 0
   selectedCharacter: {fileID: 0}
   selectedMap: 
   ownedWeapons: []
   spawnPoint: {fileID: 0}
   ownedPassiveSkills: []
+  skillManager: {fileID: 0}
   gold: 0
   exp: 0
   level: 1
@@ -2225,7 +2231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1399083695
 RectTransform:
   m_ObjectHideFlags: 0

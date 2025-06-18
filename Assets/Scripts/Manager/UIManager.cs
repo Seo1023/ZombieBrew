@@ -25,6 +25,14 @@ public class UIManager : MonoBehaviour
     public GameObject overUI;
     public TextMeshProUGUI[] lables = new TextMeshProUGUI[3];
 
+    [Header("Skill Cooldown UI")]
+    public Image cooldownImage;
+    public TextMeshProUGUI cooldownText;
+
+    private float cooldownTimer;
+    private float cooldownTime;
+    private bool isSkillCoolingDown = false;
+
     void Awake()
     {
         Instance = this;
@@ -38,6 +46,11 @@ public class UIManager : MonoBehaviour
         }
         killText.text = "잡은 좀비 수: 0";
         goldText.text = "GOLD : 0";
+    }
+
+    void Update()
+    {
+        UpdateAirBombCooldown();
     }
 
     public void SetKillCount(int value)
@@ -108,6 +121,41 @@ public class UIManager : MonoBehaviour
                 lables[2].text = $"잡은 좀비 수 : {killCount}";
             }
         }
+    }
+
+    void UpdateAirBombCooldown()
+    {
+        if (isSkillCoolingDown)
+        {
+            cooldownTimer -= Time.deltaTime;
+            float percent = Mathf.Clamp01(cooldownTimer / cooldownTime);
+            cooldownImage.fillAmount = percent;
+
+            if (cooldownText != null)
+            {
+                cooldownText.text = Mathf.Ceil(cooldownTimer).ToString();
+            }
+
+            if (cooldownTimer <= 0f)
+            {
+                isSkillCoolingDown = false;
+                cooldownImage.fillAmount = 0f;
+                if (cooldownText != null)
+                   cooldownText.text = "";
+            }
+        }
+    }
+
+
+    public void StartAirBombCooldown(float cooldown)
+    {
+        cooldownTime = cooldown;
+        cooldownTimer = cooldown;
+        isSkillCoolingDown = true;
+        cooldownImage.fillAmount = 1f;
+
+        if (cooldownText != null)
+            cooldownText.text = Mathf.Ceil(cooldown).ToString();
     }
 }
 

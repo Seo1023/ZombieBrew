@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 928659039483839446}
   - component: {fileID: 7039447394166619656}
   m_Layer: 5
-  m_Name: WeaponButtonPrefab
+  m_Name: SkillButtonPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
