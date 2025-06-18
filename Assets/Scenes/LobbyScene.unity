@@ -2537,7 +2537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds:
   - name: BGM
-    clip: {fileID: 8300000, guid: 17d7923334e135240ac2d0a600248bef, type: 3}
+    clip: {fileID: 8300000, guid: 2cb73620aba142c479b851b38ac1413d, type: 3}
   - name: MainMenuBGM
     clip: {fileID: 8300000, guid: 30506ab343a153c40afd6f9ca17c644e, type: 3}
   - name: MainGameBGM
