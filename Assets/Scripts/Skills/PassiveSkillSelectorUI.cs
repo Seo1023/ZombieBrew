@@ -28,7 +28,14 @@ public class PassiveSkillSelectorUI : MonoBehaviour
         foreach (Transform child in buttonContainer)
             Destroy(child.gameObject);
 
-        var choices = allPassiveSkills.OrderBy(x => Random.value).Take(3);
+        var choices = allPassiveSkills
+        .Where(skill =>
+        {
+            var owned = GameManager.Instance.ownedPassiveSkills.Find(s => s.data == skill);
+            return owned == null || owned.currentLevel < 5;
+        })
+        .OrderBy(x => Random.value)
+        .Take(3);
 
         foreach (var skill in choices)
         {

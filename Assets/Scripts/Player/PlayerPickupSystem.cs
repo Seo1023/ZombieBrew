@@ -6,6 +6,7 @@ public class PlayerPickupSystem : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
+        if (other.name.Contains("GasArea")) return;
         if (other.CompareTag("Exp"))
         {
             var pickup = other.GetComponent<PickupItem>();

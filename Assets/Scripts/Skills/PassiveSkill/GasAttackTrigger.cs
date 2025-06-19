@@ -41,11 +41,11 @@ public class GasAttackTrigger : MonoBehaviour
             }
             else if (passiveSkill.currentLevel == 3)
             {
-                spawneffect.transform.localScale = new Vector3(3.2f, 3.2f, 2.4f);
+                spawneffect.transform.localScale = new Vector3(3.2f, 3.2f, 3.2f);
             }
             else if (passiveSkill.currentLevel == 4)
             {
-                spawneffect.transform.localScale = new Vector3(2.4f, 2.4f, 2.4f);
+                spawneffect.transform.localScale = new Vector3(3.2f, 3.2f, 3.2f);
             }
             else if (passiveSkill.currentLevel == 5)
             {
