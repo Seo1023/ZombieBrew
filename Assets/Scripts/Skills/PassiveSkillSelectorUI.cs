@@ -34,9 +34,16 @@ public class PassiveSkillSelectorUI : MonoBehaviour
             var owned = GameManager.Instance.ownedPassiveSkills.Find(s => s.data == skill);
             int displayLevel = owned == null ? 1 : owned.currentLevel + 1;
 
-            btn.GetComponentInChildren<TextMeshProUGUI>().text = $"{skill.skillName} (Lv.{displayLevel})";
-            btn.GetComponentInChildren<Image>().sprite = skill.icon;
-            //btn.GetComponentInChildren<TextMeshProUGUI>().text = $"{skill.description}";
+            btn.GetComponentsInChildren<TextMeshProUGUI>()[0].text = $"{skill.skillName} (Lv.{displayLevel})";
+            //btn.GetComponentsInChildren<Image>().sprite = skill.icon;
+            foreach(Image buttonIcon in btn.GetComponentsInChildren<Image>())
+            {
+                if(buttonIcon.name == "Image")
+                {
+                    buttonIcon.sprite = skill.icon;
+                }
+            }
+            btn.GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"{skill.description}";
 
             btn.GetComponent<Button>().onClick.AddListener(() =>
             {

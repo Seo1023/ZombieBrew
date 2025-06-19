@@ -12,4 +12,8 @@ public class PassiveSkill
         if (CanLevelUp)
             currentLevel++;
     }
+
+    public float cooldown => data.GetLevelData(currentLevel).cooldown;
+
+    public float levelScalse => data.GetLevelData(currentLevel).range;
 }

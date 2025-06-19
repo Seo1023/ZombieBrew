@@ -21,10 +21,17 @@ public class PassiveSkillManager : MonoBehaviour
             foreach (var skill in skills)
             {
                 var data = skill.data;
+                var cooldown = skill.cooldown;
+                float timeSinceLast = Time.time - skill.lastActivationTime;
 
-                if (data.tickInterval > 0f && Time.time - skill.lastActivationTime >= data.tickInterval)
+                if (timeSinceLast < cooldown)
                 {
-                    Debug.Log($"[발동 조건 통과] {data.skillName} -> Activate() 호출");
+                    //Debug.Log($"[쿨다운 미충족] {data.skillName} | 남은 시간: {cooldown - timeSinceLast:F2}s");
+                    continue;
+                }
+                if (data.tickInterval > 0f && timeSinceLast >= data.tickInterval)
+                {
+                    Debug.Log($"[발동] {data.skillName} -> Activate() 호출");
                     skill.lastActivationTime = Time.time;
                     data.Activate(gameObject, transform.position, skill.currentLevel);
                 }
@@ -33,6 +40,7 @@ public class PassiveSkillManager : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
     }
+
 
 
     public void AddSkill(PassiveSkill newSkill)
