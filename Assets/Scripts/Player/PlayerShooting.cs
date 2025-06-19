@@ -30,7 +30,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.Instance == null || GameManager.Instance.isGameOver || GameManager.Instance.isGameClear || PauseManager.isPaused)
+        if(GameManager.Instance == null || GameManager.Instance.isGameOver || GameManager.Instance.isGameClear || PauseManager.isPaused || PassiveSkillSelectorUI.IsSelectingSkill)
             return;
 
         var weapon = PlayerWeaponManager.Instance.currentWeaponSO;

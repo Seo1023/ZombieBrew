@@ -13,6 +13,8 @@ public class PassiveSkillSelectorUI : MonoBehaviour
     public GameObject skillButtonPrefab;
     public PassiveSkillSO[] allPassiveSkills;
 
+    public static bool IsSelectingSkill => Instance != null && Instance.panel.activeSelf;
+
     void Awake()
     {
         Instance = this;

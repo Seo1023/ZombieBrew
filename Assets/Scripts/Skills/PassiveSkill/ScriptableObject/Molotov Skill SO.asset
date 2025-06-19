@@ -24,31 +24,31 @@ MonoBehaviour:
     range: 5
     cooldown: 20
     effectValue: 0
-    duration: 5
+    duration: 10
     chance: 0
   - damage: 30
     range: 5
     cooldown: 18
     effectValue: 0
-    duration: 5
+    duration: 10
     chance: 0
   - damage: 40
     range: 5
     cooldown: 25
     effectValue: 0
-    duration: 8
+    duration: 13
     chance: 0
   - damage: 50
     range: 5
     cooldown: 20
     effectValue: 0
-    duration: 10
+    duration: 15
     chance: 0
   - damage: 75
     range: 5
     cooldown: 10
     effectValue: 0
-    duration: 15
+    duration: 20
     chance: 0
   molotovPrefab: {fileID: 8922199393186263522, guid: 579c73d536c720a4d936b96ae1023bcb,
     type: 3}
