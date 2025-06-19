@@ -116,6 +116,14 @@ public class GameManager : MonoBehaviour
         {
             CheatLevel();
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            ClearGame();
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            EndGame();
+        }
     }
 
     public void PauseGame() => Time.timeScale = 0f;
