@@ -13,7 +13,7 @@ public class GasAttackTrigger : MonoBehaviour
     private void Start()
     {
         passiveSkill = GameManager.Instance.ownedPassiveSkills.Find(x => x.data.skillName == "È­»ý¹æ");
-        spawneffect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+        spawneffect = Instantiate(effectPrefab);
     }
 
     private void Update()
@@ -31,7 +31,26 @@ public class GasAttackTrigger : MonoBehaviour
         transform.localScale = new Vector3(scale, 1, scale);
         if(spawneffect != null)
         {
-            spawneffect.transform.localScale = new Vector3(scale, 1, scale);
+            if(passiveSkill.currentLevel == 1)
+            {
+                spawneffect.transform.localScale = new Vector3(2.4f, 2.4f, 2.4f);
+            } 
+            else if(passiveSkill.currentLevel == 2)
+            {
+                spawneffect.transform.localScale = new Vector3(2.8f, 2.8f, 2.8f);
+            }
+            else if (passiveSkill.currentLevel == 3)
+            {
+                spawneffect.transform.localScale = new Vector3(3.2f, 3.2f, 2.4f);
+            }
+            else if (passiveSkill.currentLevel == 4)
+            {
+                spawneffect.transform.localScale = new Vector3(2.4f, 2.4f, 2.4f);
+            }
+            else if (passiveSkill.currentLevel == 5)
+            {
+                spawneffect.transform.localScale = new Vector3(4f, 4f, 2.4f);
+            }
         }
     }
     public void SetRadius(float radius)

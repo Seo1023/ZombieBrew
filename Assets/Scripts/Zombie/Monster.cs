@@ -16,7 +16,7 @@ public class Monster : MonoBehaviour
 
         if (expPrefab != null)
         {
-            Vector3 expOffset = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+            Vector3 expOffset = new Vector3(Random.Range(-1f, 1f), .5f, Random.Range(-1f, 1f));
             GameObject expDrop = Instantiate(expPrefab, basePosition + expOffset, Quaternion.identity);
             PickupItem expItem = expDrop.GetComponent<PickupItem>();
             if (expItem != null)
@@ -27,7 +27,7 @@ public class Monster : MonoBehaviour
 
         if (coinPrefab != null)
         {
-            Vector3 coinOffset = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+            Vector3 coinOffset = new Vector3(Random.Range(-1f, 1f), .5f, Random.Range(-1f, 1f));
             GameObject coinDrop = Instantiate(coinPrefab, basePosition + coinOffset, Quaternion.identity);
             PickupItem coinItem = coinDrop.GetComponent<PickupItem>();
             if (coinItem != null)
