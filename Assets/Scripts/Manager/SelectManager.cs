@@ -50,8 +50,6 @@ public class SelectManager : MonoBehaviour
 
     public void StartGame()
     {
-        
-
         if (selectedCharacter == null || string.IsNullOrEmpty(selectedMapName))
         {
             Debug.LogWarning("캐릭터 또는 맵이 선택되지 않았습니다.");

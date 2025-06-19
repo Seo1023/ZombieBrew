@@ -20,35 +20,36 @@ MonoBehaviour:
   passiveSkillType: 0
   tickInterval: 1
   levelDataList:
-  - damage: 10
-    range: 0
+  - damage: 20
+    range: 5
     cooldown: 20
     effectValue: 0
     duration: 5
     chance: 0
-  - damage: 15
-    range: 0
+  - damage: 30
+    range: 5
     cooldown: 18
     effectValue: 0
     duration: 5
     chance: 0
-  - damage: 18
-    range: 0
+  - damage: 40
+    range: 5
     cooldown: 25
     effectValue: 0
     duration: 8
     chance: 0
-  - damage: 20
-    range: 0
+  - damage: 50
+    range: 5
     cooldown: 20
     effectValue: 0
     duration: 10
     chance: 0
-  - damage: 25
-    range: 0
+  - damage: 75
+    range: 5
     cooldown: 10
     effectValue: 0
     duration: 15
     chance: 0
-  fireAreaPrefab: {fileID: 1632659334546840, guid: bbd1860d44f6c7546aad605f3666475f,
+  molotovPrefab: {fileID: 8922199393186263522, guid: 579c73d536c720a4d936b96ae1023bcb,
     type: 3}
+  spawnRadius: 10

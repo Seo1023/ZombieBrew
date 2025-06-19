@@ -5,21 +5,24 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Skills/Passive/Molotov")]
 public class MolotovSkillSO : PassiveSkillSO
 {
-    public GameObject fireAreaPrefab;
+    public GameObject molotovPrefab;
+    public float spawnRadius = 10f;
 
     public override void Activate(GameObject caster, Vector3 targetPosition, int level)
     {
-        var data = GetLevelData(level);
-        Vector3 spawnPos = caster.transform.position + new Vector3(
-            Random.Range(-4f, 4f), 0, Random.Range(-4f, 4f));
+        if (molotovPrefab == null) return;
 
-        var fireArea = Instantiate(fireAreaPrefab, spawnPos, Quaternion.identity);
-        var effect = fireArea.GetComponent<MolotovEffect>();
-        if (effect != null)
+        Vector3 randomPos = caster.transform.position + new Vector3(
+            Random.Range(-spawnRadius, spawnRadius), 0, Random.Range(-spawnRadius, spawnRadius));
+
+        GameObject molotov = Instantiate(molotovPrefab, randomPos + Vector3.up * 10f, Quaternion.identity);
+
+        var controller = molotov.GetComponent<MolotovController>();
+        if (controller != null)
         {
-            effect.Initialize(data.damage, data.effectValue); // 데미지, 지속시간 등
+            controller.SetData(GetLevelData(level));
         }
 
-        Debug.Log($"[화염병] Lv.{level} 위치 {spawnPos}");
+        Debug.Log($"[Molotov] Lv{level} 생성됨 → 위치: {randomPos}");
     }
 }

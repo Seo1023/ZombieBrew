@@ -50,5 +50,5 @@ MonoBehaviour:
     effectValue: 0
     duration: 0
     chance: 0
-  supplyBoxPrefab: {fileID: 6326774217297821602, guid: cf717c81df9dad44c85c9f8079b51ad4,
+  supplyBoxPrefab: {fileID: 8261350521720629827, guid: cf717c81df9dad44c85c9f8079b51ad4,
     type: 3}

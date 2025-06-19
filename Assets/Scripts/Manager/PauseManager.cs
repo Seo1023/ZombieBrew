@@ -50,10 +50,4 @@ public class PauseManager : MonoBehaviour
             SceneManager.LoadScene("SelectScene");
         }
     }
-
-    public void OpenSettings()
-    {
-        Debug.Log("설정창 열기 (미구현)");
-    }
-
 }

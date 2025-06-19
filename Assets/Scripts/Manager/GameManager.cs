@@ -46,6 +46,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void InitGameManager()
+    {
+        killCount = 0;
+        timeRemaining = 600f;
+        isGameOver = false;
+        isGameClear = false;
+        IsTimerActive = false;
+        total = 0;
+        gold = 0;
+        exp = 0;
+        level = 1;
+    }
+
     public void InitPlayerAndWeapon()
     {
         // 씬에 직접 존재하는 플레이어 찾아서 연결

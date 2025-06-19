@@ -27,5 +27,7 @@ public class LoabbySceneManager : MonoBehaviour
     public void GameStart()
     {
         SceneTransitionManager.Instance.LoadSceneWithLoading("Cafe");
+        GameManager.Instance.InitGameManager();
+        GameManager.Instance.ResumeGame();
     }
 }
